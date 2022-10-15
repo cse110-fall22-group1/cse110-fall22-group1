@@ -19,7 +19,7 @@ Things about me:
 - [My GITHUB page](https://github.com/stanley-woo)
 
 2. Nathaniel Susabda
-![alt text] (nathan.JPG)
+![alt text](nathan.JPG)
 
 Things about me:
 - I love to play badmintion
