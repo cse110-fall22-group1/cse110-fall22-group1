@@ -17,3 +17,12 @@ Things about me:
 - I love watching NBA and playing Basketball
 - I love reading and discussing things about A Song of Ice And Fire.
 - [My GITHUB page](https://github.com/stanley-woo)
+
+2. Nathaniel Susabda
+![alt text] (nathan.JPG)
+
+Things about me:
+- I love to play badmintion
+- I love to travel around the world
+- I really love marvel movies
+- [My GITHUB page](https://github.com/nathanielsusabda)
