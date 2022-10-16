@@ -26,3 +26,12 @@ Things about me:
 - I love to travel around the world
 - I really love marvel movies
 - [My GITHUB page](https://github.com/nathanielsusabda)
+
+3. Devin (Yanxiong Chen)
+![alt text](devin.jpg)
+
+Things about me:
+- I love hiking
+- I like to watch sci-fi movies and dramas
+- I really like to play badminton
+- [My GITHUB page](https://github.com/DevinChen02)
