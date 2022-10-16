@@ -60,3 +60,9 @@ Things about me:
 - love watching anime and ufc
 - [My GitHub page](https://github.com/argonautica)
 
+7. Vincent Liang
+![vincent's pic](vin.jpg)
+- I enjoy playing volleyball and video games like Valorant + League of Legends.
+- I am a boba addict, and enjoy eating good food!
+- I love watching cartoons and funny shows in my free time like Rick and Morty or Abott Elementary
+- [My Github page](https://github.com/v1liang)
