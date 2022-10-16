@@ -35,3 +35,12 @@ Things about me:
 - I like to watch sci-fi movies and dramas
 - I really like to play badminton
 - [My GITHUB page](https://github.com/DevinChen02)
+
+4. Delvin Bajoua
+ ![alt text](delvinphoto.jpg)
+ 
+Things about me:
+- I like tennis
+- I like sci fi series 
+- I like to go jogging in la jolla
+- [My GITHUB page](https://github.com/dbajoua)
