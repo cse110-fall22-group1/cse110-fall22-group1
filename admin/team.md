@@ -44,3 +44,12 @@ Things about me:
 - I like sci fi series 
 - I like to go jogging in la jolla
 - [My GITHUB page](https://github.com/dbajoua)
+
+5. Zichen Zhou(Ash)
+ ![alt text](zichenZhou.jpg)
+ 
+Things about me:
+- I love biking
+- I like gaming, especially MOBA games
+- I like to read horror novels
+- [My GITHUB page](https://github.com/ASHZHOU02)
