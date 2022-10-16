@@ -56,12 +56,15 @@ Things about me:
 
 6. Sidharth (Sid) Kumar
 ![alt text](sid.png)
+
+Things about me:
 - enjoy working out, reading fiction
 - love watching anime and ufc
 - [My GitHub page](https://github.com/argonautica)
 
 7. Vincent Liang
 ![vincent's pic](vin.jpg)
+
 Things about me:
 - I enjoy playing volleyball and video games like Valorant + League of Legends.
 - I am a boba addict, and enjoy eating good food!
