@@ -62,6 +62,7 @@ Things about me:
 
 7. Vincent Liang
 ![vincent's pic](vin.jpg)
+Things about me:
 - I enjoy playing volleyball and video games like Valorant + League of Legends.
 - I am a boba addict, and enjoy eating good food!
 - I love watching cartoons and funny shows in my free time like Rick and Morty or Abott Elementary
