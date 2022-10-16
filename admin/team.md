@@ -55,7 +55,7 @@ Things about me:
 - [My GitHub page](https://github.com/ASHZHOU02)
 
 6. Sidharth (Sid) Kumar
-![alt text](sid.jpg)
+![alt text](sid.png)
 - enjoy working out, reading fiction
 - love watching anime and ufc
 - [My GitHub page](https://github.com/argonautica)
