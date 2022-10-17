@@ -40,7 +40,7 @@
 - If a member did not meet a deadline and did not reach out for help, they will get one warning before bringing the issue up to a TA.
 
 ## Expectations of Faculty: ##
--If a team member fails to live up to this agreement, the situation may be reported to the staff (a TA or professor), but the team will still be responsible for submitting a completed assignment.
+- If a team member fails to live up to this agreement, the situation may be reported to the staff (a TA or professor), but the team will still be responsible for submitting a completed assignment.
 
 
 ## Respectfully, Agreed upon by the following members: ##

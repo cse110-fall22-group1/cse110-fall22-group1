@@ -70,3 +70,21 @@ Things about me:
 - I am a boba addict, and enjoy eating good food!
 - I love watching cartoons and funny shows in my free time like Rick and Morty or Abott Elementary
 - [My Github page](https://github.com/v1liang)
+
+8. Alf Husem
+![alf's pic](alf.jpg)
+
+Things about me:
+- I'm very interested in music, anime and game development
+- I love cooking and trying new food
+- This year I want to learn how to surf
+- [My Github page](https://github.com/alfhusem)
+
+9. Pratham Mittal
+![alt text](prathamMittal.png)
+
+Things about me:
+- I love listening to music
+- I love road trips
+- Coffee addict
+- [My Github page](https://github.com/pratham7554)
