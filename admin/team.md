@@ -1,7 +1,8 @@
 ## Team Name: The Bold Ones
 
 
-## Team Brand:
+## Team Brand: 
+![brand](branding/BoldOnesLogo.png)
 
 
 ## Team Values:
