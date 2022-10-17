@@ -14,7 +14,7 @@
 ## **Team Members**
 1. Stanley Woo
 
-![stanley](stanley.jpg)
+![stanley](stanley.jpeg)
 
 Things about me:
 - I love writing music
