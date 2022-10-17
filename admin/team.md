@@ -79,3 +79,12 @@ Things about me:
 - I love cooking and trying new food
 - This year I want to learn how to surf
 - [My Github page](https://github.com/alfhusem)
+
+9. Pratham Mittal
+![alt text](prathamMittal.png)
+
+Things about me:
+- I love listening to music
+- I love road trips
+- Coffee addict
+- [My Github page](https://github.com/pratham7554)
