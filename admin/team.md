@@ -1,4 +1,4 @@
-## Team Name: 
+## Team Name: The Bold Ones
 
 
 ## Team Brand:
@@ -8,8 +8,12 @@
 1. Work Hard And Play Hard.
 2. Work for Purpose and With Perseverance.
 3. We do work that has impacts on the real world.
+
+
+
 ## **Team Members**
 1. Stanley Woo
+
 ![alt text](stanley.jpeg)
 
 Things about me:
@@ -19,6 +23,7 @@ Things about me:
 - [My GitHub page](https://github.com/stanley-woo)
 
 2. Nathaniel Susabda
+
 ![alt text](nathan.JPG)
 
 Things about me:
@@ -27,7 +32,8 @@ Things about me:
 - I really love marvel movies
 - [My GitHub page](https://github.com/nathanielsusabda)
 
-3. Devin (Yanxiong Chen)
+3. Yanxiong (Devin) Chen
+
 ![alt text](devin.jpg)
 
 Things about me:
@@ -37,6 +43,7 @@ Things about me:
 - [My GitHub page](https://github.com/DevinChen02)
 
 4. Delvin Bajoua
+
  ![alt text](delvinphoto.jpg)
  
 Things about me:
@@ -45,7 +52,8 @@ Things about me:
 - I like to go jogging in la jolla
 - [My GitHub page](https://github.com/dbajoua)
 
-5. Zichen Zhou(Ash)
+5. Zichen (Ash) Zhou
+
  ![alt text](zichenZhou.jpg)
  
 Things about me:
@@ -55,6 +63,7 @@ Things about me:
 - [My GitHub page](https://github.com/ASHZHOU02)
 
 6. Sidharth (Sid) Kumar
+
 ![alt text](sid.png)
 
 Things about me:
@@ -63,6 +72,7 @@ Things about me:
 - [My GitHub page](https://github.com/argonautica)
 
 7. Vincent Liang
+
 ![vincent's pic](vin.jpg)
 
 Things about me:
@@ -72,6 +82,7 @@ Things about me:
 - [My Github page](https://github.com/v1liang)
 
 8. Alf Husem
+
 ![alf's pic](alf.jpg)
 
 Things about me:
@@ -81,6 +92,7 @@ Things about me:
 - [My Github page](https://github.com/alfhusem)
 
 9. Pratham Mittal
+
 ![alt text](prathamMittal.png)
 
 Things about me:
@@ -88,3 +100,13 @@ Things about me:
 - I love road trips
 - Coffee addict
 - [My Github page](https://github.com/pratham7554)
+
+10. Aleksandra (Ola) Desens
+
+![ola's picture](ola.jpg)
+
+Things about me:
+- I love travelling to new (and some old) places
+- I like crafts, although I think byuing craft supplies is a bigger hobby of mine
+- I'm obsessed with my puppy girl Zoey!
+- [My Github page](https://github.com/adesens)
