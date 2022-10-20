@@ -30,7 +30,7 @@
 * None
 
 ### NewBusiness
-* Brainstorming Project Ideas:
+* Brainstorming project ideas:
     1. Grocery Price Comparison
     2. Sharable To-Do List
     3. Social Media Photo Upload Manager
@@ -43,13 +43,14 @@
     10. Planets Library
     11. Meeting Notes Page
     12. Sharable Shopping List
-* Idea Voting
-
-Voting will be held on Slack to choose two best project ideas. Everyone gets two votes and we'll pick 2 to to pitch to our TA and 2 backups in case none of the first two get approved.
+* Idea voting
+    * Voting will be held on Slack to choose two best project ideas. Everyone gets two votes and we'll pick 2 to to pitch to our TA and 2 backups in case none of the first two get approved.
 * Project design and potential roles will be discussed during next meeting (possibly via Zoom)
-* Stanley will set up a standup board on slack, to be filled daily, by everyone. It is understandable if you don't have an update every day and if that's the case just type "no updates". Please do not miss any of those daily standups as they show everyone's individual contribution. Also we opted for the asynchronous option in believe that it would be easier for everyone to do it at their convenience but please don't consider it as less important because of that.
+* Standups
+    * Stanley will set up a standup board on slack, to be filled daily, by everyone. It is understandable if you don't have an update every day and if that's the case just type "no updates". Please do not miss any of those daily standups as they show everyone's individual contribution. Also we opted for the asynchronous option in believe that it would be easier for everyone to do it at their convenience but please don't consider it as less important because of that.
 * Next Meeting: Wednesday, Oct 26 at 1:00-2:00pm, room to be confirmed on slack.
-* Ola and Stanley will confirm whether we'll hold another meeting this week to go over project details. If we do, it will be most likely on Zoom to accomodate for everyones busy schedule.
+* Potential additional meeting this week
+    * Ola and Stanley will confirm whether we'll hold another meeting this week to go over project details. If we do, it will be most likely on Zoom to accomodate for everyones busy schedule.
     
 ### Comments - Questions - Concerns
 * None
