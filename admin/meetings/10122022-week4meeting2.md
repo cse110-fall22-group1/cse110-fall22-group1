@@ -48,12 +48,10 @@
     * Prompt to schedule a new slot when task not finished
     * Due dates for tasks
 * Project voting
-    After discussing the details for our 2 top choices of project ideas, we'll take another vote on which project we would prefer to go with.
-    Ola will post voting on Slack and everyone will get 1 vote to pick their favorite idea.
-    However the voting result does not guarantee the project choice, the final decision will be made by our TA.
+    * After discussing the details for our 2 top choices of project ideas, we'll take another vote on which project we would prefer to go with. Ola will post voting on Slack and everyone will get 1 vote to pick their favorite idea. However the voting result does not guarantee the project choice, the final decision will be made by our TA.
 * Next Meeting: Wednesday, Oct 26 at 1:00-2:00pm, Port of San Diego, Price Center 3rd floor
 * Potential additional remote meeting this week
-    Ola and Stanley will confirm whether we'll hold another meeting to discuss project pitch.
+    * Ola and Stanley will confirm whether we'll hold another meeting to discuss project pitch.
 
 ### Comments - Questions - Concerns
 * None
