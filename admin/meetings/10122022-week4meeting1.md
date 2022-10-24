@@ -1,9 +1,9 @@
 ## Meeting Minutes
 # Team 1: The Bold Ones
 
-#### Wednesday, October 19th, 2022
-#### Price Center - Port of San Diego
-#### 1:00pm - 2:00pm
+#### Date: *Wednesday, October 19th, 2022*
+#### Time: *1:00pm - 2:00pm*
+#### Place: *Price Center - Port of San Diego*
 
 ![text](teamMeeting.png)
 
