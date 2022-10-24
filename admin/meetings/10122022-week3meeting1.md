@@ -1,9 +1,9 @@
 ## Meeting Minutes
 # Team 1: The Bold Ones
 
-#### Wednesday, October 12th, 2022
-#### Price Center - Port of Encenada
-#### 8:00pm - 9:00pm
+#### Date: *Wednesday, October 12th, 2022*
+#### Time: *8:00pm - 9:00pm*
+#### Place: *Price Center - Port of Encenada*
 
 ![text](teamMeeting.png)
 
