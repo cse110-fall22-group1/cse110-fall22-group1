@@ -1,8 +1,9 @@
 ## Meeting Minutes
 # Team 1: The Bold Ones
 
-#### Wednesday, October 21st, 2022
-#### Zoom
+#### Date: *Wednesday, October 21st, 2022*
+#### Time: *1:00pm - 2:00pm*
+#### Place: *Zoom*
 
 ![text](teamMeeting.png)
 
