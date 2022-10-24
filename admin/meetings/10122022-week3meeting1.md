@@ -3,6 +3,7 @@
 
 #### Wednesday, October 12th, 2022
 #### Price Center - Port of Encenada
+#### 8:00pm - 9:00pm
 
 ![text](teamMeeting.png)
 
