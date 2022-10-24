@@ -3,6 +3,7 @@
 
 #### Wednesday, October 19th, 2022
 #### Price Center - Port of San Diego
+#### 1:00pm - 2:00pm
 
 ![text](teamMeeting.png)
 
