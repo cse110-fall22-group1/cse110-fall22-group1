@@ -22,10 +22,8 @@
 - [x] Sidharth Kumar
 
 ### Agenda
-* Brainstorming - Project ideas
-* Potential roles on the project
-* Project design - Figma
-* Standups
+* Diecuss components of starting pitch
+* Role division for creating a slide deck
 
 ### Unfinished Business
 * None
