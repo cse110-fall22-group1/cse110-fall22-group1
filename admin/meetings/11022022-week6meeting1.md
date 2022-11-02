@@ -36,6 +36,8 @@
     * Backend: Ola, Alf, Devin, Sid, Vincent
 * Frontend team: this week working on breaking down the project to 4C's diagram and starting on CSS and HTML structure for the website.
 * Backend team: this week creating CICD pipeline - mobbing.
+* Please watch below (under 3 minutes) viodeo explaining briefly what mob programming is. In our case, we'll use a simple application as a facilitator.
+   https://www.youtube.com/watch?v=pno_RBd4Uu0
 * This week we'll be working mainly in our two subteams. Ola and Stanley will schedule separate meetings for that.
 * Next Meeting: Wednesday, Nov 9 at 1:00-2:00pm, Price Center - Port of San Diego.
     
