@@ -39,5 +39,5 @@
     * Ola or Stanley will share a link to google slides for everyone to add their part.
 * Next Meeting: Wednesday, Nov 2 at 1:00-2:00pm, Price Center - Port of San Diego.
     
-### Comments - Questions - Concerns
+### Comments - Questions - Concerns 
 * None
