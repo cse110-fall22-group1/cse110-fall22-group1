@@ -17,6 +17,8 @@
 - [x] Zichen (Ash) Zhou
 - [x] Pratham Mittal
 
+### Miro Board
+* Link: https://miro.com/app/board/uXjVPG7N210=/
 
 ### Agenda
 * Design what features need to be implemented
