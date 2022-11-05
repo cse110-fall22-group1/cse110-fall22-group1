@@ -15,7 +15,7 @@
 ## **Team Members**
 1. Stanley Woo
 
-![stanley](stanley.jpeg)
+![stanley](images/stanley.jpeg)
 
 Things about me:
 - I love writing music
@@ -25,7 +25,7 @@ Things about me:
 
 2. Nathaniel Susabda
 
-![nathan](nathan.JPG)
+![nathan](images/nathan.JPG)
 
 Things about me:
 - I love to play badmintion
@@ -35,7 +35,7 @@ Things about me:
 
 3. Yanxiong (Devin) Chen
 
-![devin](devin.jpg)
+![devin](images/devin.jpg)
 
 Things about me:
 - I love hiking
@@ -45,7 +45,7 @@ Things about me:
 
 4. Delvin Bajoua
 
- ![delvin](delvinphoto.jpg)
+ ![delvin](images/delvinphoto.jpg)
  
 Things about me:
 - I like tennis
@@ -55,7 +55,7 @@ Things about me:
 
 5. Zichen (Ash) Zhou
 
- ![ash](zichenZhou.jpg)
+ ![ash](images/zichenZhou.jpg)
  
 Things about me:
 - I love biking
@@ -65,7 +65,7 @@ Things about me:
 
 6. Sidharth (Sid) Kumar
 
-![sid](sid.png)
+![sid](images/sid.png)
 
 Things about me:
 - enjoy working out, reading fiction
@@ -74,7 +74,7 @@ Things about me:
 
 7. Vincent Liang
 
-![vincent](vin.jpg)
+![vincent](images/vin.jpg)
 
 Things about me:
 - I enjoy playing volleyball and video games like Valorant + League of Legends.
@@ -84,7 +84,7 @@ Things about me:
 
 8. Alf Husem
 
-![alf](alf.jpg)
+![alf](images/alf.jpg)
 
 Things about me:
 - I'm very interested in music, anime and game development
@@ -94,7 +94,7 @@ Things about me:
 
 9. Pratham Mittal
 
-![pratham](prathamMittal.png)
+![pratham](images/prathamMittal.png)
 
 Things about me:
 - I love listening to music
@@ -104,7 +104,7 @@ Things about me:
 
 10. Aleksandra (Ola) Desens
 
-![ola](ola.jpg)
+![ola](images/ola.jpg)
 
 Things about me:
 - I love travelling to new (and some old) places
