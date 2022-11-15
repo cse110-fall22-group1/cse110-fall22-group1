@@ -37,4 +37,4 @@
 * Planning to work on the methods and testing for backend 
 * Planning on go to V2 design
 
-![text](admin/Screen Shot 2022-11-14 at 2.11.12 PM.png)
+![text](group-photos.png)
