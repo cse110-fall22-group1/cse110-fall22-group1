@@ -36,5 +36,5 @@
 ### Lacked
 * Step-by-step procedures on how to implement the application
 
-![text](admin/meetings/11142022-retro.png)
+![text](11142022-retro.png)
 
