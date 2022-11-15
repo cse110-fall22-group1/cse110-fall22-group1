@@ -22,19 +22,18 @@
 - [x] Sidharth Kumar
 
 ### Agenda
-* Reviewing our sprint progress for the first half
-* Retrospective meeting for the second half
+* Reviewing our sprint progress
+* Planning of the next sprint
 
 ### Sprint Review
-* Discussed about backend meetings
-* Talked about finished the pipeline
+* Discussed backend progress
+* Talked about finished pipeline
 * Reviewed our progress on the fronend design, getting reviews from everyone.
-* Reivewed on Fronend mobbing not productive enough, and talked about how we can improve and be more productive
-* Reviewed on mobbing that it is hard to find a time for everyone to meet together, maybe can split into pair programming now on
-
+* Reivewed on fronend mobbing not productive enough, and talked about how we can improve
+* Reviewed on mobbing that it is hard to find a time for everyone to meet together, maybe can split into pair programming from now on
 
 ### New Sprint Planning
-* Planning to work on the methods and testing for backend 
+* Planning to work on the basic functionality and unit testing  
 * Planning on go to V2 design
 
 ![text](group-photos.png)

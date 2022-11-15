@@ -5,8 +5,7 @@
 #### Time: *2:00pm - 3:20pm*
 #### Place: Zoom
 
-![text](./admin/meetings/teamMeeting.png)
-
+![text](admin/meetings/teamMeeting.png)
 <br>
 
 ### Attendance List
