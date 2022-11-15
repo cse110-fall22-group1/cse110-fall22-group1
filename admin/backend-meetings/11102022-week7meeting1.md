@@ -5,7 +5,7 @@
 #### Time: *2:00pm - 3:20pm*
 #### Place: Zoom
 
-![text](teamMeeting.png)
+![text](./admin/meetings/teamMeeting.png)
 
 <br>
 
