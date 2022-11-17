@@ -1,29 +1,12 @@
 
 /* Variables */
-:root {
-    --primary: #EA40A4;
-    --business: #3a82ee;
-    --personal: var(--primary);
-    --light: #EEE;
-    --grey: #888;
-    --dark: #313154;
-    --danger: #ff5b57;
 
-    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-
-    --business-glow: 0px 0px 4px rgba(58, 130, 238, 0.75);
-    --personal-glow: 0px 0px 4px rgba(234, 64, 164, 0.75);
-}
 /* End of Variables */
 
 * {
     right: 100px;
 }
 
-body {
-    background: var(--light);
-    color: var(--dark);
-}
 
 h1 {
     position: center;
@@ -32,7 +15,7 @@ h1 {
 }
 
 body {
-    background: #006d77;
+    background: rgb(156, 192, 231);
 }
 
 .list-header {
@@ -54,6 +37,7 @@ body {
     cursor: pointer;
 }
 
+/*This is for the hover effect, which sets the color of the button when hovering for this one*/
 .layouts-btn-wrapper button:hover {
     background-color: #e29578;
 }
@@ -94,3 +78,45 @@ body {
 .list-header-btn button:hover {
     background-color: #e29578;
 }
+.colorBlock {
+    height: 30px;
+    margin-top: 250px;
+  }
+
+  .textColor {
+     height: 30px;
+     margin-top: 252px;
+     width: 13%;
+  }
+
+  .colorWrapper {
+     height: 100%;
+     width: 100%;
+     display: flex;
+ }
+
+  #Blue {
+    background-color:rgb(156, 192, 231);
+    width: 5%;
+    
+  }
+  #White {
+    background-color: rgb(255, 255, 255);
+    width: 5%;
+  }
+  #Gray {
+    background-color: rgb(238, 238, 238);
+    width: 5%;
+  }
+  #Tan {
+    background-color: rgb(250, 234, 203);
+    width: 5%;
+  }
+  #Pink {
+    background-color: rgb(247, 219, 215);
+    width: 5%;
+  }
+  #Green {
+    background-color: rgb(6, 214, 160);
+    width: 5%;
+  }
