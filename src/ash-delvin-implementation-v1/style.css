@@ -75,9 +75,17 @@ body {
     margin: 2px;
 }
 
+/* hover for item with italic*/
+label[for="item1"]:hover, label[for="item2"]:hover, label[for="item3"]:hover, label[for="item4"]:hover {
+  background-color: rgb(223, 207, 190);
+  font-style: italic;
+}
+
 .list-header-btn button:hover {
     background-color: #e29578;
 }
+
+/* color change part */
 .colorBlock {
     height: 30px;
     margin-top: 250px;
@@ -85,7 +93,7 @@ body {
 
   .textColor {
      height: 30px;
-     margin-top: 252px;
+     margin-top: 250px;
      width: 13%;
   }
 
@@ -97,26 +105,26 @@ body {
 
   #Blue {
     background-color:rgb(156, 192, 231);
-    width: 5%;
+    width: 3%;
     
   }
   #White {
     background-color: rgb(255, 255, 255);
-    width: 5%;
+    width: 3%;
   }
   #Gray {
     background-color: rgb(238, 238, 238);
-    width: 5%;
+    width: 3%;
   }
   #Tan {
     background-color: rgb(250, 234, 203);
-    width: 5%;
+    width: 3%;
   }
   #Pink {
     background-color: rgb(247, 219, 215);
-    width: 5%;
+    width: 3%;
   }
   #Green {
     background-color: rgb(6, 214, 160);
-    width: 5%;
+    width: 3%;
   }
