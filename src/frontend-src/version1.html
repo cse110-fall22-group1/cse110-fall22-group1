@@ -35,15 +35,37 @@
                         <button class="item-add-btn">+</button>
                     </div>
                 </legend>
-                <input type="checkbox" id="item1" name="item1" value="egg">
-                <label for="item1"> Egg</label><br>
-                <input type="checkbox" id="item2" name="item2" value="bacon">
-                <label for="item2"> Bacon</label><br>
-                <input type="checkbox" id="item3" name="item3" value="steak">
-                <label for="item3"> Steak</label><br>
-                <input type="checkbox" id="item4" name="item4" value="mango">
-                <label for="item4"> mango</label>
-                <br>
+                <div class="list-item">
+                    <label>
+                        <input type="checkbox" value="egg">
+                        <span class="bubble" ></span>
+                    </label>
+
+                    <div class="list-content">
+                        <input type="text" value ="egg" readonly>
+                    </div>
+
+                    <div class = "actions">
+                        <button class = "edit">Edit</button>
+                        <button class = "delete">Delete</button>
+                    </div>
+                </div>
+
+                <div class="list-item">
+                    <label>
+                        <input type="checkbox" value="beef">
+                        <span class="bubble" ></span>
+                    </label>
+
+                    <div class="list-content">
+                        <input type="text" value ="beef" readonly>
+                    </div>
+
+                    <div class = "actions">
+                        <button class = "edit">Edit</button>
+                        <button class = "delete">Delete</button>
+                    </div>
+                </div>
             </div>
         </div>
     </fieldset>
@@ -54,6 +76,31 @@
         <input type="button" value="Uncheck All the Items"/>
     </div>
 
+       <!-- Background color select:-->
+    <!-- color:https://teamtreehouse.com/community/how-would-i-let-the-user-change-the-background-colour-of-the-page-from-a-selection-of-colours -->
+    <div class = "colorWrapper">
+        <h3 class = "textColor"> Select Background:</h3>
+    
+       <div class="colorBlock" id="Blue"></div>
+       <div class="colorBlock" id="White"></div>
+       <div class="colorBlock" id="Gray"></div>
+       <div class="colorBlock" id="Tan"></div>
+       <div class="colorBlock" id="Pink"></div>
+       <div class="colorBlock" id="Green"></div>
+       </div>
+       
+         <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+         <script type="text/javascript" charset="utf-8">
+        //Create anonymous function that listens for a click on anything with the class colorBlock
+         $(".colorBlock").click(function() {
+           //Get the background color of the clicked color block by using the this object
+           var $backgroundColor = $(this).css("background-color");
+           //Set the body's background-color to the received background-color
+           $("body").css("background-color", $backgroundColor);
+         });
+       </script>
+        <!-- End of Background color select-->
+    
 
 </body>
 </html>
