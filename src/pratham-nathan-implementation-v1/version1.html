@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Grocery List</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Importing Bootstrap -->
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">-->
+</head>
+<body>
+    <br><br>
+    <h1>My Grocery List</h1>
+
+    <br><br>
+    <div class="layouts-btn-wrapper">
+<!--        <button class="all-items-btn">All Items</button>-->
+<!--        <button class="uncheck-items-btn">Unchecked Items</button>-->
+<!--        <input type="button" value="All Items"/>-->
+<!--        <input type="button" value="Unchecked Items"/>-->
+<!--        <button type="button" class="btn btn-primary">All Items</button>-->
+<!--        <button type="button" class="btn btn-dark">Unchecked Items</button>-->
+    </div>
+
+
+    <br>
+
+    <br>
+    <fieldset>
+        <!--This is a wrapper for a single whole list-->
+        <div class="list-wrapper">
+            <!--This is a class wrapper for the actual lists of items for the category-->
+            <div class="list">
+                <legend>
+                    <div class="list-header-btn">
+                        <button class="item-add-btn">+</button>
+                    </div>
+                </legend>
+                <div class="list-item">
+                    <label>
+                        <input type="checkbox" value="egg">
+                        <span class="bubble" ></span>
+                    </label>
+
+                    <div class="list-content">
+                        <input type="text" value ="egg" readonly>
+                    </div>
+
+                    <div class = "actions">
+                        <button class = "edit">Edit</button>
+                        <button class = "delete">Delete</button>
+                    </div>
+                </div>
+
+                <div class="list-item">
+                    <label>
+                        <input type="checkbox" value="egg">
+                        <span class="bubble" ></span>
+                    </label>
+
+                    <div class="list-content">
+                        <input type="text" value ="egg" readonly>
+                    </div>
+
+                    <div class = "actions">
+                        <button class = "edit">Edit</button>
+                        <button class = "delete">Delete</button>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </fieldset>
+    <br>
+    <br>
+
+    <div class="uncheck-btn">
+        <input type="button" value="Uncheck All the Items"/>
+    </div>
+
+
+</body>
+</html>
