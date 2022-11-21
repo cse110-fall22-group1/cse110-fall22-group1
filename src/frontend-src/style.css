@@ -12,6 +12,7 @@ h1 {
     position: center;
     margin: auto;
     width: 20%;
+    text-align: center; 
 }
 
 body {
@@ -81,6 +82,12 @@ body {
     transition: all 0.5s;
     cursor: pointer;
     margin: 2px;
+    position: absolute;
+    right:15px;
+}
+
+legend[class="aaa"]{
+    padding-bottom: 14px;
 }
 
 .list-header-btn button:hover {
@@ -90,7 +97,7 @@ body {
 .list .list-item {
     display: flex;
     align-items: center;
-    background-color: rgb(32, 223, 227);
+    background-color: rgb(211, 197, 173); 
     padding: 1 rem;
     border-radius: 0.5 rem;
     box-shadow: var (--shadow);
@@ -100,6 +107,11 @@ body {
 .list-item .list-content{
     flex: 1 1 0%;
 }
+
+label[for="item1"]:hover, label[for="item2"]:hover, label[for="item3"]:hover, label[for="item4"]:hover {
+    background-color: rgb(223, 207, 190);
+    font-style: italic;
+  }
 
 /* color change part */
 .colorBlock {
