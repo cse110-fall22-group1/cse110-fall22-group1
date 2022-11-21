@@ -16,7 +16,7 @@ h1 {
 }
 
 body {
-    background: #006d77;
+    background: rgb(156, 192, 231);
 }
 
 .list-header {
@@ -29,7 +29,8 @@ body {
 }
 
 .layouts-btn-wrapper button {
-    display: inline-block;
+    /* display: flex;
+    justify-content: center; */
     background-color: #edf6f9;
     border: 4px double #cccccc;
     /*Deciding how long the item want to be*/
@@ -38,12 +39,15 @@ body {
     cursor: pointer;
 }
 
+.all-items-btn{
+    text-align: center;
+}
 /*This is for the hover effect, which sets the color of the button when hovering for this one*/
 .layouts-btn-wrapper button:hover {
     background-color: #e29578;
 }
 
-.uncheck input, .create-cat-btn input {
+.uncheck-btn input, .create-cat-btn input {
     display: block;
     background-color: #edf6f9;
     width: 250px;
@@ -61,11 +65,11 @@ body {
     cursor: pointer;
 }
 
-.uncheck input:hover, .create-cat-btn input:hover, .list-item button:hover {
+.uncheck-btn input:hover, .create-cat-btn input:hover, .list-item button:hover {
     background-color: #e29578;
 }
 
-.btn-group button {
+.list-header-btn button {
     display: inline-block;
     background-color: #edf6f9;
     /*Making the button to be rounded shaped*/
@@ -87,10 +91,17 @@ body {
 }
 
 legend[class="aaa"]{
-    padding-bottom: 35px;
+    padding-bottom: 8px;
 }
 
-.btn-group button:hover {
+button[class = "collapse-add-btn"] {
+    position: absolute;
+    right: 55px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.list-header-btn button:hover {
     background-color: #e29578;
 }
 
@@ -108,10 +119,9 @@ legend[class="aaa"]{
     flex: 1 1 0%;
 }
 
-label[for="item1"]:hover, label[for="item2"]:hover, label[for="item3"]:hover, label[for="item4"]:hover {
+.list-item:hover{
     background-color: rgb(223, 207, 190);
-    font-style: italic;
-  }
+}
 
 /* color change part */
 .colorBlock {
