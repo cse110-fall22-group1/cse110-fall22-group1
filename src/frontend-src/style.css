@@ -83,11 +83,11 @@ body {
     cursor: pointer;
     margin: 2px;
     position: absolute;
-    right:15px;
+    right:22px;
 }
 
 legend[class="aaa"]{
-    padding-bottom: 14px;
+    padding-bottom: 35px;
 }
 
 .list-header-btn button:hover {
