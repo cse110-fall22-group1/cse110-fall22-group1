@@ -1,7 +1,8 @@
 window.addEventListener('DOMContentLoaded', init);
-// const uncheck_button = document.getElementsByClassName('uncheck-btn'); 
-// //console.log(uncheck_button);
-// uncheck_button[0].addEventListener("click", uncheckAll);
+
+/**
+ * Populate the document with items.
+ */
 function init() {
     // *** ADD ITEM BUTTON ***
     const addButton = document.getElementsByClassName('item-add-btn')[0];
@@ -14,6 +15,13 @@ function init() {
         addItem(items[i][1], items[i][0], "");
     }
 }
+
+/**
+ * Add items to the document
+ * @param {string} name - The name of the item.
+ * @param {boolean} checked - The status of the item.
+ * @param {string} category - The category of the item.
+ */
 function addItem(name, checked, category) {
     const listDOM = document.getElementsByClassName('list')[0];
     const newItem = document.createElement('div');
@@ -36,6 +44,8 @@ function addItem(name, checked, category) {
     console.log(newItem.getElementsByClassName("list-content"));
     listDOM.appendChild(newItem);
 }
+
+
 function addDeleteEventListener(index) {
     const listDOM = document.getElementsByClassName("list-item");
     const deleteButtons = document.getElementsByClassName("delete");
@@ -47,13 +57,21 @@ function addDeleteEventListener(index) {
         itemCount--;
     })
 }
+
+/**
+ * Update the status of all items to "uncheck".
+ */
 function uncheckAll() {
     let checkBoxes = document.querySelectorAll("input[type=checkbox]");
     checkBoxes.forEach(item => {
         item.checked = false
     });
 }
-function test() {
+
+/**
+ * Manually save all items to localStorage.
+ */
+function save() {
     let items = document.getElementsByClassName("list-item");
     let store = [];
     for (let i = 0; i < items.length; i++) {
@@ -63,6 +81,10 @@ function test() {
     }
     localStorage.setItem("storage", JSON.stringify(store));
 }
+
+/**
+ * Save all items to localStorage before closing homepage.
+ */
 window.onbeforeunload = confirmExit;
 function confirmExit() {
     let items = document.getElementsByClassName("list-item");
