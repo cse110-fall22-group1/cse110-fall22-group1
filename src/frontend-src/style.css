@@ -43,7 +43,7 @@ body {
     background-color: #e29578;
 }
 
-.uncheck-btn input, .create-cat-btn input {
+.uncheck input, .create-cat-btn input {
     display: block;
     background-color: #edf6f9;
     width: 250px;
@@ -61,7 +61,7 @@ body {
     cursor: pointer;
 }
 
-.uncheck-btn input:hover, .create-cat-btn input:hover, .list-item button:hover {
+.uncheck input:hover, .create-cat-btn input:hover, .list-item button:hover {
     background-color: #e29578;
 }
 
@@ -83,11 +83,11 @@ body {
     cursor: pointer;
     margin: 2px;
     position: absolute;
-    right:15px;
+    right:22px;
 }
 
 legend[class="aaa"]{
-    padding-bottom: 14px;
+    padding-bottom: 35px;
 }
 
 .list-header-btn button:hover {
