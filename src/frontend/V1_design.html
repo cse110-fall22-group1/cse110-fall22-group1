@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Grocery List</title>
+    <style>
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-kerning: auto;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+            cursor: default;
+            outline: none;
+        }
+
+        html, body {
+            -webkit-tap-highlight-color: transparent;
+            background: slateblue;
+            margin: 0;
+            font-weight: 400;
+            font-family: 'Source Sans Pro', 'Open Sans', Roboto, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Myriad Pro', 'Segoe UI', Myriad, Helvetica, 'Lucida Grande', 'DejaVu Sans Condensed', 'Liberation Sans', 'Nimbus Sans L', Tahoma, Geneva, Arial, sans-serif;
+            padding: .5em;
+        }
+
+        [type=checkbox] {
+            display: none;
+        }
+        [type=text],
+        [type=button] {
+            -webkit-appearance: none;
+            appearance: none;
+            font-weight: 400;
+            font-family: 'Open Sans', 'Source Sans Pro', Roboto, 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', 'Myriad Pro', 'Segoe UI', Myriad, Helvetica, 'Lucida Grande', 'DejaVu Sans Condensed', 'Liberation Sans', 'Nimbus Sans L', Tahoma, Geneva, Arial, sans-serif;
+            width: calc(100% - 3em);
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            -o-user-select: text;
+            user-select: text;
+            padding: .5em .6em;
+            font-size: 14pt;
+            border: none;
+            border-bottom: 1px solid currentcolor;
+            background: white;
+            border-radius: 0;
+        }
+        [type=button] {
+            width: 2em;
+            margin-left: 1em;
+            border: none;
+        }
+    </style>
+
+</head>
+<body>
+<!-- <aside>
+    <h1>Groceries</h1>
+
+    <label>
+        <input type=checkbox>
+        <span>Salad greens</span>
+    </label>
+
+    <label>
+        <input type=checkbox>
+        <span>Button Mushrooms</span>
+    </label>
+
+    <label>
+        <input type=checkbox>
+        <span>Cherry Tomatoes</span>
+    </label>
+
+    <label>
+        <input type=checkbox>
+        <span>Onion</span>
+    </label>
+
+    <label>
+        <input type=checkbox>
+        <span>Peppers</span>
+    </label>
+
+    <label>
+        <input type=checkbox>
+        <span>Cucumber</span>
+    </label>
+
+    <label>
+        <input type=checkbox>
+        <span>Naan Bread</span>
+    </label>
+
+    <label>
+        <input type=checkbox>
+        <span>Feta Cheese</span>
+    </label>
+
+    <label>
+        <input type=checkbox>
+        <span>Food Colouring</span>
+    </label>
+
+    <label>
+        <input type=checkbox>
+        <span>Wooden toothpicks</span>
+    </label>
+
+    <label>
+        <input type=checkbox>
+        <span>Wooden Skewers</span>
+    </label>
+
+    <label>
+        <input type=checkbox>
+        <span>Pickles</span>
+    </label>
+
+    <label>
+        <input type=checkbox>
+        <span>Pickled Veggies</span>
+    </label>
+
+    <label>
+        <input type=checkbox>
+        <span>Olives</span>
+    </label>
+
+    <label>
+        <input type=checkbox>
+        <span>Croutons</span>
+    </label>
+
+    <label>
+        <input type=checkbox>
+        <span>Nice Soup</span>
+    </label>
+
+</aside> -->
+<!--    <p id="newItemlabel">Add a New Item:</p>-->
+<!--    <form>-->
+<!--        <input type="text" name="itemsName" id="itemsName" value="Item Name" />-->
+<!--        <input type="text" name="itemsAmount" id="itemsAmount" value="Item Amount">-->
+<!--        <select>-->
+<!--            <option value="Other">Other</option>-->
+<!--            <option value="Vegetables">Vegetables</option>-->
+<!--            <option value="Fruits">Fruits</option>-->
+<!--            <option value="Grains">Grains</option>-->
+<!--            <option value="Canned Goods">Canned Goods</option>-->
+<!--            <option value="Snacks">Snacks</option>-->
+<!--            <option value="Beverages">Beverages</option>-->
+<!--            <option value="Meat">Meat</option>-->
+<!--            <option value="Dairy">Dairy</option>-->
+<!--            <option value="Frozen">Frozen</option>-->
+<!--            <option value="Household">Household</option>-->
+<!--        </select>-->
+<!--        <input type="button" value="add" id="addButton" onclick="" name="add"/>-->
+<!--    </form>-->
+</body>
+</html>

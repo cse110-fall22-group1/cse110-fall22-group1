@@ -16,7 +16,7 @@ h1 {
 }
 
 body {
-    background: #006d77;
+    background: rgb(156, 192, 231);
 }
 
 .list-header {
@@ -29,7 +29,8 @@ body {
 }
 
 .layouts-btn-wrapper button {
-    display: inline-block;
+    /* display: flex;
+    justify-content: center; */
     background-color: #edf6f9;
     border: 4px double #cccccc;
     /*Deciding how long the item want to be*/
@@ -38,6 +39,9 @@ body {
     cursor: pointer;
 }
 
+.all-items-btn{
+    text-align: center;
+}
 /*This is for the hover effect, which sets the color of the button when hovering for this one*/
 .layouts-btn-wrapper button:hover {
     background-color: #e29578;
@@ -87,7 +91,14 @@ body {
 }
 
 legend[class="aaa"]{
-    padding-bottom: 35px;
+    padding-bottom: 8px;
+}
+
+button[class = "collapse-add-btn"] {
+    position: absolute;
+    right: 55px;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 .list-header-btn button:hover {
