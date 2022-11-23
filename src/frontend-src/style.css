@@ -43,7 +43,7 @@ body {
     background-color: #e29578;
 }
 
-.uncheck-btn input, .create-cat-btn input {
+.uncheck input, .create-cat-btn input {
     display: block;
     background-color: #edf6f9;
     width: 250px;
@@ -61,7 +61,7 @@ body {
     cursor: pointer;
 }
 
-.uncheck-btn input:hover, .create-cat-btn input:hover, .list-item button:hover {
+.uncheck input:hover, .create-cat-btn input:hover, .list-item button:hover {
     background-color: #e29578;
 }
 
