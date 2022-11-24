@@ -15,7 +15,45 @@
     <div class="layouts-btn-wrapper">
         <button class="all-items-btn">All Items</button> 
         <button class="uncheck-items-btn">Unchecked Items</button>
-      </div>
+        <button class="split-button" data-modal="modalOne">Split Bill</button>
+    </div>
+
+    <!-- <div id="modalOne" class="modal">
+        <div class="modal-content">
+          <div class="contact-form">
+            <a class="close">&times;</a>
+            <form action="/">
+              <h2>Contact Us</h2>
+              <div>
+                <input class="fname" type="text" name="name" placeholder="Full name" />
+                <input type="text" name="name" placeholder="Email" />
+                <input type="text" name="name" placeholder="Phone number" />
+                <input type="text" name="name" placeholder="Website" />
+              </div>
+              <span>Message</span>
+              <div>
+                <textarea rows="4"></textarea>
+              </div>
+              <button type="submit" href="/">Submit</button>
+            </form>
+          </div>
+        </div>
+    </div> -->
+    <div id="modalOne" class="modal">
+        
+    <form>
+        <form class = "split-wrapper">
+        <a class="close">&times;</a>
+        <p class="totcost">Total Cost:</p> <input type="text" id="cost" /><br>
+        <p class="numpeople">Number of People: </p> <input type="text" id="people" /><br>
+        <button class="calculate-button" Value="split cost" > Split Cost</button> 
+        
+        <p> Each Person owes: <br>
+        <span id = "result"></span>
+        </p>
+        </form>
+    </form>
+    </div>
 
 
     <br>
@@ -149,8 +187,30 @@
     }
     });
     }  
+        let split_btn = document.querySelector('.split-button');
+        console.dir(split_btn);
+        split_btn.addEventListener('click', function (){
+            let modal = split_btn.getAttribute("data-modal");
+            document.getElementById(modal).style.display = "block";
+
+        });
+        let closeBtns = document.querySelector('.close');
+            closeBtns.addEventListener('click', function () {
+            let modal = closeBtns.closest(".modal");
+             modal.style.display = "none";
+    
+            });
+      window.onclick = function (event) {
+        if (event.target.className === "modal") {
+          event.target.style.display = "none";
+        }
+      };
+
        </script>
         <!-- End of Background color select-->
+
+        
+
     
 
 </body>
