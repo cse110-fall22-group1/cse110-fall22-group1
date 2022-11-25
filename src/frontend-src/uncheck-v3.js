@@ -31,7 +31,6 @@ for (let i = 0; i < checkboxes.length; i++){
             clonedCheckboxes[i] = false;
             uncheckedList.appendChild(clonedList);
         }
-        
     })
 }
 
@@ -50,3 +49,39 @@ for (let i = 0; i < clonedCheckboxes.length; i++){
         }
     })
 }
+
+    let split_btn = document.querySelector('.split-button');
+    console.dir(split_btn);
+    split_btn.addEventListener('click', function (){
+        let modal = split_btn.getAttribute("data-modal");
+        document.getElementById(modal).style.display = "block";
+
+        
+    });
+    let closeBtns = document.querySelector('.close');
+        closeBtns.addEventListener('click', function () {
+        let modal = closeBtns.closest(".modal");
+            modal.style.display = "none";
+
+    });
+
+    //   window.onclick = function (event) {
+    //     if (event.target.className === "modal") {
+    //       event.target.style.display = "none";
+    //     }
+    //   };
+
+    let create_cat = document.querySelector('.create-cat-btn');
+    console.log(create_cat);
+    create_cat.addEventListener("click", function() {
+        document.querySelector('.modal-cat').style.display = "flex";
+    
+        document.querySelector('.cancel-btn').addEventListener("click", function() {
+            document.querySelector('.modal-cat').style.display = "none";
+        });
+    
+        document.querySelector('.category-add-btn').addEventListener("click", function() {
+            document.querySelector('.modal-cat').style.display = "none";
+        });
+    })
+    
