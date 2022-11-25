@@ -23,19 +23,20 @@
 
     <!-- pop-up window for split bill -->
     <div id="modalOne" class="modal">
-        
-        <form>
-            <form class = "split-wrapper">
-            <a class="close">&times;</a>
-            <p class="totcost">Total Cost:</p> <input type="text" id="cost" /><br>
-            <p class="numpeople">Number of People: </p> <input type="text" id="people" /><br>
-            <button class="calculate-button" Value="split cost" > Split Cost</button> 
-            
-            <p> Each Person owes: <br>
-            <span id = "result"></span>
-            </p>
-            </form>
+        <form class = "top-wrapper"> 
+        <a class="close">&times;</a>
+        <p class="totcost">Total Cost:</p> <input type="text" id="cost" /><br>
+        <p class="numpeople">Number of People: </p> <input type="text" id="people"/> 
         </form>
+        <legend class = "cal-wrapper">
+        <button class="calculate-button"> Split Cost</button>
+        </legend>
+        <form class = "bot-wrapper">
+        <p> Each Person owes:</p>
+        <div class = "calculate-result">
+        </div>
+        </form>
+        
     </div>
     <!-- pop-up window for split bill -->
 
@@ -153,7 +154,7 @@
         <div class="modal-content">
             <!-- <div class="close">+</div> -->
             <form action="">
-                <input type="text" placeholder="Which category do you want to add?">
+                <input type="text" placeholder="Which category do you want to add?"> <br> <br>
                 <button class="category-add-btn">Add</button>
                 <button class="cancel-btn">Cancel</button>
             </form>

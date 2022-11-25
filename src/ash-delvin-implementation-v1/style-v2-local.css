@@ -59,17 +59,39 @@ button[class = "split-button"] {
     
 }
 
+.top-wrapper {
+    padding: 25px;
+    box-shadow: 0 2px 5px #f5f5f5;
+    background: #eee;
+    text-align:center;
+    margin-bottom:0;
+    margin-top:5%;
+    margin-left:30%;
+    margin-right:30%;
+}
 
-form {
+.bot-wrapper {
     padding: 25px;
     margin: 25px;
     box-shadow: 0 2px 5px #f5f5f5;
     background: #eee;
     text-align:center;
+    margin-top:0;
+    margin-left:30%;
+    margin-right:30%;
 }
 
-.split-wrapper {
 
+
+.calculate-result {
+    margin-top: 60px;
+}
+
+.cal-wrapper{
+    text-align: center;
+    background:#eee;
+    margin-left: 30%;
+    margin-right: 30%;
 }
 
 .calculate-button {
@@ -80,10 +102,11 @@ form {
     width: 170px;
     height: 40px;
     font-weight: bold;
-    display: block;
-    margin: 30px auto;
+    margin: auto;
+    text-align:center;
+    margin-top:20px;
+    margin-bottom:0;
 }
-
 
 
   button:hover {

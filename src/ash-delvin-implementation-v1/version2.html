@@ -40,19 +40,20 @@
         </div>
     </div> -->
     <div id="modalOne" class="modal">
-        
-    <form>
-        <form class = "split-wrapper">
+        <form class = "top-wrapper"> 
         <a class="close">&times;</a>
         <p class="totcost">Total Cost:</p> <input type="text" id="cost" /><br>
-        <p class="numpeople">Number of People: </p> <input type="text" id="people" /><br>
-        <button class="calculate-button" Value="split cost" > Split Cost</button> 
-        
-        <p> Each Person owes: <br>
-        <span id = "result"></span>
-        </p>
+        <p class="numpeople">Number of People: </p> <input type="text" id="people"/> 
         </form>
-    </form>
+        <legend class = "cal-wrapper">
+        <button class="calculate-button"> Split Cost</button>
+        </legend>
+        <form class = "bot-wrapper">
+        <p> Each Person owes:</p>
+        <div class = "calculate-result">
+        </div>
+        </form>
+        
     </div>
 
 
@@ -187,24 +188,30 @@
     }
     });
     }  
-        let split_btn = document.querySelector('.split-button');
-        console.dir(split_btn);
-        split_btn.addEventListener('click', function (){
-            let modal = split_btn.getAttribute("data-modal");
-            document.getElementById(modal).style.display = "block";
 
+        let modal = document.querySelector(".modal");
+        let split_btn = document.querySelector('.split-button');
+        split_btn.addEventListener('click', function (){
+            modal.style.display = "block";
         });
+
         let closeBtns = document.querySelector('.close');
-            closeBtns.addEventListener('click', function () {
-            let modal = closeBtns.closest(".modal");
-             modal.style.display = "none";
-    
-            });
-      window.onclick = function (event) {
-        if (event.target.className === "modal") {
-          event.target.style.display = "none";
+        closeBtns.addEventListener('click', function () {
+            modal.style.display = "none";
+        });
+
+
+        window.onclick = function(event) {
+            console.dirxml(event.target);
         }
-      };
+
+
+    //   window.onclick = function (event) {
+    //     if (event.target.className === "modal") {
+    //         console.dir(event.target);
+    //       event.target.style.display = "none";
+    //     }
+    //   };
 
        </script>
         <!-- End of Background color select-->
