@@ -11,6 +11,11 @@
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+.items-tabs label:hover{
+    background: #0ec2e6;
 }
 
 .items-tabs input[type="radio"]{
@@ -19,7 +24,7 @@
 
 .items-tabs label {
     padding : 10px;
-    background: #e29578;
+    background: lightblue;
     font-weight: bold;
 }
 
@@ -37,6 +42,7 @@
 .items-tabs input[type='radio']:checked + label {
     background: #0ec2e6;
 }
+
 
 h1 {
     position: center;
@@ -190,14 +196,6 @@ button[class = "split-button"] {
     border: 4px double #cccccc;
     transition: all 0.5s;
     cursor: pointer;
-}
-
-.actions button{
-    content: '';
-    display: block;
-    background-repeat: no-repeat;
-    background-size: contain;
-    
 }
 
 .uncheck-btn input:hover, .create-cat-btn input:hover, .list-item button:hover {
