@@ -52,7 +52,9 @@ h1 {
 }
 
 body {
-    background: rgb(156, 192, 231);
+    font-family: sans-serif;
+    background: rgb(144,247,236);
+    background: linear-gradient(0deg, rgba(144,247,236,1) 0%, rgba(50,202,204,1) 100%);
 }
 
 .list-header {
