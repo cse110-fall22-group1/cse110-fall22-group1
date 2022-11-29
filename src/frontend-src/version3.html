@@ -36,6 +36,17 @@
         <div class = "calculate-result">
         </div>
         </form>
+
+        <script>
+            let button = document.querySelector('.calculate-button');
+            button.addEventListener('click', function() {
+                let output = document.querySelector('.calculate-result');
+                let cost = document.getElementById('cost').value;
+                let num = document.getElementById('people').value;
+
+                output.innerHTML = eval(`${cost} / ${num}`);
+            });
+        </script>
         
     </div>
     <!-- pop-up window for split bill -->
