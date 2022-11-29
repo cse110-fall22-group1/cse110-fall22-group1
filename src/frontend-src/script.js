@@ -11,18 +11,56 @@ const deleteButtons = document.getElementsByClassName("delete");
 // Global variables (items) cannot be used in init() function
 function init() {
     // *** ADD ITEM BUTTON ***
-    const addButton = document.getElementsByClassName('item-add-btn')[0];
-    addButton.addEventListener('click', function() {
-        addItem("", false, "");
-        addDeleteEventListener(); 
-    });
+
+
+
+    // const addButton = document.getElementsByClassName('item-add-btn')[0];
+    // addButton.addEventListener('click', function() {
+    //     addItem("", false, "");
+    //     addDeleteEventListener(); 
+    // });
+
+
+    /// add listeners to existing categories' add item buttons
+
+    const addButtons =  document.getElementsByClassName('item-add-btn');
+
+    for (let i = 0; i < addButtons.length; i++){
+
+        addButtons[i].addEventListener('click', function() {
+            addItem("", false, addButtons[i].parentNode.getElementsByClassName("list-title")[0].innerText);
+            addDeleteEventListener(); 
+
+        });
+
+        
+
+    }
+
+
+
+
+
+
+    // load in items from local storage
     let items = JSON.parse(localStorage.getItem("storage"));
-    console.log(items[0]);
     for (let i = 0; i < items.length; i++) {
         addItem(items[i][1], items[i][0], "");
     }
     // Add delete functionality to existing items on load
     window.addEventListener('load', addDeleteEventListnerOnLoad());
+
+
+      const addCategoryButton = document.getElementsByClassName("modal-cat")[0].getElementsByClassName("modal-content")[0].getElementsByClassName("addCategoryForm")[0].getElementsByClassName("category-add-btn")[0];
+      const addCategoryName = document.getElementsByClassName("modal-cat")[0].getElementsByClassName("modal-content")[0].getElementsByClassName("addCategoryForm")[0].getElementsByClassName("category-name")[0];
+
+    
+
+      addCategoryButton.addEventListener('click', function() {
+        addCategory(addCategoryName.value);
+
+      });
+    
 }
 
 /**
@@ -31,9 +69,10 @@ function init() {
  * @param {boolean} checked - The status of the item.
  * @param {string} category - The category of the item.
  */
-const addItem = (name, checked, category) => {
-    // console.log(items);
+function addItem(name, checked, category) {
+
     const listDOM = document.getElementsByClassName('list')[0];
+    const categories = listDOM.getElementsByClassName("category-wrapper");
     const newItem = document.createElement('div');
     newItem.className = 'list-item';
     newItem.innerHTML = `
@@ -52,7 +91,22 @@ const addItem = (name, checked, category) => {
     newItem.getElementsByClassName("list-content")[0].getElementsByTagName("input")[0].value = name;
     newItem.getElementsByTagName("label")[0].getElementsByTagName("input")[0].checked = checked;
     // console.log(newItem.getElementsByClassName("list-content"));
-    listDOM.appendChild(newItem);
+    // listDOM.appendChild(newItem);
+
+    // console.log(listDOM);
+
+    for (let i = 0; i < categories.length; i++){
+        const categoryName = categories[i].getElementsByClassName("category-header")[0].getElementsByClassName("category-header-container")[0].getElementsByClassName("list-title")[0];
+
+        if (categoryName.innerText === category){
+            // console.log("x");
+            categories[i].appendChild(newItem);
+        }
+    }
+    
+
+
+
 }
 
 /**
@@ -61,7 +115,6 @@ const addItem = (name, checked, category) => {
 function addDeleteEventListnerOnLoad() {
   // let deleteButtons = document.getElementsByClassName("delete");
   for(let i = 0; i < deleteButtons.length; i++){
-      console.log("inside the array");
       deleteButtons[i].addEventListener("click", (e) => {
           const index = Array.from(deleteButtons).indexOf(e.target);
           removeItem(index);
@@ -111,6 +164,9 @@ function save() {
 /**
  * Save all items to localStorage before closing homepage.
  */
+
+
+
 window.onbeforeunload = confirmExit;
 function confirmExit() {
     // let items = document.getElementsByClassName("list-item");
@@ -125,7 +181,65 @@ function confirmExit() {
     return false;
 }
 
-// module.exports = items;
-// module.exports = deleteButtons;
-// module.exports = addItem();
-module.exports = { addItem, removeItem, items};
+
+
+
+
+window.addEventListener('load', function () {
+
+
+  let create_cat = document.querySelector('.create-cat-btn');
+create_cat.addEventListener("click", function() {
+    document.querySelector('.modal-cat').style.display = "flex";
+
+    document.querySelector('.cancel-btn').addEventListener("click", function() {
+        document.querySelector('.modal-cat').style.display = "none";
+    });
+
+    document.querySelector('.category-add-btn').addEventListener("click", function() {
+        document.querySelector('.modal-cat').style.display = "none";
+    });
+})
+});
+
+
+
+
+function addCategory(name){
+
+
+    const listDOM = document.getElementsByClassName('list')[0];
+    const newCategory = document.createElement('div');
+    newCategory.className = "category-wrapper"; 
+
+    newCategory.innerHTML = `                           
+    <legend class = "category-header">
+    <div class="category-header-container">
+        <button id = "collapse" class="collapse-add-btn">^</button>
+        <button class="item-add-btn">+</button>
+        <h2 class="list-title">Dairy</h2>
+    </div>
+    </legend>`
+
+    newCategory.getElementsByClassName("list-title")[0].textContent = name; 
+
+
+
+    listDOM.appendChild(newCategory); 
+
+
+    const addButtons =  document.getElementsByClassName('item-add-btn');
+
+    
+    addButtons[addButtons.length-1].addEventListener('click', function() {
+        addItem("", false, addButtons[addButtons.length-1].parentNode.getElementsByClassName("list-title")[0].innerText);
+        addDeleteEventListener(); 
+
+    });
+
+
+
+
+
+
+}
