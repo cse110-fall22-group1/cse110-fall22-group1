@@ -1,0 +1,355 @@
+
+/* Variables */
+
+/* End of Variables */
+
+* {
+    right: 100px;
+}
+
+.items-tabs{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.items-tabs label:hover{
+    background: #0ec2e6;
+}
+
+.items-tabs input[type="radio"]{
+    display: none;
+}
+
+.items-tabs label {
+    padding : 10px;
+    background: lightblue;
+    font-weight: bold;
+}
+
+.items-tabs .tab-list{
+    width: 100%;
+    background-color:rgb(19, 159, 230);
+    order: 1;
+    display: none;
+}
+
+.items-tabs input[type='radio']:checked + label + .tab-list {
+    display: block;
+}
+
+.items-tabs input[type='radio']:checked + label {
+    background: #0ec2e6;
+}
+
+
+h1 {
+    position: center;
+    margin: auto;
+    width: 20%;
+    text-align: center; 
+}
+
+body {
+    font-family: sans-serif;
+    background: rgb(144,247,236);
+    background: linear-gradient(0deg, rgba(144,247,236,1) 0%, rgba(50,202,204,1) 100%);
+}
+
+.list-header {
+    display: flex;
+    align-items: center;
+}
+
+.list-title {
+    flex: 1;
+}
+
+.layouts-btn-wrapper button {
+    /* display: flex;
+    justify-content: center; */
+    background-color: #edf6f9;
+    border: 4px double #cccccc;
+    /*Deciding how long the item want to be*/
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.all-items-btn{
+    text-align: center;
+}
+/*This is for the hover effect, which sets the color of the button when hovering for this one*/
+.layouts-btn-wrapper button:hover {
+    background-color: #e29578;
+}
+
+/*style for split bill button*/
+button[class = "split-button"] {
+    position: absolute;
+    right: 12px; 
+    background-color: #edf6f9;
+    border: 4px double #cccccc;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    padding : 5px;
+    margin-top:10px;
+    margin-right: 7px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 8;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+	align-items: center;
+}
+
+
+.top-wrapper {
+    padding: 25px;
+    box-shadow: 0 2px 5px #f5f5f5;
+    background: #eee;
+    text-align:center;
+    margin-bottom:0;
+    margin-top:5%;
+    margin-left:30%;
+    margin-right:30%;
+}
+
+.bot-wrapper {
+    padding: 25px;
+    margin: 25px;
+    box-shadow: 0 2px 5px #f5f5f5;
+    background: #eee;
+    text-align:center;
+    margin-top:0;
+    margin-left:30%;
+    margin-right:30%;
+}
+
+
+
+.calculate-result {
+    margin-top: 60px;
+}
+
+.cal-wrapper{
+    text-align: center;
+    background:#eee;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+.calculate-button {
+    background: #00fd15;
+    color: black;
+    font-size: 16px;
+    border-radius: 3px;
+    width: 170px;
+    height: 40px;
+    font-weight: bold;
+    margin: auto;
+    text-align:center;
+    margin-top:20px;
+    margin-bottom:0;
+}
+
+
+  button:hover {
+    background: #2371a0;
+  }
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding-top: 0;
+  }
+  .close:hover,
+  .close:focus {
+    color: rgb(247, 7, 19);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+.uncheck-btn input, .create-cat-btn input {
+    display: block;
+    background-color: #edf6f9;
+    width: 250px;
+    margin: 0 auto;
+    border: 4px double #cccccc;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.list-item button {
+    background-color: #edf6f9;
+    margin: auto;
+    border: 4px double #cccccc;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.uncheck-btn input:hover, .create-cat-btn input:hover, .list-item button:hover {
+    background-color: #e29578;
+}
+
+.list-header-btn button {
+    display: inline-block;
+    background-color: #edf6f9;
+    /*Making the button to be rounded shaped*/
+    border-radius: 10px;
+    /*Giving a wrapper layout to the button*/
+    border: 4px double #cccccc;
+    /*Changing the text color inside the button*/
+    /*color: #eeeeee;*/
+    text-align: center;
+    /*Choosing the font size*/
+    /*font-size: 28px;*/
+    /*Choosing the padding size*/
+    /*padding: 20px;*/
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 2px;
+    position: absolute;
+    right:22px;
+}
+
+legend[class="aaa"]{
+    padding-bottom: 8px;
+}
+
+button[class = "collapse-add-btn"] {
+    position: absolute;
+    right: 55px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+button[class = "collapse-add-btn"] {
+    position: absolute;
+    right: 55px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.list-header-btn button:hover {
+    background-color: #e29578;
+}
+
+.list .list-item {
+    display: flex;
+    align-items: center;
+    background-color: rgb(211, 197, 173); 
+    padding: 1 rem;
+    border-radius: 0.5 rem;
+    box-shadow: var (--shadow);
+    margin-bottom: 1rem;
+
+}
+.list-item .list-content{
+    flex: 1 1 0%;
+}
+
+.list-item:hover{
+    background-color: rgb(223, 207, 190);
+}
+
+.modal-cat {
+    display: none;
+    position: fixed;
+    z-index: 8;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+	align-items: center;
+  }
+
+  .modal-content {
+    width: 300px;
+    /* height: 50px; */
+    background-color: white;
+    opacity: 1;
+    border-radius: 4px;
+    text-align: center;
+    padding: 20px;
+    margin: 0 auto;
+    justify-content: center;
+	align-items: center;
+  }
+
+  .input {
+    margin: 15px auto;
+	display: block;
+	width: 50%;
+	padding: 8px;
+	border: 1px solid gray;
+  } 
+  
+  .category-add-btn, cancel-btn button {
+    background-color: #edf6f9;
+    margin: auto;
+    border: 4px double #cccccc;
+    transition: all 0.5s;
+    cursor: pointer;
+
+}
+  
+ 
+
+/* color change part */
+.colorBlock {
+    height: 30px;
+    margin-top: 250px;
+  }
+
+  .textColor {
+     height: 30px;
+     margin-top: 250px;
+     width: 13%;
+  }
+
+  .colorWrapper {
+     height: 100%;
+     width: 100%;
+     display: flex;
+ }
+
+  #Blue {
+    background-color:rgb(156, 192, 231);
+    width: 3%;
+    
+  }
+  #White {
+    background-color: rgb(255, 255, 255);
+    width: 3%;
+  }
+  #Gray {
+    background-color: rgb(238, 238, 238);
+    width: 3%;
+  }
+  #Tan {
+    background-color: rgb(250, 234, 203);
+    width: 3%;
+  }
+  #Pink {
+    background-color: rgb(247, 219, 215);
+    width: 3%;
+  }
+  #Green {
+    background-color: rgb(6, 214, 160);
+    width: 3%;
+  }
