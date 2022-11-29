@@ -1,3 +1,5 @@
+const { ModuleMocker } = require("jest-mock");
+
 window.addEventListener('DOMContentLoaded', init);
 
 const items = document.getElementsByClassName("list-item");
@@ -68,6 +70,7 @@ function init() {
  * @param {string} category - The category of the item.
  */
 function addItem(name, checked, category) {
+
     const listDOM = document.getElementsByClassName('list')[0];
     const categories = listDOM.getElementsByClassName("category-wrapper");
     const newItem = document.createElement('div');
@@ -130,7 +133,7 @@ function addDeleteEventListener() {
   });
 }
 
-function removeItem(index){
+const removeItem = (index) => {
     items[index].remove();
 }
 
@@ -177,12 +180,6 @@ function confirmExit() {
     localStorage.setItem("storage", JSON.stringify(store));
     return false;
 }
-
-
-
-
-
-
 
 
 
