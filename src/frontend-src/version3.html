@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>My Grocery List</title>
     <link rel="stylesheet" href="style-v3.css" />
+    <script src="script.js"></script>
+
     <!-- Importing Bootstrap -->
 <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">-->
 </head>
@@ -51,74 +53,64 @@
 
                     <!--This is a class wrapper for the actual lists of items for the category-->
                     <div class="list">
-        
-                        <legend class = "aaa">
-                            <div class="list-header-btn">
-                                <button id = "collapse" class="collapse-add-btn">^</button>
-                                <button class="item-add-btn">+</button>
-                                <h2 class="list-title">Dairy</h2>
+                        <div class ="category-wrapper">
+                            <legend class = "category-header">
+                                <div class="category-header-container">
+                                    <button id = "collapse" class="collapse-add-btn">^</button>
+                                    <button class="item-add-btn">+</button>
+                                    <h2 class="list-title">Meat</h2>
+                                </div>
+                            </legend>
+                            
+                            <div class="list-item">
+                                <label>
+                                    <input type="checkbox" class="checkbox" value="egg">
+                                    <span class="bubble" ></span>
+                                </label>
+            
+                                <div class="list-content">
+                                    <input type="text" value ="egg" readonly>
+                                </div>
+            
+                                <div class = "actions">
+                                    <button class = "edit">Edit</button>
+                                    <button class = "delete">Delete</button>
+                                </div>
                             </div>
-                        </legend>
-                        <span class ="category-wrapper">
-                        <div class="list-item">
-                            <label>
-                                <input type="checkbox" class="checkbox" value="egg">
-                                <span class="bubble" ></span>
-                            </label>
-        
-                            <div class="list-content">
-                                <input type="text" value ="egg" readonly>
-                            </div>
-        
-                            <div class = "actions">
-                                <button class = "edit">Edit</button>
-                                <button class = "delete">Delete</button>
+            
+                            <div class="list-item">
+                                <label>
+                                    <input type="checkbox" class="checkbox" value="beef">
+                                    <span class="bubble" ></span>
+                                </label>
+            
+                                <div class="list-content">
+                                    <input type="text" value ="beef" readonly>
+                                </div>
+            
+                                <div class = "actions">
+                                    <button class = "edit">Edit</button>
+                                    <button class = "delete">Delete</button>
+                                </div>
                             </div>
                         </div>
-        
-                        <div class="list-item">
-                            <label>
-                                <input type="checkbox" class="checkbox" value="beef">
-                                <span class="bubble" ></span>
-                            </label>
-        
-                            <div class="list-content">
-                                <input type="text" value ="beef" readonly>
-                            </div>
-        
-                            <div class = "actions">
-                                <button class = "edit">Edit</button>
-                                <button class = "delete">Delete</button>
-                            </div>
+
+
+
+                        <div class ="category-wrapper">
+                            <legend class = "category-header">
+                                <div class="category-header-container">
+                                    <button id = "collapse" class="collapse-add-btn">^</button>
+                                    <button class="item-add-btn">+</button>
+                                    <h2 class="list-title">Dairy</h2>
+                                </div>
+                            </legend>
+           
                         </div>
-                        </span>
-                        <!-- Javascript to implement collapse functionality-->
+                    
                         
-        
-                        <legend class = "aaa">
-                            <div class="list-header-btn">
-                                <button id = "collapse" class="collapse-add-btn">^</button>
-                                <button class="item-add-btn">+</button>
-                                <h2 class="list-title">Dairy</h2>
-                            </div>
-                        </legend>
-                        <span class = "category-wrapper">
-                        <div class="list-item">
-                            <label>
-                                <input type="checkbox" class="checkbox" value="egg">
-                                <span class="bubble" ></span>
-                            </label>
-        
-                            <div class="list-content">
-                                <input type="text" value ="egg" readonly>
-                            </div>
-        
-                            <div class = "actions">
-                                <button class = "edit">Edit</button>
-                                <button class = "delete">Delete</button>
-                            </div>
-                        </div>
-                        </span>
+
+
                     </div>
                 </div>
             </fieldset>
@@ -147,20 +139,25 @@
     </div>
     <br>
     <div class="uncheck-btn">
-        <input type="button" value="Uncheck All the Items"/>
+        <input type="button" value="Uncheck All the Items" onclick="uncheckAll()"/>
     </div>
+
+<!-- 
+    <input type="button" value="Uncheck All the Items" onclick="addCategory('abc')"/> -->
+
+
 
     <div class="modal-cat">
         <div class="modal-content">
             <!-- <div class="close">+</div> -->
-            <form action="">
-                <input type="text" placeholder="Which category do you want to add?"> <br> <br>
-                <button class="category-add-btn">Add</button>
-                <button class="cancel-btn">Cancel</button>
+            <form class="addCategoryForm" action="">
+                <input type="text" placeholder="Which category do you want to add?" class="category-name"> <br> <br>
+                <button class="category-add-btn" type="button">Add</button>
+                <button class="cancel-btn" type="button">Cancel</button>
             </form>
         </div>
     </div>
-    <script src="uncheck-v3.js"></script>
+    <!-- <script src="script.js"></script> -->
 
        <!-- Background color select:-->
     <!-- color:https://teamtreehouse.com/community/how-would-i-let-the-user-change-the-background-colour-of-the-page-from-a-selection-of-colours -->
@@ -186,7 +183,7 @@
          });
          let coll = document.getElementsByClassName("collapse-add-btn");
          const cate = document.getElementsByClassName('category-wrapper');
-         const leg = document.getElementsByClassName('aaa');
+         const leg = document.getElementsByClassName('category-header');
             var i;
     for (i = 0; i < coll.length; i=i+1) {
         let curr = i;

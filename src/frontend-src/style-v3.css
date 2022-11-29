@@ -197,7 +197,7 @@ button[class = "split-button"] {
     background-color: #e29578;
 }
 
-.list-header-btn button {
+.category-header-container button {
     display: inline-block;
     background-color: #edf6f9;
     /*Making the button to be rounded shaped*/
@@ -235,7 +235,7 @@ button[class = "collapse-add-btn"] {
     padding-right: 8px;
 }
 
-.list-header-btn button:hover {
+.category-header-container button:hover {
     background-color: #e29578;
 }
 
