@@ -1,4 +1,3 @@
-const { ModuleMocker } = require("jest-mock");
 
 window.addEventListener('DOMContentLoaded', init);
 
@@ -100,7 +99,9 @@ function addItem(name, checked, category) {
 
         if (categoryName.innerText === category){
             // console.log("x");
-            categories[i].appendChild(newItem);
+
+            // console.log(categories[i]);
+             categories[i].getElementsByClassName("items-wrapper")[0].appendChild(newItem);
         }
     }
     
@@ -213,15 +214,18 @@ function addCategory(name){
     newCategory.className = "category-wrapper"; 
 
     newCategory.innerHTML = `                           
-    <legend class = "category-header">
+    <legend class="category-header">
     <div class="category-header-container">
-        <button id = "collapse" class="collapse-add-btn">^</button>
-        <button class="item-add-btn">+</button>
-        <h2 class="list-title">Dairy</h2>
+      <button class="cat-del-btn">-</button>
+      <button id="collapse" class="collapse-add-btn">^</button>
+      <button class="item-add-btn">+</button>
+      <h2 class="list-title">Dairy</h2>
     </div>
-    </legend>`
+  </legend>
+  <span class="items-wrapper">
+  </span>`
 
-    newCategory.getElementsByClassName("list-title")[0].textContent = name; 
+    newCategory.getElementsByClassName("category-header-container")[0].getElementsByClassName("list-title")[0].textContent = name; 
 
 
 
@@ -236,6 +240,29 @@ function addCategory(name){
         addDeleteEventListener(); 
 
     });
+
+    let coll = document.getElementsByClassName("collapse-add-btn");
+    const cate = document.getElementsByClassName('items-wrapper');
+    const leg = document.getElementsByClassName('category-header');
+
+
+    console.log(cate);
+    var i;
+    for (i = 0; i < coll.length; i = i + 1) {
+      let curr = i;
+      coll[i].addEventListener("click", function() {
+        console.log(cate, curr);
+        if ((cate[curr]).style.display != "none") {
+          (cate[curr]).style.display = 'none';
+          coll[curr].textContent = ">";
+          leg[curr].style.paddingBottom = '0px';
+        } else {
+          (cate[curr]).style.display = 'block';
+          coll[curr].textContent = "^";
+          leg[curr].style.paddingBottom = '8px';
+        }
+      });
+    }
 
 
 
