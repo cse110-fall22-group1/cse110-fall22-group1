@@ -51,15 +51,16 @@
 
                     <!--This is a class wrapper for the actual lists of items for the category-->
                     <div class="list">
-        
-                        <legend class = "aaa">
+                        <div class = "category-category">
+                        <legend class = "category-bar">
                             <div class="list-header-btn">
+                                <button class="cat-del-btn">-</button>
                                 <button id = "collapse" class="collapse-add-btn">^</button>
                                 <button class="item-add-btn">+</button>
                                 <h2 class="list-title">Dairy</h2>
                             </div>
                         </legend>
-                        <span class ="category-wrapper">
+                        <span class ="items-wrapper">
                         <div class="list-item">
                             <label>
                                 <input type="checkbox" class="checkbox" value="egg">
@@ -92,17 +93,18 @@
                             </div>
                         </div>
                         </span>
+                        </div>
                         <!-- Javascript to implement collapse functionality-->
                         
         
-                        <legend class = "aaa">
+                        <legend class = "category-bar">
                             <div class="list-header-btn">
                                 <button id = "collapse" class="collapse-add-btn">^</button>
                                 <button class="item-add-btn">+</button>
                                 <h2 class="list-title">Dairy</h2>
                             </div>
                         </legend>
-                        <span class = "category-wrapper">
+                        <span class = "items-wrapper">
                         <div class="list-item">
                             <label>
                                 <input type="checkbox" class="checkbox" value="egg">
@@ -185,7 +187,7 @@
            $("body").css("background-color", $backgroundColor);
          });
          let coll = document.getElementsByClassName("collapse-add-btn");
-         const cate = document.getElementsByClassName('category-wrapper');
+         const cate = document.getElementsByClassName('items-wrapper');
          const leg = document.getElementsByClassName('aaa');
             var i;
     for (i = 0; i < coll.length; i=i+1) {

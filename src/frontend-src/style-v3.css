@@ -225,16 +225,11 @@ button[class = "split-button"] {
     right:22px;
 }
 
-legend[class="aaa"]{
+legend[class="category-bar"]{
     padding-bottom: 8px;
 }
 
-button[class = "collapse-add-btn"] {
-    position: absolute;
-    right: 55px;
-    padding-left: 8px;
-    padding-right: 8px;
-}
+
 button[class = "collapse-add-btn"] {
     position: absolute;
     right: 55px;
