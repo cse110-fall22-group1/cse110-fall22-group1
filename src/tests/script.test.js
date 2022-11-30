@@ -1,4 +1,8 @@
+<<<<<<< HEAD:src/tests/script.test.js
 const functions = require('../script.js');
+=======
+const functions = require('../scriptv1.js');
+>>>>>>> backend:src/frontend-src/script.test.js
 
 let listDOM;
 
@@ -22,4 +26,18 @@ test('remove item at index', () => {
     expect(functions.items.length).toBe(1);
     functions.removeItem(0);
     expect(functions.items.length).toBe(0);
-});
+})
+
+test('uncheck all items', () => {
+    functions.addItem("apple", true, "fruit");
+    functions.uncheckAll();
+    let checkBoxes = document.querySelectorAll("input[type=checkbox]");
+    checkBoxes.forEach(item => {
+        expect(item.checked).toBe(false);
+    });
+})
+
+
+
+
+
