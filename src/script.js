@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-const { ModuleMocker } = require("jest-mock");
-=======
->>>>>>> backend
 
 window.addEventListener('DOMContentLoaded', init);
 
@@ -14,15 +10,6 @@ const deleteButtons = document.getElementsByClassName("delete");
 // Global variables (items) cannot be used in init() function
 function init() {
     // *** ADD ITEM BUTTON ***
-<<<<<<< HEAD
-    const addButton = document.getElementsByClassName('item-add-btn')[0];
-    addButton.addEventListener('click', function() {
-        addItem("", false, "");
-        addDeleteEventListener(); 
-    });
-    let items = JSON.parse(localStorage.getItem("storage"));
-    console.log(items[0]);
-=======
 
 
 
@@ -38,7 +25,7 @@ function init() {
     const addButtons =  document.getElementsByClassName('item-add-btn');
 
     for (let i = 0; i < addButtons.length; i++){
-
+        //console.log(i);
         addButtons[i].addEventListener('click', function() {
             addItem("", false, addButtons[i].parentNode.getElementsByClassName("list-title")[0].innerText);
             addDeleteEventListener(); 
@@ -50,20 +37,13 @@ function init() {
     }
 
 
-
-
-
-
     // load in items from local storage
     let items = JSON.parse(localStorage.getItem("storage"));
->>>>>>> backend
     for (let i = 0; i < items.length; i++) {
         addItem(items[i][1], items[i][0], "");
     }
     // Add delete functionality to existing items on load
     window.addEventListener('load', addDeleteEventListnerOnLoad());
-<<<<<<< HEAD
-=======
 
 
       const addCategoryButton = document.getElementsByClassName("modal-cat")[0].getElementsByClassName("modal-content")[0].getElementsByClassName("addCategoryForm")[0].getElementsByClassName("category-add-btn")[0];
@@ -76,7 +56,6 @@ function init() {
 
       });
     
->>>>>>> backend
 }
 
 /**
@@ -85,16 +64,10 @@ function init() {
  * @param {boolean} checked - The status of the item.
  * @param {string} category - The category of the item.
  */
-<<<<<<< HEAD
-const addItem = (name, checked, category) => {
-    // console.log(items);
-    const listDOM = document.getElementsByClassName('list')[0];
-=======
 function addItem(name, checked, category) {
 
     const listDOM = document.getElementsByClassName('list')[0];
     const categories = listDOM.getElementsByClassName("category-wrapper");
->>>>>>> backend
     const newItem = document.createElement('div');
     newItem.className = 'list-item';
     newItem.innerHTML = `
@@ -113,9 +86,6 @@ function addItem(name, checked, category) {
     newItem.getElementsByClassName("list-content")[0].getElementsByTagName("input")[0].value = name;
     newItem.getElementsByTagName("label")[0].getElementsByTagName("input")[0].checked = checked;
     // console.log(newItem.getElementsByClassName("list-content"));
-<<<<<<< HEAD
-    listDOM.appendChild(newItem);
-=======
     // listDOM.appendChild(newItem);
 
     // console.log(listDOM);
@@ -134,7 +104,6 @@ function addItem(name, checked, category) {
 
 
 
->>>>>>> backend
 }
 
 /**
@@ -143,10 +112,6 @@ function addItem(name, checked, category) {
 function addDeleteEventListnerOnLoad() {
   // let deleteButtons = document.getElementsByClassName("delete");
   for(let i = 0; i < deleteButtons.length; i++){
-<<<<<<< HEAD
-      console.log("inside the array");
-=======
->>>>>>> backend
       deleteButtons[i].addEventListener("click", (e) => {
           const index = Array.from(deleteButtons).indexOf(e.target);
           removeItem(index);
@@ -196,12 +161,9 @@ function save() {
 /**
  * Save all items to localStorage before closing homepage.
  */
-<<<<<<< HEAD
-=======
 
 
 
->>>>>>> backend
 window.onbeforeunload = confirmExit;
 function confirmExit() {
     // let items = document.getElementsByClassName("list-item");
@@ -216,12 +178,6 @@ function confirmExit() {
     return false;
 }
 
-<<<<<<< HEAD
-// module.exports = items;
-// module.exports = deleteButtons;
-// module.exports = addItem();
-module.exports = { addItem, removeItem, uncheckAll, items};
-=======
 
 
 
@@ -271,9 +227,9 @@ function addCategory(name){
 
     listDOM.appendChild(newCategory); 
 
-
+    
     const addButtons =  document.getElementsByClassName('item-add-btn');
-
+    console.log(addButtons);
     
     addButtons[addButtons.length-1].addEventListener('click', function() {
         addItem("", false, addButtons[addButtons.length-1].parentNode.getElementsByClassName("list-title")[0].innerText);
@@ -303,11 +259,4 @@ function addCategory(name){
         }
       });
     }
-
-
-
-
-
-
 }
->>>>>>> backend
