@@ -8,9 +8,9 @@ name: Lint Code Base
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "dev" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "dev" ]
 jobs:
   run-lint:
     runs-on: ubuntu-latest
@@ -36,14 +36,13 @@ jobs:
           recurse: true
           output_dir: ./out
 
-#       - name: Lint Code Base
-#         uses: github/super-linter@v4
-#         env:
-#           VALIDATE_ALL_CODEBASE: false
-#           DEFAULT_BRANCH: "main"
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Lint Code Base
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: "main"
           
-#       - name: HTML5 Validator
-#         uses: Cyb3r-Jak3/html5validator-action@v7.2.0
-#         with:
-#           root: ./src/frontend-src
+      - name: HTML5 Validator
+        uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+        with:
+          root: ./src/frontend-src
