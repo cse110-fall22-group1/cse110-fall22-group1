@@ -21,6 +21,7 @@ jobs:
           # Full git history is needed to get a proper list of changed files within `super-linter`
           fetch-depth: 0
           
+      - name: Build and run tests
       - uses: actions/checkout@v3
       - run: npm ci
       - run: npm run build --if-present
