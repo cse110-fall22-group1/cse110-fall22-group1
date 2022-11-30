@@ -1,6 +1,6 @@
 ## Pipeline Status
 
-![text](admin/cipipeline/pipeline-diagram.png)
+![text](pipeline-diagram.png)
 
 * Pipeline is triggered by push and pull request
 * Once triggered the code is checkedout and build
