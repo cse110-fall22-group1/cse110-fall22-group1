@@ -1,4 +1,4 @@
-const functions = require('./script.js');
+const functions = require('../script.js');
 
 let listDOM;
 
