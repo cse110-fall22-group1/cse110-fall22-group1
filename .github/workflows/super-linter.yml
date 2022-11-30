@@ -23,6 +23,8 @@ jobs:
           
       - name: Build and run tests
         uses: actions/checkout@v3
+        with:
+          source_dir: ./src/frontend-src
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test         
