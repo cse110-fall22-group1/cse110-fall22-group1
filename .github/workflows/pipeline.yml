@@ -1,0 +1,44 @@
+name: Pipeline
+
+on:
+  push:
+    branches: [ "main", "dev" ]
+  pull_request:
+    branches: [ "main", "dev" ]
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          # Full git history is needed to get a proper list of changed files within `super-linter`
+          fetch-depth: 0
+          
+      - name: Build and run tests
+        uses: actions/checkout@v3
+        with:
+          source_dir: ./src/tests
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test         
+          
+      - name: JSDoc Action
+        uses: andstor/jsdoc-action@v1.2.1    
+        with:
+          source_dir: ./src
+          output_dir: ./jsdoc
+          recurse: true
+          template: minami
+
+      - name: Lint Code Base
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: "main"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: HTML5 Validator
+        uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+        with:
+          root: ./src
