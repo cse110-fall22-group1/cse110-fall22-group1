@@ -36,12 +36,15 @@ jobs:
         env:
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_JAVASCRIPT_ES: true
-          VALIDATE_HTML: true
-          VALIDATE_CSS: true
-          USE_FIND_ALGORITHM: true
-          # DEFAULT_BRANCH: "main"
-          DEFAULT_WORKSPACE: /src
+          # VALIDATE_HTML: true
+          # VALIDATE_CSS: true
+          # USE_FIND_ALGORITHM: true
+          DEFAULT_BRANCH: "main"
+          # DEFAULT_WORKSPACE: /src
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DISABLE_ERRORS: true
+          OUTPUT_DETAILS: detailed
+          OUTPUT_FORMAT: tap
 
       - name: HTML5 Validator
         uses: Cyb3r-Jak3/html5validator-action@v7.2.0
