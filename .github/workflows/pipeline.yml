@@ -39,7 +39,8 @@ jobs:
           VALIDATE_HTML: true
           VALIDATE_CSS: true
           USE_FIND_ALGORITHM: true
-          DEFAULT_BRANCH: "main"
+          # DEFAULT_BRANCH: "main"
+          DEFAULT_WORKSPACE: /src
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: HTML5 Validator
