@@ -247,12 +247,12 @@ button[class = "split-button"] {
     color:yellow;
 }
 
-.list-header-btn {
+.category-header-container {
     display: flex;
     align-items: center;
 }
 
-.list-header-btn button {
+.category-header-container button {
     display: inline-block;
     background-color: #edf6f9;
     /*Making the button to be rounded shaped*/
@@ -271,7 +271,7 @@ button[class = "split-button"] {
     margin: 2px;
 }
 
-legend[class="category-bar"]{
+legend[class="category-header"]{
     padding-bottom: 8px;
 }
 
@@ -281,7 +281,7 @@ button[class = "collapse-add-btn"] {
     padding-right: 8px;
 }
 
-.list-header-btn button:hover {
+.category-header-container button:hover {
     background: #2371a0;
     color:yellow;
 }
