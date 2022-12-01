@@ -28,7 +28,7 @@
 
 .items-tabs .tab-list{
     width: 100%;
-    background-color:rgb(19, 159, 230);
+    background-color:rgb(79, 32, 136);
     order: 1;
     display: none;
 }
@@ -38,21 +38,61 @@
 }
 
 .items-tabs input[type='radio']:checked + label {
-    background: #0ec2e6;
+    background: #65089b;
 }
 
 
 h1 {
+    font-family: 'Source Code Pro';
+    font-size: 50px;
     position: center;
     margin: auto;
-    width: 20%;
-    text-align: center; 
+    width: 50%;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Zen Dots';
+    font-size: 22px;
+    color: #f5f5f5;
+}
+.tab-label {
+    font-family: 'Sulphur Point';
+    font-size: 20px;
+    color:  #eff312;
+}
+
+.title-one {
+    color: #eff312;
+}
+
+.title-two {
+    color:#edf5f7
+}
+
+input[type=text]{
+    font-family: 'Sulphur Point';
+    font-size: 18px;
+}
+
+input[type=text], textarea{
+    background-color: #0ec2e6;
+}
+
+.check-uncheck-button {
+    font-family: 'Sulphur Point';
+    font-size: 18px;
+}
+
+.check-uncheck-button:focus {
+    background: #2371a0;
+    color:yellow;
 }
 
 body {
     font-family: sans-serif;
     background: rgb(144,247,236);
-    background: linear-gradient(0deg, rgba(144,247,236,1) 0%, rgba(50,202,204,1) 100%);
+    background: rgb(26, 1, 88);
 }
 
 .list-header {
@@ -95,6 +135,8 @@ button[class = "split-button"] {
     padding : 5px;
     margin-top:10px;
     margin-right: 7px;
+    font-family: 'Sulphur Point';
+    font-size: 18px;
 }
 
 .modal {
@@ -117,6 +159,8 @@ button[class = "split-button"] {
     padding: 25px;
     box-shadow: 0 2px 5px #f5f5f5;
     background: #eee;
+    border: #65089b;
+    border-width: 20em;
     text-align:center;
     margin-bottom:0;
     margin-top:5%;
@@ -134,8 +178,6 @@ button[class = "split-button"] {
     margin-left:30%;
     margin-right:30%;
 }
-
-
 
 .calculate-result {
     margin-top: 60px;
@@ -165,6 +207,8 @@ button[class = "split-button"] {
 
   button:hover {
     background: #2371a0;
+    color:yellow;
+
   }
   .close {
     color: #aaa;
@@ -199,7 +243,8 @@ button[class = "split-button"] {
 }
 
 .uncheck-btn input:hover, .create-cat-btn input:hover, .list-item button:hover {
-    background-color: #e29578;
+    background: #2371a0;
+    color:yellow;
 }
 
 .list-header-btn {
@@ -237,7 +282,8 @@ button[class = "collapse-add-btn"] {
 }
 
 .list-header-btn button:hover {
-    background-color: #e29578;
+    background: #2371a0;
+    color:yellow;
 }
 
 .list .list-item {
@@ -255,7 +301,7 @@ button[class = "collapse-add-btn"] {
 }
 
 .list-item:hover{
-    background-color: rgb(223, 207, 190);
+    background-color: rgb(168, 241, 12);
 }
 
 .modal-cat {
@@ -294,7 +340,7 @@ button[class = "collapse-add-btn"] {
 	border: 1px solid gray;
   } 
   
-  .category-add-btn, cancel-btn button {
+  .category-add-btn, .cancel-btn button {
     background-color: #edf6f9;
     margin: auto;
     border: 4px double #cccccc;
@@ -302,8 +348,11 @@ button[class = "collapse-add-btn"] {
     cursor: pointer;
 
 }
-  
- 
+
+.footer-button {
+    font-family: 'Sulphur Point';
+    font-size: 18px;
+}
 
 /* color change part */
 .colorBlock {
@@ -322,29 +371,3 @@ button[class = "collapse-add-btn"] {
      width: 100%;
      display: flex;
  }
-
-  #Blue {
-    background-color:rgb(156, 192, 231);
-    width: 3%;
-    
-  }
-  #White {
-    background-color: rgb(255, 255, 255);
-    width: 3%;
-  }
-  #Gray {
-    background-color: rgb(238, 238, 238);
-    width: 3%;
-  }
-  #Tan {
-    background-color: rgb(250, 234, 203);
-    width: 3%;
-  }
-  #Pink {
-    background-color: rgb(247, 219, 215);
-    width: 3%;
-  }
-  #Green {
-    background-color: rgb(6, 214, 160);
-    width: 3%;
-  }

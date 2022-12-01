@@ -11,13 +11,6 @@ function addItem(index){
 items[index].style.display = "flex";
 }
 
-let allItemsButton = document.getElementById('all-items-btn');
-allItemsButton.addEventListener ('click', function(){
-    for (let i = 0; i < checkboxes.length; i++){
-        addItem(i);
-    }
-})
-
 let uncheckButton = document.getElementById('unchecked-items-btn');
 console.dir(uncheckButton);
 uncheckButton.addEventListener('click', function() {
@@ -39,6 +32,13 @@ uncheckButton.addEventListener('click', function() {
                 addItem(index);
             }
         })
+    }
+})
+
+let allItemsButton = document.getElementById('all-items-btn');
+allItemsButton.addEventListener ('click', function(){
+    for (let i = 0; i < checkboxes.length; i++){
+        addItem(i);
     }
 })
 
