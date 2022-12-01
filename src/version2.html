@@ -26,13 +26,13 @@
         <div class="list-wrapper">
             <!--This is a class wrapper for the actual lists of items for the category-->
             <div class="list">
-                <legend class = "aaa">
+                <div class = "aaa">
                     <div class="list-header-btn">
                         <button class="collapse-add-btn">-</button>
                         <button class="item-add-btn">+</button>
                         <h2 class="list-title">Dairy</h2>
                     </div>
-                </legend>
+                </div>
                 <div class="list-item">
                     <label>
                         <input type="checkbox" value="egg">
@@ -65,13 +65,13 @@
                     </div>
                 </div>
 
-                <legend class = "aaa">
+                <div class = "aaa">
                     <div class="list-header-btn">
                         <button class="collapse-add-btn">-</button>
                         <button class="item-add-btn">+</button>
                         <h2 class="list-title">Dairy</h2>
                     </div>
-                </legend>
+                </div>
                 <div class="list-item">
                     <label>
                         <input type="checkbox" value="egg">
@@ -100,32 +100,5 @@
     <div class="uncheck-btn">
         <input type="button" value="Uncheck All the Items"/>
     </div>
-
-       <!-- Background color select:-->
-    <!-- color:https://teamtreehouse.com/community/how-would-i-let-the-user-change-the-background-colour-of-the-page-from-a-selection-of-colours -->
-    <div class = "colorWrapper">
-        <h3 class = "textColor"> Select Background:</h3>
-    
-       <div class="colorBlock" id="Blue"></div>
-       <div class="colorBlock" id="White"></div>
-       <div class="colorBlock" id="Gray"></div>
-       <div class="colorBlock" id="Tan"></div>
-       <div class="colorBlock" id="Pink"></div>
-       <div class="colorBlock" id="Green"></div>
-       </div>
-       
-         <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
-         <script type="text/javascript" charset="utf-8">
-        //Create anonymous function that listens for a click on anything with the class colorBlock
-         $(".colorBlock").click(function() {
-           //Get the background color of the clicked color block by using the this object
-           var $backgroundColor = $(this).css("background-color");
-           //Set the body's background-color to the received background-color
-           $("body").css("background-color", $backgroundColor);
-         });
-       </script>
-        <!-- End of Background color select-->
-    
-
 </body>
 </html>

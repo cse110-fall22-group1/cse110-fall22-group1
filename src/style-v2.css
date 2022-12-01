@@ -90,7 +90,7 @@ body {
     right:22px;
 }
 
-legend[class="aaa"]{
+.aaa {
     padding-bottom: 8px;
 }
 
