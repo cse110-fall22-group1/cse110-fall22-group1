@@ -35,23 +35,20 @@
         <p> Each Person Owes:</p>
         <div class="calculate-result"></div>
       </form>
-
-    <script>
-    let button = document.querySelector('.calculate-button');
-    button.addEventListener('click', function() {
-        let output = document.querySelector('.calculate-result');
-        let cost = document.getElementById('cost').value;
-        let num = document.getElementById('people').value;
-
-        output.innerHTML = eval(`${cost} / ${num}`);
-    });
-    </script>
-
+      <script>
+        let button = document.querySelector('.calculate-button');
+        button.addEventListener('click', function() {
+          let output = document.querySelector('.calculate-result');
+          let cost = document.getElementById('cost').value;
+          let num = document.getElementById('people').value;
+          output.innerHTML = eval(`${cost} / ${num}`);
+        });
+      </script>
     </div>
     <!-- pop-up window for split bill -->
     <div class="items-tabs">
       <input type="radio" id="tab-all" name="items-tabs" checked="checked">
-      <label for="tab-all">All items</label>
+      <label for="tab-all">All Items</label>
       <div class="tab-list">
         <fieldset>
           <!--This is a wrapper for a single whole list-->
@@ -60,10 +57,12 @@
               <div class="category-wrapper">
                 <legend class="category-header">
                   <div class="category-header-container">
-                    <button class="cat-del-btn">-</button>
-                    <button id="collapse" class="collapse-add-btn">^</button>
-                    <button class="item-add-btn">+</button>
                     <h2 class="list-title">Meat</h2>
+                    <div class="btn-group">
+                      <button class="cat-del-btn">-</button>
+                      <button id="collapse" class="collapse-add-btn">^</button>
+                      <button class="item-add-btn">+</button>
+                    </div>
                   </div>
                 </legend>
                 <span class="items-wrapper">
@@ -95,25 +94,20 @@
                   </div>
                 </span>
               </div>
-
-
-
               <div class="category-wrapper">
                 <legend class="category-header">
                   <div class="category-header-container">
-                    <button class="cat-del-btn">-</button>
-                    <button id="collapse" class="collapse-add-btn">^</button>
-                    <button class="item-add-btn">+</button>
-                    <h2 class="list-title">Dairy</h2>
+                    <h2 class="list-title">Meaasdt</h2>
+                    <div class="btn-group">
+                      <button class="cat-del-btn">-</button>
+                      <button id="collapse" class="collapse-add-btn">^</button>
+                      <button class="item-add-btn">+</button>
+                    </div>
                   </div>
                 </legend>
-                <span class="items-wrapper">
-                </span>
+                <span class="items-wrapper"></span>
               </div>
-
-
               <!--This is a class wrapper for the actual lists of items for the category-->
-
             </div>
         </fieldset>
       </div>
@@ -134,15 +128,13 @@
     </div>
     <br>
     <div class="uncheck-btn">
-      <input type="button" value="Uncheck All the Items" onclick="uncheckAll()" />
+      <input type="button" value="Uncheck All Items" onclick="uncheckAll()" />
     </div>
-    <!-- 
-    <input type="button" value="Uncheck All the Items" onclick="addCategory('abc')"/> -->
     <div class="modal-cat">
       <div class="modal-content">
         <!-- <div class="closeButtons">+</div> -->
         <form class="addCategoryForm" action="">
-          <input type="text" placeholder="Which category do you want to add?" class="category-name">
+          <input type="text" placeholder="Add Category" class="category-name">
           <br>
           <br>
           <button class="category-add-btn" type="button">Add</button>
@@ -172,43 +164,40 @@
         //Set the body's background-color to the received background-color
         $("body").css("background-color", $backgroundColor);
       });
-      let coll = document.getElementsByClassName("collapse-add-btn");
-      const cate = document.getElementsByClassName('items-wrapper');
-      const leg = document.getElementsByClassName('category-header');
-      var i;
-      for (i = 0; i < coll.length; i = i + 1) {
-        let curr = i;
-        coll[i].addEventListener("click", function() {
-          if ((cate[curr]).style.display != "none") {
-            (cate[curr]).style.display = 'none';
-            coll[curr].textContent = ">";
-            leg[curr].style.paddingBottom = '0px';
-          } else {
-            (cate[curr]).style.display = 'block';
-            coll[curr].textContent = "^";
-            leg[curr].style.paddingBottom = '8px';
-          }
-        });
-      }
-      
-    //   let split_button = document.querySelector('.split-button');
-    //     console.dir(split_button);
-    //     split_button.addEventListener('click', function (){
-    //         let modal = split_button.getAttribute("data-modal");
-    //         document.getElementById(modal).style.display = "block";
-
-    //     });
-    //     let closeButtonsBtns = document.querySelector('.closeButtons');
-    //         closeButtonsBtns.addEventListener('click', function () {
-    //         let modal = closeButtonsBtns.closeButtonsst(".modal");
-    //          modal.style.display = "none";
-
-    //         });
-    //   window.onclick = function (event) {
-    //     if (event.target.className === "modal") {
-    //       event.target.style.display = "none";
-    //     }
-    //   };
+      // let coll = document.getElementsByClassName("collapse-add-btn");
+      // const cate = document.getElementsByClassName('items-wrapper');
+      // const leg = document.getElementsByClassName('category-header');
+      // var i;
+      // for (i = 0; i < coll.length; i = i + 1) {
+      //   let curr = i;
+      //   coll[i].addEventListener("click", function() {
+      //     if ((cate[curr]).style.display != "none") {
+      //       (cate[curr]).style.display = 'none';
+      //       coll[curr].textContent = ">";
+      //       leg[curr].style.paddingBottom = '0px';
+      //     } else {
+      //       (cate[curr]).style.display = 'block';
+      //       coll[curr].textContent = "^";
+      //       leg[curr].style.paddingBottom = '8px';
+      //     }
+      //   });
+      // }
+      //   let split_button = document.querySelector('.split-button');
+      //     console.dir(split_button);
+      //     split_button.addEventListener('click', function (){
+      //         let modal = split_button.getAttribute("data-modal");
+      //         document.getElementById(modal).style.display = "block";
+      //     });
+      //     let closeButtonsBtns = document.querySelector('.closeButtons');
+      //         closeButtonsBtns.addEventListener('click', function () {
+      //         let modal = closeButtonsBtns.closeButtonsst(".modal");
+      //          modal.style.display = "none";
+      //         });
+      //   window.onclick = function (event) {
+      //     if (event.target.className === "modal") {
+      //       event.target.style.display = "none";
+      //     }
+      //   };
     </script>
     <!-- End of Background color select-->
   </body>
