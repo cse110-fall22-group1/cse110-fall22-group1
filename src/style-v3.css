@@ -197,8 +197,13 @@ button[class = "split-button"] {
     background-color: #e29578;
 }
 
+.category-header-container {
+    display: flex;
+    align-items: center;
+}
+
 .category-header-container button {
-    display: inline-block;
+    /* display: inline-block; */
     background-color: #edf6f9;
     /*Making the button to be rounded shaped*/
     border-radius: 10px;
@@ -214,22 +219,14 @@ button[class = "split-button"] {
     transition: all 0.5s;
     cursor: pointer;
     margin: 2px;
-    position: absolute;
-    right:22px;
 }
 
-legend[class="aaa"]{
+legend[class="category-header"]{
     padding-bottom: 8px;
 }
 
 button[class = "collapse-add-btn"] {
-    position: absolute;
-    right: 55px;
-    padding-left: 8px;
-    padding-right: 8px;
-}
-button[class = "collapse-add-btn"] {
-    position: absolute;
+    /* position: absolute; */
     right: 55px;
     padding-left: 8px;
     padding-right: 8px;

@@ -1,4 +1,3 @@
-
 window.addEventListener('DOMContentLoaded', init);
 
 const items = document.getElementsByClassName("list-item");
@@ -22,17 +21,19 @@ function init() {
 
     /// add listeners to existing categories' add item buttons
 
-    const addButtons =  document.getElementsByClassName('item-add-btn');
+    const addButtons = document.getElementsByClassName('item-add-btn');
 
-    for (let i = 0; i < addButtons.length; i++){
+    for (let i = 0; i < addButtons.length; i++) {
         //console.log(i);
         addButtons[i].addEventListener('click', function() {
-            addItem("", false, addButtons[i].parentNode.getElementsByClassName("list-title")[0].innerText);
-            addDeleteEventListener(); 
+
+            // console.log(addButtons[i].parentNode.parentNode);
+            addItem("", false, addButtons[i].parentNode.parentNode.getElementsByClassName("list-title")[0].innerText);
+            addDeleteEventListener();
 
         });
 
-        
+
 
     }
 
@@ -46,16 +47,35 @@ function init() {
     window.addEventListener('load', addDeleteEventListnerOnLoad());
 
 
-      const addCategoryButton = document.getElementsByClassName("modal-cat")[0].getElementsByClassName("modal-content")[0].getElementsByClassName("addCategoryForm")[0].getElementsByClassName("category-add-btn")[0];
-      const addCategoryName = document.getElementsByClassName("modal-cat")[0].getElementsByClassName("modal-content")[0].getElementsByClassName("addCategoryForm")[0].getElementsByClassName("category-name")[0];
+    const addCategoryButton = document.getElementsByClassName("modal-cat")[0].getElementsByClassName("modal-content")[0].getElementsByClassName("addCategoryForm")[0].getElementsByClassName("category-add-btn")[0];
+    const addCategoryName = document.getElementsByClassName("modal-cat")[0].getElementsByClassName("modal-content")[0].getElementsByClassName("addCategoryForm")[0].getElementsByClassName("category-name")[0];
 
-    
 
-      addCategoryButton.addEventListener('click', function() {
+
+    addCategoryButton.addEventListener('click', function() {
         addCategory(addCategoryName.value);
 
-      });
-    
+    });
+
+     let coll = document.getElementsByClassName("collapse-add-btn");
+      const cate = document.getElementsByClassName('items-wrapper');
+      const leg = document.getElementsByClassName('category-header');
+      var i;
+      for (i = 0; i < coll.length; i = i + 1) {
+        let curr = i;
+        coll[i].addEventListener("click", function() {
+          if ((cate[curr]).style.display != "none") {
+            (cate[curr]).style.display = 'none';
+            coll[curr].textContent = ">";
+            leg[curr].style.paddingBottom = '0px';
+          } else {
+            (cate[curr]).style.display = 'block';
+            coll[curr].textContent = "^";
+            leg[curr].style.paddingBottom = '8px';
+          }
+        });
+      }
+
 }
 
 /**
@@ -90,17 +110,17 @@ function addItem(name, checked, category) {
 
     // console.log(listDOM);
 
-    for (let i = 0; i < categories.length; i++){
+    for (let i = 0; i < categories.length; i++) {
         const categoryName = categories[i].getElementsByClassName("category-header")[0].getElementsByClassName("category-header-container")[0].getElementsByClassName("list-title")[0];
 
-        if (categoryName.innerText === category){
+        if (categoryName.innerText === category) {
             // console.log("x");
 
-            // console.log(categories[i]);
-             categories[i].getElementsByClassName("items-wrapper")[0].appendChild(newItem);
+            console.log(categories[i]);
+            categories[i].getElementsByClassName("items-wrapper")[0].appendChild(newItem);
         }
     }
-    
+
 
 
 
@@ -110,24 +130,24 @@ function addItem(name, checked, category) {
  * Add delete functionality to each item.
  */
 function addDeleteEventListnerOnLoad() {
-  // let deleteButtons = document.getElementsByClassName("delete");
-  for(let i = 0; i < deleteButtons.length; i++){
-      deleteButtons[i].addEventListener("click", (e) => {
-          const index = Array.from(deleteButtons).indexOf(e.target);
-          removeItem(index);
-      })
-  }
+    // let deleteButtons = document.getElementsByClassName("delete");
+    for (let i = 0; i < deleteButtons.length; i++) {
+        deleteButtons[i].addEventListener("click", (e) => {
+            const index = Array.from(deleteButtons).indexOf(e.target);
+            removeItem(index);
+        })
+    }
 }
 
 
 function addDeleteEventListener() {
     const listDOM = document.getElementsByClassName("list-item");
     // console.log(`just added a new item, wanted to make sure the length of list is correct: ${items.length}`);
-    let endIndex = deleteButtons.length-1;
+    let endIndex = deleteButtons.length - 1;
     deleteButtons[endIndex].addEventListener("click", (e) => {
         const index = Array.from(deleteButtons).indexOf(e.target);
         removeItem(index);
-  });
+    });
 }
 
 const removeItem = (index) => {
@@ -165,6 +185,7 @@ function save() {
 
 
 window.onbeforeunload = confirmExit;
+
 function confirmExit() {
     // let items = document.getElementsByClassName("list-item");
     console.log(items);
@@ -181,59 +202,70 @@ function confirmExit() {
 
 
 
+window.addEventListener('load', function() {
 
-window.addEventListener('load', function () {
 
+    let create_cat = document.querySelector('.create-cat-btn');
+    create_cat.addEventListener("click", function() {
+        document.querySelector('.modal-cat').style.display = "flex";
 
-  let create_cat = document.querySelector('.create-cat-btn');
-create_cat.addEventListener("click", function() {
-    document.querySelector('.modal-cat').style.display = "flex";
+        document.querySelector('.cancel-btn').addEventListener("click", function() {
+            document.querySelector('.modal-cat').style.display = "none";
+        });
 
-    document.querySelector('.cancel-btn').addEventListener("click", function() {
-        document.querySelector('.modal-cat').style.display = "none";
-    });
-
-    document.querySelector('.category-add-btn').addEventListener("click", function() {
-        document.querySelector('.modal-cat').style.display = "none";
-    });
-})
+        document.querySelector('.category-add-btn').addEventListener("click", function() {
+            document.querySelector('.modal-cat').style.display = "none";
+        });
+    })
 });
 
 
 
 
-function addCategory(name){
+function addCategory(name) {
 
 
     const listDOM = document.getElementsByClassName('list')[0];
     const newCategory = document.createElement('div');
-    newCategory.className = "category-wrapper"; 
+    newCategory.className = "category-wrapper";
 
-    newCategory.innerHTML = `                           
-    <legend class="category-header">
-    <div class="category-header-container">
+    //   newCategory.innerHTML = `                           
+    //   <legend class="category-header">
+    //   <div class="category-header-container">
+    //     <button class="cat-del-btn">-</button>
+    //     <button id="collapse" class="collapse-add-btn">^</button>
+    //     <button class="item-add-btn">+</button>
+    //     <h2 class="list-title">Dairy</h2>
+    //   </div>
+    // </legend>
+    // <span class="items-wrapper">
+    // </span>`
+
+    newCategory.innerHTML =
+        `<legend class="category-header">
+  <div class="category-header-container">
+    <h2 class="list-title">Meat</h2>
+    <div class="btn-group">
       <button class="cat-del-btn">-</button>
       <button id="collapse" class="collapse-add-btn">^</button>
       <button class="item-add-btn">+</button>
-      <h2 class="list-title">Dairy</h2>
     </div>
-  </legend>
-  <span class="items-wrapper">
-  </span>`
+  </div>
+</legend>
+<span class="items-wrapper"></span>`
 
-    newCategory.getElementsByClassName("category-header-container")[0].getElementsByClassName("list-title")[0].textContent = name; 
+    newCategory.getElementsByClassName("category-header-container")[0].getElementsByClassName("list-title")[0].textContent = name;
 
 
 
-    listDOM.appendChild(newCategory); 
+    listDOM.appendChild(newCategory);
 
-    
-    const addButtons =  document.getElementsByClassName('item-add-btn');
-    console.log(addButtons);
-    
-    addButtons[addButtons.length-1].addEventListener('click', function() {
-        addItem("", false, addButtons[addButtons.length-1].parentNode.getElementsByClassName("list-title")[0].innerText);
-        addDeleteEventListener(); 
+
+    const addButtons = document.getElementsByClassName('item-add-btn');
+
+    addButtons[addButtons.length - 1].addEventListener('click', function() {
+        addItem("", false, addButtons[addButtons.length - 1].parentNode.parentNode.getElementsByClassName("list-title")[0].innerText);
+        addDeleteEventListener();
 
     });
 
@@ -242,21 +274,20 @@ function addCategory(name){
     const leg = document.getElementsByClassName('category-header');
 
 
-    console.log(cate);
     var i;
     for (i = 0; i < coll.length; i = i + 1) {
-      let curr = i;
-      coll[i].addEventListener("click", function() {
-        console.log(cate, curr);
-        if ((cate[curr]).style.display != "none") {
-          (cate[curr]).style.display = 'none';
-          coll[curr].textContent = ">";
-          leg[curr].style.paddingBottom = '0px';
-        } else {
-          (cate[curr]).style.display = 'block';
-          coll[curr].textContent = "^";
-          leg[curr].style.paddingBottom = '8px';
-        }
-      });
+        let curr = i;
+        coll[i].addEventListener("click", function() {
+            console.log(cate, curr);
+            if ((cate[curr]).style.display != "none") {
+                (cate[curr]).style.display = 'none';
+                coll[curr].textContent = ">";
+                leg[curr].style.paddingBottom = '0px';
+            } else {
+                (cate[curr]).style.display = 'block';
+                coll[curr].textContent = "^";
+                leg[curr].style.paddingBottom = '8px';
+            }
+        });
     }
 }
