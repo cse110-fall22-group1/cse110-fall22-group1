@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Grocery List</title>
+    <link rel="stylesheet" href="style-v4.css" />
+    <link href='https://fonts.googleapis.com/css?family=Source Code Pro' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Zen Dots' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Sulphur Point' rel='stylesheet'>
+    <!-- Importing Bootstrap -->
+    <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">-->
+</head>
+
+<body>
+    <br><br>
+    <h1>
+        <span class="title-one">/// Grocery</span>
+        <span class="title-two">Gadget</span>
+    </h1>
+
+    <br><br>
+    <!-- <div class="layouts-btn-wrapper">
+        <button class="all-items-btn">All Items</button> 
+        <button class="uncheck-items-btn">Unchecked Items</button>
+    </div> -->
+
+    <!-- split-botton -->
+    <button class="split-button" data-modal="modalOne">Split Bill</button>
+    <!-- split-botton -->
+
+    <!-- pop-up window for split bill -->
+    <div id="modalOne" class="modal">
+        <form class="top-wrapper">
+            <a class="close">&times;</a>
+            <p class="totcost">Total Cost:</p> <input type="text" id="cost" /><br>
+            <p class="numpeople">Number of People: </p> <input type="text" id="people" />
+        </form>
+        <legend class="cal-wrapper">
+            <button class="calculate-button"> Split Cost</button>
+        </legend>
+        <form class="bot-wrapper">
+            <p> Each Person owes:</p>
+            <div class="calculate-result">
+            </div>
+        </form>
+
+    </div>
+    <!-- pop-up window for split bill -->
+
+    <button id="all-items-btn" class="check-uncheck-button">Show all Items</button>
+    <button id="unchecked-items-btn" class="check-uncheck-button">Show unchecked Items</button>
+    <div class="items-tabs">
+        <input type="radio" id="tab-all" name="items-tabs" checked="checked">
+        <label for="tab-all" class="tab-label">My List</label>
+        <div class="tab-list">
+            <fieldset>
+                <!--This is a wrapper for a single whole list-->
+
+                <div class="list-wrapper" id="original-list">
+
+                    <!--This is a class wrapper for the actual lists of items for the category-->
+                    <div class="list">
+                        <div class="category-wrapper">
+                            <legend class="category-header">
+                                <div class="category-header-container">
+                                    <h2 class="list-title">Dairy</h2>
+                                    <div class="btn-group">
+                                        <button class="cat-del-btn">-</button>
+                                        <button id="collapse" class="collapse-add-btn">^</button>
+                                        <button class="item-add-btn">+</button>
+                                    </div>
+                                </div>
+                            </legend>
+                            <span class="item-wrapper">
+                                <div class="list-item">
+                                    <label>
+                                        <input type="checkbox" class="checkbox" value="egg">
+                                        <span class="bubble"></span>
+                                    </label>
+
+                                    <div class="list-content">
+                                        <input type="text" value="egg" readonly>
+                                    </div>
+
+                                    <div class="actions">
+                                        <!-- <button class="edit"><img src="icons/edit-button.svg"></button> -->
+                                        <button class="delete"><img src="icon-delete.svg"></button>
+                                    </div>
+                                </div>
+
+                                <div class="list-item">
+                                    <label>
+                                        <input type="checkbox" class="checkbox" value="beef">
+                                        <span class="bubble"></span>
+                                    </label>
+
+                                    <div class="list-content">
+                                        <input type="text" value="beef" readonly>
+                                    </div>
+
+                                    <div class="actions">
+                                        <!-- <button class="edit"><img src="icons/edit-button.svg"></button> -->
+                                        <button class="delete"><img src="icon-delete.svg"></button>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+                        <!-- Javascript to implement collapse functionality-->
+
+                        <div class="category-wrapper">
+                            <legend class="category-header">
+                                <div class="category-header-container">
+                                    <h2 class="list-title">Vegetables</h2>
+                                    <div class="btn-group">
+                                        <button class="cat-del-btn">-</button>
+                                        <button id="collapse" class="collapse-add-btn">^</button>
+                                        <button class="item-add-btn">+</button>
+                                    </div>
+                                </div>
+                            </legend>
+                            <span class="item-wrapper">
+                                <div class="list-item">
+                                    <label>
+                                        <input type="checkbox" class="checkbox" value="spinach">
+                                        <span class="bubble"></span>
+                                    </label>
+
+                                    <div class="list-content">
+                                        <input type="text" value="spinach" readonly>
+                                    </div>
+
+                                    <div class="actions">
+                                        <!-- <button class="edit"><img src="icons/edit-button.svg"></button> -->
+                                        <button class="delete"><img src="icon-delete.svg"></button>
+                                    </div>
+                                </div>
+
+                                <div class="list-item">
+                                    <label>
+                                        <input type="checkbox" class="checkbox" value="tomatoes">
+                                        <span class="bubble"></span>
+                                    </label>
+
+                                    <div class="list-content">
+                                        <input type="text" value="tomatoes" readonly>
+                                    </div>
+
+                                    <div class="actions">
+                                        <!-- <button class="edit"><img src="icons/edit-button.svg"></button> -->
+                                        <button class="delete"><img src="icon-delete.svg"></button>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+
+
+                        <!-- <legend class="category-bar">
+                            <div class="list-header-btn">
+                                <h2 class="list-title">Vegetables</h2>
+                                <div class="btn-group">
+                                    <button class="cat-del-btn">-</button>
+                                    <button id="collapse" class="collapse-add-btn">^</button>
+                                    <button class="item-add-btn">+</button>
+                                </div>
+                            </div>
+                        </legend>
+                        <span class="category-wrapper">
+                            <div class="list-item">
+                                <label>
+                                    <input type="checkbox" class="checkbox" value="Tomatoes">
+                                    <span class="bubble"></span>
+                                </label>
+
+                                <div class="list-content">
+                                    <input type="text" value="Tomatoes" readonly>
+                                </div>
+                                <div class="actions">
+                                    <button class="delete"><img src="icon-delete.svg"></button>
+                                </div>
+                            </div>
+                        </span> -->
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
+
+    <br>
+
+    <br>
+    <br>
+    <br>
+
+
+    <div class="create-cat-btn">
+        <input type="button" class="footer-button" value="Create New Category" />
+    </div>
+    <br>
+    <div class="uncheck-btn">
+        <input type="button" class="footer-button" value="Uncheck All the Items" />
+    </div>
+
+    <div class="modal-cat">
+        <div class="modal-content">
+            <!-- <div class="close">+</div> -->
+            <form action="">
+                <input type="text" placeholder="Category to add?"> <br> <br>
+                <button class="category-add-btn">Add</button>
+                <button class="cancel-btn">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <script src="uncheck-v4.js"></script>
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        let coll = document.getElementsByClassName("collapse-add-btn");
+        const cate = document.getElementsByClassName('item-wrapper');
+        const leg = document.getElementsByClassName('category-bar');
+        var i;
+        for (i = 0; i < coll.length; i = i + 1) {
+            let curr = i;
+            coll[i].addEventListener("click", function () {
+                if ((cate[curr]).style.display != "none") {
+                    (cate[curr]).style.display = 'none';
+                    coll[curr].textContent = ">";
+                    leg[curr].style.paddingBottom = '0px';
+                } else {
+                    (cate[curr]).style.display = 'block';
+                    coll[curr].textContent = "^";
+                    leg[curr].style.paddingBottom = '8px';
+                }
+            });
+        }  
+    </script>
+    <!-- End of Background color select-->
+
+
+</body>
+
+</html>

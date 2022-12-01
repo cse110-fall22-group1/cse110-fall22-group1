@@ -1,0 +1,158 @@
+
+/* Variables */
+
+/* End of Variables */
+
+* {
+    right: 100px;
+}
+
+
+h1 {
+    position: center;
+    margin: auto;
+    width: 20%;
+    text-align: center; 
+}
+
+body {
+    background: #006d77;
+}
+
+.list-header {
+    display: flex;
+    align-items: center;
+}
+
+.list-title {
+    flex: 1;
+}
+
+.layouts-btn-wrapper button {
+    display: inline-block;
+    background-color: #edf6f9;
+    border: 4px double #cccccc;
+    /*Deciding how long the item want to be*/
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+/*This is for the hover effect, which sets the color of the button when hovering for this one*/
+.layouts-btn-wrapper button:hover {
+    background-color: #e29578;
+}
+
+.uncheck input, .create-cat-btn input {
+    display: block;
+    background-color: #edf6f9;
+    width: 250px;
+    margin: 0 auto;
+    border: 4px double #cccccc;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.list-item button {
+    background-color: #edf6f9;
+    margin: auto;
+    border: 4px double #cccccc;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.uncheck input:hover, .create-cat-btn input:hover, .list-item button:hover {
+    background-color: #e29578;
+}
+
+.list-header-btn button {
+    display: inline-block;
+    background-color: #edf6f9;
+    /*Making the button to be rounded shaped*/
+    border-radius: 10px;
+    /*Giving a wrapper layout to the button*/
+    border: 4px double #cccccc;
+    /*Changing the text color inside the button*/
+    /*color: #eeeeee;*/
+    text-align: center;
+    /*Choosing the font size*/
+    /*font-size: 28px;*/
+    /*Choosing the padding size*/
+    /*padding: 20px;*/
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 2px;
+    position: absolute;
+    right:22px;
+}
+
+legend[class="aaa"]{
+    padding-bottom: 35px;
+}
+
+.list-header-btn button:hover {
+    background-color: #e29578;
+}
+
+.list .list-item {
+    display: flex;
+    align-items: center;
+    background-color: rgb(211, 197, 173); 
+    padding: 1 rem;
+    border-radius: 0.5 rem;
+    box-shadow: var (--shadow);
+    margin-bottom: 1rem;
+
+}
+.list-item .list-content{
+    flex: 1 1 0%;
+}
+
+label[for="item1"]:hover, label[for="item2"]:hover, label[for="item3"]:hover, label[for="item4"]:hover {
+    background-color: rgb(223, 207, 190);
+    font-style: italic;
+  }
+
+/* color change part */
+.colorBlock {
+    height: 30px;
+    margin-top: 250px;
+  }
+
+  .textColor {
+     height: 30px;
+     margin-top: 250px;
+     width: 13%;
+  }
+
+  .colorWrapper {
+     height: 100%;
+     width: 100%;
+     display: flex;
+ }
+
+  #Blue {
+    background-color:rgb(156, 192, 231);
+    width: 3%;
+    
+  }
+  #White {
+    background-color: rgb(255, 255, 255);
+    width: 3%;
+  }
+  #Gray {
+    background-color: rgb(238, 238, 238);
+    width: 3%;
+  }
+  #Tan {
+    background-color: rgb(250, 234, 203);
+    width: 3%;
+  }
+  #Pink {
+    background-color: rgb(247, 219, 215);
+    width: 3%;
+  }
+  #Green {
+    background-color: rgb(6, 214, 160);
+    width: 3%;
+  }
