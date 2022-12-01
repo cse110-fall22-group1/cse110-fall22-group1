@@ -1,8 +1,4 @@
-<<<<<<< HEAD:src/tests/script.test.js
-const functions = require('../script.js');
-=======
-// const functions = require('../scriptv1.js');
->>>>>>> backend:src/frontend-src/script.test.js
+const functions = require('../scriptv1.js');
 
 let listDOM;
 
