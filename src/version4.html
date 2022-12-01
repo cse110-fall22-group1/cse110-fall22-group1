@@ -42,9 +42,11 @@
     </div>
     <!-- pop-up window for split bill -->
 
+    <button id="all-items-btn">Show all Items</button>
+    <button id="unchecked-items-btn">Show unchecked Items</button>
     <div class="items-tabs">
         <input type="radio" id="tab-all" name="items-tabs" checked="checked">
-        <label for="tab-all">All items</label>
+        <label for="tab-all">List</label>
         <div class="tab-list">
             <fieldset>
                 <!--This is a wrapper for a single whole list-->
@@ -129,15 +131,6 @@
                 </div>
             </fieldset>
         </div>
-
-        <input type="radio" id="tab-unchecked" name="items-tabs">
-        <label for="tab-unchecked">Unchecked Items</label>
-        <div class="tab-list">
-            <fieldset>
-                <div id="unchecked-list"></div>
-            </fieldset>
-        </div>
-
     </div>
 
 
@@ -192,10 +185,6 @@
         });
         let coll = document.getElementsByClassName("collapse-add-btn");
         const cate = document.getElementsByClassName('item-wrapper');
-        const collUp = document.createElement("img");
-        collUp.src = "collapse-up.svg";
-        const collDown = document.createElement("img");
-        collDown.src = "collapse-down.svg";
         const leg = document.getElementsByClassName('category-bar');
         var i;
         for (i = 0; i < coll.length; i = i + 1) {
