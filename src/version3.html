@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>My Grocery List</title>
     <link rel="stylesheet" href="style-v3.css" />
-    <!-- <script src="script.js"></script> -->
+    <script src="script.js"></script>
     <!-- Importing Bootstrap -->
     <!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">-->
   </head>
@@ -54,7 +54,7 @@
           <!--This is a wrapper for a single whole list-->
           <div class="list-wrapper" id="original-list">
             <div class="list">
-              <div class="category-wrapper">
+              <!-- <div class="category-wrapper">
                 <legend class="category-header">
                   <div class="category-header-container">
                     <h2 class="list-title">Meat</h2>
@@ -106,7 +106,7 @@
                   </div>
                 </legend>
                 <span class="items-wrapper"></span>
-              </div>
+              </div> -->
               <!--This is a class wrapper for the actual lists of items for the category-->
             </div>
         </fieldset>
@@ -125,6 +125,7 @@
     <br>
     <div class="create-cat-btn">
       <input type="button" value="Create New Category" />
+      
     </div>
     <br>
     <div class="uncheck-btn">
@@ -142,8 +143,7 @@
         </form>
       </div>
     </div>
-    <script src="uncheck-v3.js"></script>
-    <script src="script.js"></script>
+
     <!-- Background color select:-->
     <!-- color:https://teamtreehouse.com/community/how-would-i-let-the-user-change-the-background-colour-of-the-page-from-a-selection-of-colours -->
     <div class="colorWrapper">
@@ -164,41 +164,6 @@
         //Set the body's background-color to the received background-color
         $("body").css("background-color", $backgroundColor);
       });
-      // let coll = document.getElementsByClassName("collapse-add-btn");
-      // const cate = document.getElementsByClassName('items-wrapper');
-      // const leg = document.getElementsByClassName('category-header');
-      // var i;
-      // for (i = 0; i < coll.length; i = i + 1) {
-      //   let curr = i;
-      //   coll[i].addEventListener("click", function() {
-      //     if ((cate[curr]).style.display != "none") {
-      //       (cate[curr]).style.display = 'none';
-      //       coll[curr].textContent = ">";
-      //       leg[curr].style.paddingBottom = '0px';
-      //     } else {
-      //       (cate[curr]).style.display = 'block';
-      //       coll[curr].textContent = "^";
-      //       leg[curr].style.paddingBottom = '8px';
-      //     }
-      //   });
-      // }
-      //   let split_button = document.querySelector('.split-button');
-      //     console.dir(split_button);
-      //     split_button.addEventListener('click', function (){
-      //         let modal = split_button.getAttribute("data-modal");
-      //         document.getElementById(modal).style.display = "block";
-      //     });
-      //     let closeButtonsBtns = document.querySelector('.closeButtons');
-      //         closeButtonsBtns.addEventListener('click', function () {
-      //         let modal = closeButtonsBtns.closeButtonsst(".modal");
-      //          modal.style.display = "none";
-      //         });
-      //   window.onclick = function (event) {
-      //     if (event.target.className === "modal") {
-      //       event.target.style.display = "none";
-      //     }
-      //   };
     </script>
-    <!-- End of Background color select-->
   </body>
 </html>

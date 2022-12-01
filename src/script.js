@@ -1,3 +1,5 @@
+// const { stringTypeAnnotation } = require("@babel/types");
+
 window.addEventListener('DOMContentLoaded', init);
 
 const items = document.getElementsByClassName("list-item");
@@ -21,37 +23,51 @@ function init() {
 
     /// add listeners to existing categories' add item buttons
 
-    const addButtons = document.getElementsByClassName('item-add-btn');
+    // const addButtons = document.getElementsByClassName('item-add-btn');
 
-    for (let i = 0; i < addButtons.length; i++) {
-        //console.log(i);
-        addButtons[i].addEventListener('click', function() {
+    // for (let i = 0; i < addButtons.length; i++) {
+    //     //console.log(i);
+    //     addButtons[i].addEventListener('click', function() {
 
-            // console.log(addButtons[i].parentNode.parentNode);
-            addItem("", false, addButtons[i].parentNode.parentNode.getElementsByClassName("list-title")[0].innerText);
-            addDeleteEventListener();
+    //         // console.log(addButtons[i].parentNode.parentNode);
+    //         addItem("", false, addButtons[i].parentNode.parentNode.getElementsByClassName("list-title")[0].innerText);
+    //         addDeleteEventListener();
 
-        });
+    //     });
 
 
 
-    }
+    // }
 
 
     // load in items from local storage
-    let items = JSON.parse(localStorage.getItem("storage"));
-    for (let i = 0; i < items.length; i++) {
-        addItem(items[i][1], items[i][0], "");
+    let store = JSON.parse(localStorage.getItem("storage"));
+
+    if (store){
+      for (let i = 0; i < store.length; i++) {
+
+        // console.log(store[i]);
+        addCategory(store[i][0]);
+        for (let j = 1; j < store[i].length; j++){
+          console.log(store[i][j]);
+          addItem(store[i][j][1], store[i][j][0], store[i][0]);
+        }
+          
+        
+      }
     }
+
+    
+
     // Add delete functionality to existing items on load
-    window.addEventListener('load', addDeleteEventListnerOnLoad());
+    
 
 
     const addCategoryButton = document.getElementsByClassName("modal-cat")[0].getElementsByClassName("modal-content")[0].getElementsByClassName("addCategoryForm")[0].getElementsByClassName("category-add-btn")[0];
     const addCategoryName = document.getElementsByClassName("modal-cat")[0].getElementsByClassName("modal-content")[0].getElementsByClassName("addCategoryForm")[0].getElementsByClassName("category-name")[0];
 
 
-
+    window.addEventListener('load', addDeleteEventListnerOnLoad());
     addCategoryButton.addEventListener('click', function() {
         addCategory(addCategoryName.value);
 
@@ -85,6 +101,7 @@ function init() {
  * @param {string} category - The category of the item.
  */
 function addItem(name, checked, category) {
+  // console.log(category); 
 
     const listDOM = document.getElementsByClassName('list')[0];
     const categories = listDOM.getElementsByClassName("category-wrapper");
@@ -116,7 +133,7 @@ function addItem(name, checked, category) {
         if (categoryName.innerText === category) {
             // console.log("x");
 
-            console.log(categories[i]);
+            // console.log(categories[i]);
             categories[i].getElementsByClassName("items-wrapper")[0].appendChild(newItem);
         }
     }
@@ -169,12 +186,39 @@ function uncheckAll() {
  */
 function save() {
     // let items = document.getElementsByClassName("list-item");
-    let store = [];
-    for (let i = 0; i < items.length; i++) {
-        let a = [items[i].getElementsByTagName("label")[0].getElementsByTagName("input")[0].checked, items[i].getElementsByClassName("list-content")[0].getElementsByTagName("input")[0].value];
-        console.log(a);
-        store.push(a);
+
+    let store = []
+
+    let categories = document.getElementsByClassName("category-wrapper");
+
+    for (let i = 0; i < categories.length; i++){
+
+      let cat = []; 
+      // console.log(categories[i].getElementsByClassName("list-title")[0].innerText);
+
+      cat.push(categories[i].getElementsByClassName("list-title")[0].innerText); 
+      let items = categories[i].getElementsByClassName("list-item");
+      // console.log(items); 
+
+      for (let j = 0; j < items.length; j++){
+        // console.log(items[j].getElementsByTagName("input"));
+        cat.push([items[j].getElementsByTagName("input")[0].checked, items[j].getElementsByTagName("input")[1].value]);
+
+      }
+
+      // console.log(store)
+      store.push(cat); 
+
     }
+    console.log(store); 
+    
+
+    // let store = [];
+    // for (let i = 0; i < items.length; i++) {
+    //     let a = [items[i].getElementsByTagName("label")[0].getElementsByTagName("input")[0].checked, items[i].getElementsByClassName("list-content")[0].getElementsByTagName("input")[0].value];
+    //     console.log(a);
+    //     store.push(a);
+    // }
     localStorage.setItem("storage", JSON.stringify(store));
 }
 
@@ -188,14 +232,15 @@ window.onbeforeunload = confirmExit;
 
 function confirmExit() {
     // let items = document.getElementsByClassName("list-item");
-    console.log(items);
-    let store = [];
-    for (let i = 0; i < items.length; i++) {
-        let a = [items[i].getElementsByTagName("label")[0].getElementsByTagName("input")[0].checked, items[i].getElementsByClassName("list-content")[0].getElementsByTagName("input")[0].value];
-        console.log(a);
-        store.push(a);
-    }
-    localStorage.setItem("storage", JSON.stringify(store));
+    // console.log(items);
+    // let store = [];
+    // for (let i = 0; i < items.length; i++) {
+    //     let a = [items[i].getElementsByTagName("label")[0].getElementsByTagName("input")[0].checked, items[i].getElementsByClassName("list-content")[0].getElementsByTagName("input")[0].value];
+    //     console.log(a);
+    //     store.push(a);
+    // }
+    // localStorage.setItem("storage", JSON.stringify(store));
+    save(); 
     return false;
 }
 
@@ -261,13 +306,40 @@ function addCategory(name) {
     listDOM.appendChild(newCategory);
 
 
-    const addButtons = document.getElementsByClassName('item-add-btn');
+     const addButtons = document.getElementsByClassName('item-add-btn');
 
-    addButtons[addButtons.length - 1].addEventListener('click', function() {
-        addItem("", false, addButtons[addButtons.length - 1].parentNode.parentNode.getElementsByClassName("list-title")[0].innerText);
-        addDeleteEventListener();
+  //    addButtons[addButtons.length-1].addEventListener('click', function() {
 
-    });
+  //     // console.log(addButtons[i].parentNode.parentNode);
+  //     addItem("", false, addButtons[addButtons.length-1].parentNode.parentNode.getElementsByClassName("list-title")[0].innerText);
+      
+
+  // });
+
+
+
+
+
+  // addDeleteEventListener();
+
+
+    for (let i = 0; i < addButtons.length; i++) {
+        //console.log(i);
+        // addButtons[i].removeEventListener('click', function(){});
+
+        addButtons[i].replaceWith(addButtons[i].cloneNode()); 
+        addButtons[i].innerText = `+`;
+
+        addButtons[i].addEventListener('click', function() {
+
+            // console.log(addButtons[i].parentNode.parentNode);
+            addItem("", false, addButtons[i].parentNode.parentNode.getElementsByClassName("list-title")[0].innerText);
+            addDeleteEventListener();
+
+        });
+      }
+
+
 
     let coll = document.getElementsByClassName("collapse-add-btn");
     const cate = document.getElementsByClassName('items-wrapper');
@@ -278,7 +350,7 @@ function addCategory(name) {
     for (i = 0; i < coll.length; i = i + 1) {
         let curr = i;
         coll[i].addEventListener("click", function() {
-            console.log(cate, curr);
+            // console.log(cate, curr);
             if ((cate[curr]).style.display != "none") {
                 (cate[curr]).style.display = 'none';
                 coll[curr].textContent = ">";
