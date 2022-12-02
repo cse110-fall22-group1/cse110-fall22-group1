@@ -14,5 +14,6 @@ button.addEventListener('click', function() {
     let output = document.querySelector('.calculate-result');
     let cost = document.getElementById('cost').value;
     let num = document.getElementById('people').value;
-    output.innerHTML = eval(`${cost} / ${num}`);
+    let sum = cost/num;
+    output.innerHTML = sum.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 });
