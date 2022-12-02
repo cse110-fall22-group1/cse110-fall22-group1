@@ -63,12 +63,15 @@ function init() {
     
 
 
-    const addCategoryButton = document.getElementsByClassName("modal-cat")[0].getElementsByClassName("modal-content")[0].getElementsByClassName("addCategoryForm")[0].getElementsByClassName("category-add-btn")[0];
-    const addCategoryName = document.getElementsByClassName("modal-cat")[0].getElementsByClassName("modal-content")[0].getElementsByClassName("addCategoryForm")[0].getElementsByClassName("category-name")[0];
+    const addCategoryButton = document.getElementsByClassName("category-add-btn")[0];
+    const addCategoryName = document.getElementsByClassName("category-name")[0];
+    console.log(addCategoryName);
+
 
 
     window.addEventListener('load', addDeleteEventListnerOnLoad());
     addCategoryButton.addEventListener('click', function() {
+        console.log(addCategory);
         addCategory(addCategoryName.value);
 
     });
@@ -91,6 +94,15 @@ function init() {
           }
         });
       }
+
+
+      let button = document.querySelector('.calculate-button');
+      button.addEventListener('click', function() {
+        let output = document.querySelector('.calculate-result');
+        let cost = document.getElementById('cost').value;
+        let num = document.getElementById('people').value;
+        output.innerHTML = eval(`${cost} / ${num}`);
+      });
 
 }
 
@@ -129,7 +141,6 @@ function addItem(name, checked, category) {
 
     for (let i = 0; i < categories.length; i++) {
         const categoryName = categories[i].getElementsByClassName("category-header")[0].getElementsByClassName("category-header-container")[0].getElementsByClassName("list-title")[0];
-        console.log(categories[i]);
         if (categoryName.innerText === category) {
             // console.log("x");
             // console.log(categories[i]);
