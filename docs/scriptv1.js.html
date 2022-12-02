@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>scriptv1.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addDeleteCategoryEventListnerOnLoad">addDeleteCategoryEventListnerOnLoad</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addDeleteEventListnerOnLoad">addDeleteEventListnerOnLoad</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addItem">addItem</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#init">init</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#save">save</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#uncheckAll">uncheckAll</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">scriptv1.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const { ModuleMocker } = require("jest-mock");
+
+window.addEventListener('DOMContentLoaded', init);
+
+const items = document.getElementsByClassName("list-item");
+const deleteButtons = document.getElementsByClassName("delete");
+/**
+ * Populate the document with items.
+ */
+
+// Global variables (items) cannot be used in init() function
+function init() {
+    // *** ADD ITEM BUTTON ***
+    const addButton = document.getElementsByClassName('item-add-btn')[0];
+    addButton.addEventListener('click', function() {
+        addItem("", false, "");
+        addDeleteEventListener(); 
+    });
+    let items = JSON.parse(localStorage.getItem("storage"));
+    console.log(items[0]);
+    for (let i = 0; i &lt; items.length; i++) {
+        addItem(items[i][1], items[i][0], "");
+    }
+    // Add delete functionality to existing items on load
+    window.addEventListener('load', addDeleteEventListnerOnLoad());
+}
+
+/**
+ * Add items to the document
+ * @param {string} name - The name of the item.
+ * @param {boolean} checked - The status of the item.
+ * @param {string} category - The category of the item.
+ */
+const addItem = (name, checked, category) => {
+    // console.log(items);
+    const listDOM = document.getElementsByClassName('list')[0];
+    const newItem = document.createElement('div');
+    newItem.className = 'list-item';
+    newItem.innerHTML = `
+    &lt;label>
+      &lt;input type="checkbox">
+      &lt;span class="bubble" >&lt;/span>
+    &lt;/label>
+    &lt;div class="list-content">
+        &lt;input type="text" value ="" >
+    &lt;/div>
+    &lt;div class = "actions">
+        &lt;button class = "edit">Edit&lt;/button>
+        &lt;button class = "delete">Delete&lt;/button>
+    &lt;/div>
+  `
+    newItem.getElementsByClassName("list-content")[0].getElementsByTagName("input")[0].value = name;
+    newItem.getElementsByTagName("label")[0].getElementsByTagName("input")[0].checked = checked;
+    // console.log(newItem.getElementsByClassName("list-content"));
+    listDOM.appendChild(newItem);
+}
+
+/**
+ * Add delete functionality to each item.
+ */
+function addDeleteEventListnerOnLoad() {
+  // let deleteButtons = document.getElementsByClassName("delete");
+  for(let i = 0; i &lt; deleteButtons.length; i++){
+      console.log("inside the array");
+      deleteButtons[i].addEventListener("click", (e) => {
+          const index = Array.from(deleteButtons).indexOf(e.target);
+          removeItem(index);
+      })
+  }
+}
+
+
+function addDeleteEventListener() {
+    const listDOM = document.getElementsByClassName("list-item");
+    // console.log(`just added a new item, wanted to make sure the length of list is correct: ${items.length}`);
+    let endIndex = deleteButtons.length-1;
+    deleteButtons[endIndex].addEventListener("click", (e) => {
+        const index = Array.from(deleteButtons).indexOf(e.target);
+        removeItem(index);
+  });
+}
+
+const removeItem = (index) => {
+    items[index].remove();
+}
+
+/**
+ * Update the status of all items to "uncheck".
+ */
+function uncheckAll() {
+    let checkBoxes = document.querySelectorAll("input[type=checkbox]");
+    checkBoxes.forEach(item => {
+        item.checked = false
+    });
+}
+
+/**
+ * Manually save all items to localStorage.
+ */
+function save() {
+    // let items = document.getElementsByClassName("list-item");
+    let store = [];
+    for (let i = 0; i &lt; items.length; i++) {
+        let a = [items[i].getElementsByTagName("label")[0].getElementsByTagName("input")[0].checked, items[i].getElementsByClassName("list-content")[0].getElementsByTagName("input")[0].value];
+        console.log(a);
+        store.push(a);
+    }
+    localStorage.setItem("storage", JSON.stringify(store));
+}
+
+/**
+ * Save all items to localStorage before closing homepage.
+ */
+window.onbeforeunload = confirmExit;
+function confirmExit() {
+    // let items = document.getElementsByClassName("list-item");
+    console.log(items);
+    let store = [];
+    for (let i = 0; i &lt; items.length; i++) {
+        let a = [items[i].getElementsByTagName("label")[0].getElementsByTagName("input")[0].checked, items[i].getElementsByClassName("list-content")[0].getElementsByTagName("input")[0].value];
+        console.log(a);
+        store.push(a);
+    }
+    localStorage.setItem("storage", JSON.stringify(store));
+    return false;
+}
+
+// module.exports = items;
+// module.exports = deleteButtons;
+// module.exports = addItem();
+module.exports = { addItem, removeItem, uncheckAll, items};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Fri Dec 02 2022 23:16:34 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

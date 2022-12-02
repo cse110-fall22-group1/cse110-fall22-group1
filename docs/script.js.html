@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>script.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addDeleteCategoryEventListnerOnLoad">addDeleteCategoryEventListnerOnLoad</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addDeleteEventListnerOnLoad">addDeleteEventListnerOnLoad</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addItem">addItem</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#init">init</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#save">save</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#uncheckAll">uncheckAll</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">script.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// const { stringTypeAnnotation } = require("@babel/types");
+window.addEventListener('DOMContentLoaded', init);
+
+const items = document.getElementsByClassName("list-item");
+const deleteButtons = document.getElementsByClassName("delete");
+const deleteCategoryButton = document.getElementsByClassName("cat-del-btn");
+const allCategory = document.getElementsByClassName("category-wrapper");
+
+var allItems = true;
+
+/**
+ * Populate the document with items.
+ */
+
+// Global variables (items) cannot be used in init() function
+function init() {
+    // *** ADD ITEM BUTTON ***
+
+    // load in items from local storage
+    let store = JSON.parse(localStorage.getItem("storage"));
+
+    if (store) {
+        for (let i = 0; i &lt; store.length; i++) {
+
+            addCategory(store[i][0]);
+            for (let j = 1; j &lt; store[i].length; j++) {
+                addItem(store[i][j][1], store[i][j][0], store[i][0]);
+            }
+
+
+        }
+    }
+
+
+
+    // Add delete functionality to existing items on load
+
+
+
+    const addCategoryButton = document.getElementsByClassName("category-add-btn")[0];
+    const addCategoryName = document.getElementsByClassName("category-name")[0];
+
+
+
+    window.addEventListener('load', addDeleteEventListnerOnLoad());
+    window.addEventListener('load', addDeleteCategoryEventListnerOnLoad());
+    addCategoryButton.addEventListener('click', function() {
+        addCategory(addCategoryName.value);
+
+    });
+
+    let coll = document.getElementsByClassName("collapse-add-btn");
+    const cate = document.getElementsByClassName('item-wrapper');
+    const leg = document.getElementsByClassName('category-header');
+    var i;
+    for (i = 0; i &lt; coll.length; i = i + 1) {
+        let curr = i;
+        coll[i].addEventListener("click", function() {
+            if ((cate[curr]).style.display != "none") {
+                (cate[curr]).style.display = 'none';
+                coll[curr].textContent = ">";
+                leg[curr].style.paddingBottom = '0px';
+            } else {
+                (cate[curr]).style.display = 'block';
+                coll[curr].textContent = "^";
+                leg[curr].style.paddingBottom = '8px';
+            }
+        });
+    }
+
+
+    // let button = document.querySelector('.calculate-button');
+    // button.addEventListener('click', function() {
+    //     let output = document.querySelector('.calculate-result');
+    //     let cost = document.getElementById('cost').value;
+    //     let num = document.getElementById('people').value;
+    //     output.innerHTML = eval(`${cost} / ${num}`);
+    // });
+
+}
+
+/**
+ * Add items to the document
+ * @param {string} name - The name of the item.
+ * @param {boolean} checked - The status of the item.
+ * @param {string} category - The category of the item.
+ */
+function addItem(name, checked, category) {
+
+    const listDOM = document.getElementsByClassName('list')[0];
+    const categories = listDOM.getElementsByClassName("category-wrapper");
+    const newItem = document.createElement('div');
+    newItem.className = 'list-item';
+    newItem.innerHTML = `
+    &lt;label>
+      &lt;input type="checkbox">
+      &lt;span class="bubble" >&lt;/span>
+    &lt;/label>
+    &lt;div class="list-content">
+        &lt;input type="text" value ="" >
+    &lt;/div>
+    &lt;div class = "actions">
+        &lt;button class = "delete">Delete&lt;/button>
+    &lt;/div>
+  `
+    newItem.getElementsByClassName("list-content")[0].getElementsByTagName("input")[0].value = name;
+    newItem.getElementsByTagName("label")[0].getElementsByTagName("input")[0].checked = checked;
+    // listDOM.appendChild(newItem);
+
+
+    for (let i = 0; i &lt; categories.length; i++) {
+        const categoryName = categories[i].getElementsByClassName("category-header")[0].getElementsByClassName("category-header-container")[0].getElementsByClassName("list-title")[0];
+        if (categoryName.innerText === category) {
+            categories[i].getElementsByClassName("item-wrapper")[0].appendChild(newItem);
+        }
+    }
+
+
+    newItem.querySelectorAll("input[type=checkbox")[0].addEventListener('change', function() {
+        refreshState();
+    });
+
+
+
+
+}
+
+/**
+ * Add delete functionality to each item.
+ */
+function addDeleteEventListnerOnLoad() {
+    // let deleteButtons = document.getElementsByClassName("delete");
+    for (let i = 0; i &lt; deleteButtons.length; i++) {
+        deleteButtons[i].addEventListener("click", (e) => {
+            const index = Array.from(deleteButtons).indexOf(e.target);
+            removeItem(index);
+        })
+    }
+}
+
+
+function addDeleteEventListener() {
+    const listDOM = document.getElementsByClassName("list-item");
+    let endIndex = deleteButtons.length - 1;
+    deleteButtons[endIndex].addEventListener("click", (e) => {
+        const index = Array.from(deleteButtons).indexOf(e.target);
+        removeItem(index);
+    });
+}
+
+/**
+ * Update the status of all items to "uncheck".
+ */
+function uncheckAll() {
+    let checkBoxes = document.querySelectorAll("input[type=checkbox]");
+    checkBoxes.forEach(item => {
+        item.checked = false
+    });
+}
+
+/**
+ * Manually save all items to localStorage.
+ */
+function save() {
+    // let items = document.getElementsByClassName("list-item");
+
+    let store = []
+
+    let categories = document.getElementsByClassName("category-wrapper");
+
+    for (let i = 0; i &lt; categories.length; i++) {
+
+        let cat = [];
+
+        cat.push(categories[i].getElementsByClassName("list-title")[0].innerText);
+        let items = categories[i].getElementsByClassName("list-item");
+
+        for (let j = 0; j &lt; items.length; j++) {
+            cat.push([items[j].getElementsByTagName("input")[0].checked, items[j].getElementsByTagName("input")[1].value]);
+
+        }
+
+        store.push(cat);
+
+    }
+
+
+    localStorage.setItem("storage", JSON.stringify(store));
+}
+
+/**
+ * Save all items to localStorage before closing homepage.
+ */
+
+
+
+window.onbeforeunload = confirmExit;
+
+function confirmExit() {
+    save(); 
+    return false;
+}
+
+
+
+
+window.addEventListener('load', function() {
+    let create_cat = document.querySelector('.create-cat-btn');
+    create_cat.addEventListener("click", function() {
+        document.querySelector('.modal-cat').style.display = "flex";
+
+        document.querySelector('.cancel-btn').addEventListener("click", function() {
+            document.querySelector('.modal-cat').style.display = "none";
+        });
+
+        document.querySelector('.category-add-btn').addEventListener("click", function() {
+            document.querySelector('.modal-cat').style.display = "none";
+        });
+    })
+});
+
+
+
+
+function addCategory(name) {
+
+
+    const listDOM = document.getElementsByClassName('list')[0];
+    const newCategory = document.createElement('div');
+    newCategory.className = "category-wrapper";
+
+    //   newCategory.innerHTML = `                           
+    //   &lt;legend class="category-header">
+    //   &lt;div class="category-header-container">
+    //     &lt;button class="cat-del-btn">-&lt;/button>
+    //     &lt;button id="collapse" class="collapse-add-btn">^&lt;/button>
+    //     &lt;button class="item-add-btn">+&lt;/button>
+    //     &lt;h2 class="list-title">Dairy&lt;/h2>
+    //   &lt;/div>
+    // &lt;/legend>
+    // &lt;span class="items-wrapper">
+    // &lt;/span>`
+
+    newCategory.innerHTML =
+        `&lt;div class="category-header">
+  &lt;div class="category-header-container">
+    &lt;h2 class="list-title">Meat&lt;/h2>
+    &lt;div class="btn-group">
+      &lt;button class="cat-del-btn">-&lt;/button>
+      &lt;button class="collapse-add-btn">^&lt;/button>
+      &lt;button class="item-add-btn">+&lt;/button>
+    &lt;/div>
+  &lt;/div>
+&lt;/div>
+&lt;div class="item-wrapper">&lt;/div>`
+
+    newCategory.getElementsByClassName("category-header-container")[0].getElementsByClassName("list-title")[0].textContent = name;
+
+
+    listDOM.appendChild(newCategory);
+    addDeleteCategoryEventListner();
+    const addButtons = document.getElementsByClassName('item-add-btn');
+    for (let i = 0; i &lt; addButtons.length; i++) {
+
+
+        addButtons[i].replaceWith(addButtons[i].cloneNode());
+        addButtons[i].innerText = `+`;
+
+        addButtons[i].addEventListener('click', function() {
+
+            addItem("", false, addButtons[i].parentNode.parentNode.getElementsByClassName("list-title")[0].innerText);
+            addDeleteEventListener();
+
+        });
+    }
+
+
+
+    // let coll = document.getElementsByClassName("collapse-add-btn");
+    // const cate = document.getElementsByClassName('item-wrapper');
+    // const leg = document.getElementsByClassName('category-header');
+
+
+    // var i;
+
+
+    //     coll[coll.length-1].addEventListener("click", function() {
+    //         if ((cate[coll.length-1]).style.display != "none") {
+    //             (cate[coll.length-1]).style.display = 'none';
+    //             coll[coll.length-1].textContent = ">";
+    //             leg[coll.length-1].style.paddingBottom = '0px';
+    //         } else {
+    //             (cate[coll.length-1]).style.display = 'block';
+    //             coll[coll.length-1].textContent = "^";
+    //             leg[coll.length-1].style.paddingBottom = '8px';
+    //         }
+    //     });
+
+
+    // delete category functionality 
+
+
+
+
+}
+
+function removeCategory(index){
+  allCategory[index].remove();
+}
+
+/**
+ * Add delete category functionality to each category.
+ */
+function addDeleteCategoryEventListnerOnLoad() {
+  // let deleteButtons = document.getElementsByClassName("delete");
+  for (let i = 0; i &lt; deleteCategoryButton.length; i++) {
+    deleteCategoryButton[i].addEventListener("click", (e) => {
+          const index = Array.from(deleteCategoryButton).indexOf(e.target);
+          removeCategory(index);
+      });
+  }
+}
+
+function addDeleteCategoryEventListner() {
+  // let deleteButtons = document.getElementsByClassName("delete");
+  let endIndex = deleteCategoryButton.length - 1;
+  for (let i = 0; i &lt; deleteCategoryButton.length; i++) {
+    deleteCategoryButton[endIndex].addEventListener("click", (e) => {
+          const index = Array.from(deleteCategoryButton).indexOf(e.target);
+          removeCategory(index);
+      });
+  }
+}
+
+
+// function addDeleteCategoryEventListener() {
+//   // const listDOM = document.getElementsByClassName("list-item");
+//   let endIndex = deleteCategoryButton.length - 1;
+//   deleteCategoryButton[endIndex].addEventListener("click", (e) => {
+//       const index = Array.from(deleteCategoryButton).indexOf(e.target);
+
+//       removeItem(index);
+//   });
+// }
+
+const removeItem = (index) => {
+  items[index].remove();
+}
+
+
+
+function refreshState() {
+
+
+    var checkBoxes = document.querySelectorAll("input[type=checkbox]");
+
+    var items = document.getElementsByClassName("list-item");
+    if (allItems) {
+
+        for (let i = 0; i &lt; items.length; i++) {
+            items[i].style.display = "flex";
+        }
+
+    } else {
+
+
+        for (let i = 0; i &lt; checkBoxes.length; i++) {
+            if (checkBoxes[i].checked == true) {
+                items[i].style.display = "none";
+            }
+        }
+
+    }
+}
+
+
+
+let uncheckButton = document.getElementById('unchecked-items-btn');
+
+let allItemsButton = document.getElementById('all-items-btn');
+
+allItemsButton.addEventListener('click', function() {
+    allItems = true;
+    refreshState();
+});
+
+
+uncheckButton.addEventListener('click', function() {
+    allItems = false;
+    refreshState();
+});</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Fri Dec 02 2022 23:16:34 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
