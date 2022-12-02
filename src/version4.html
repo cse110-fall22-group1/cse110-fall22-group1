@@ -48,8 +48,8 @@
     </div>
     <!-- pop-up window for split bill -->
 
-    <button id="all-items-btn" class="check-uncheck-button">Show all Items</button>
-    <button id="unchecked-items-btn" class="check-uncheck-button">Show unchecked Items</button>
+    <button id="all-items-btn" class="check-uncheck-button">Show All Items</button>
+    <button id="unchecked-items-btn" class="check-uncheck-button">Show Unchecked Items</button>
     <div class="items-tabs">
         <input type="radio" id="tab-all" name="items-tabs" checked="checked">
         <label for="tab-all" class="tab-label">My List</label>
@@ -175,14 +175,14 @@
     </div>
     <br>
     <div class="uncheck-btn">
-        <input type="button" class="footer-button" value="Uncheck All the Items" />
+        <input type="button" class="footer-button" value="Uncheck All Items" onclick="uncheckAll()" />
     </div>
 
     <div class="modal-cat">
         <div class="modal-content">
             <!-- <div class="close">+</div> -->
             <form>
-                <input type="text" placeholder="Category to add?" class="category-name"> <br> <br>
+                <input type="text" placeholder="Name" class="category-name"> <br> <br>
                 <button class="category-add-btn" type="button">Add</button>
                 <button class="cancel-btn" type="button">Cancel</button>
             </form>

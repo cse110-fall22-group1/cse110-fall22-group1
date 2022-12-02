@@ -23,13 +23,22 @@ jobs:
       - run: npm run build --if-present
       # - run: npm test         
           
-      - name: JSDoc Action
-        uses: andstor/jsdoc-action@v1.2.1    
+      - name: Generate docs
+        uses: andstor/jsdoc-action@v1
         with:
           source_dir: ./src
-          output_dir: ./jsdoc
-          recurse: true
+          output_dir: ./docs
           template: minami
+          recurse: true
+
+      - name: Push docs
+        run: |
+          cd docs
+          git add -A
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git commit -m "Automated documentation"
+          git push
 
       - name: Lint Code Base
         uses: github/super-linter@v4

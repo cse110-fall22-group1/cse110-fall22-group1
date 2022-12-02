@@ -22,10 +22,8 @@ function init() {
     if (store) {
         for (let i = 0; i < store.length; i++) {
 
-            // console.log(store[i]);
             addCategory(store[i][0]);
             for (let j = 1; j < store[i].length; j++) {
-                console.log(store[i][j]);
                 addItem(store[i][j][1], store[i][j][0], store[i][0]);
             }
 
@@ -41,14 +39,12 @@ function init() {
 
     const addCategoryButton = document.getElementsByClassName("category-add-btn")[0];
     const addCategoryName = document.getElementsByClassName("category-name")[0];
-    console.log(addCategoryName);
 
 
 
     window.addEventListener('load', addDeleteEventListnerOnLoad());
     window.addEventListener('load', addDeleteCategoryEventListnerOnLoad());
     addCategoryButton.addEventListener('click', function() {
-        console.log(addCategory);
         addCategory(addCategoryName.value);
 
     });
@@ -90,7 +86,6 @@ function init() {
  * @param {string} category - The category of the item.
  */
 function addItem(name, checked, category) {
-    // console.log(category); 
 
     const listDOM = document.getElementsByClassName('list')[0];
     const categories = listDOM.getElementsByClassName("category-wrapper");
@@ -110,16 +105,12 @@ function addItem(name, checked, category) {
   `
     newItem.getElementsByClassName("list-content")[0].getElementsByTagName("input")[0].value = name;
     newItem.getElementsByTagName("label")[0].getElementsByTagName("input")[0].checked = checked;
-    // console.log(newItem.getElementsByClassName("list-content"));
     // listDOM.appendChild(newItem);
 
-    // console.log(listDOM);
 
     for (let i = 0; i < categories.length; i++) {
         const categoryName = categories[i].getElementsByClassName("category-header")[0].getElementsByClassName("category-header-container")[0].getElementsByClassName("list-title")[0];
         if (categoryName.innerText === category) {
-            // console.log("x");
-            // console.log(categories[i]);
             categories[i].getElementsByClassName("item-wrapper")[0].appendChild(newItem);
         }
     }
@@ -150,7 +141,6 @@ function addDeleteEventListnerOnLoad() {
 
 function addDeleteEventListener() {
     const listDOM = document.getElementsByClassName("list-item");
-    // console.log(`just added a new item, wanted to make sure the length of list is correct: ${items.length}`);
     let endIndex = deleteButtons.length - 1;
     deleteButtons[endIndex].addEventListener("click", (e) => {
         const index = Array.from(deleteButtons).indexOf(e.target);
@@ -181,23 +171,18 @@ function save() {
     for (let i = 0; i < categories.length; i++) {
 
         let cat = [];
-        // console.log(categories[i].getElementsByClassName("list-title")[0].innerText);
 
         cat.push(categories[i].getElementsByClassName("list-title")[0].innerText);
         let items = categories[i].getElementsByClassName("list-item");
-        // console.log(items); 
 
         for (let j = 0; j < items.length; j++) {
-            // console.log(items[j].getElementsByTagName("input"));
             cat.push([items[j].getElementsByTagName("input")[0].checked, items[j].getElementsByTagName("input")[1].value]);
 
         }
 
-        // console.log(store)
         store.push(cat);
 
     }
-    console.log(store);
 
 
     localStorage.setItem("storage", JSON.stringify(store));
@@ -283,7 +268,6 @@ function addCategory(name) {
 
         addButtons[i].addEventListener('click', function() {
 
-            // console.log(addButtons[i].parentNode.parentNode);
             addItem("", false, addButtons[i].parentNode.parentNode.getElementsByClassName("list-title")[0].innerText);
             addDeleteEventListener();
 
@@ -301,7 +285,6 @@ function addCategory(name) {
 
 
     //     coll[coll.length-1].addEventListener("click", function() {
-    //         // console.log(cate, curr);
     //         if ((cate[coll.length-1]).style.display != "none") {
     //             (cate[coll.length-1]).style.display = 'none';
     //             coll[coll.length-1].textContent = ">";
@@ -352,7 +335,6 @@ function addDeleteCategoryEventListner() {
 
 // function addDeleteCategoryEventListener() {
 //   // const listDOM = document.getElementsByClassName("list-item");
-//   // console.log(`just added a new item, wanted to make sure the length of list is correct: ${items.length}`);
 //   let endIndex = deleteCategoryButton.length - 1;
 //   deleteCategoryButton[endIndex].addEventListener("click", (e) => {
 //       const index = Array.from(deleteCategoryButton).indexOf(e.target);
@@ -372,7 +354,6 @@ function refreshState() {
 
     var checkBoxes = document.querySelectorAll("input[type=checkbox]");
 
-    console.log(checkBoxes);
     var items = document.getElementsByClassName("list-item");
     if (allItems) {
 
@@ -400,13 +381,11 @@ let allItemsButton = document.getElementById('all-items-btn');
 
 allItemsButton.addEventListener('click', function() {
     allItems = true;
-    console.log(allItems);
     refreshState();
 });
 
 
 uncheckButton.addEventListener('click', function() {
     allItems = false;
-    console.log(allItems);
     refreshState();
 });
