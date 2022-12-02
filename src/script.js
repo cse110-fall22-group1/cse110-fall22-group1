@@ -5,7 +5,9 @@ const items = document.getElementsByClassName("list-item");
 const deleteButtons = document.getElementsByClassName("delete");
 const deleteCategoryButton = document.getElementsByClassName("cat-del-btn");
 const allCategory = document.getElementsByClassName("category-wrapper");
-
+let coll = document.getElementsByClassName("collapse-add-btn");
+let cate = document.getElementsByClassName('item-wrapper');
+let leg = document.getElementsByClassName('category-header');
 var allItems = true;
 
 /**
@@ -49,24 +51,46 @@ function init() {
 
     });
 
-    let coll = document.getElementsByClassName("collapse-add-btn");
-    const cate = document.getElementsByClassName('item-wrapper');
-    const leg = document.getElementsByClassName('category-header');
-    var i;
-    for (i = 0; i < coll.length; i = i + 1) {
-        let curr = i;
-        coll[i].addEventListener("click", function() {
-            if ((cate[curr]).style.display != "none") {
-                (cate[curr]).style.display = 'none';
-                coll[curr].textContent = ">";
-                leg[curr].style.paddingBottom = '0px';
-            } else {
-                (cate[curr]).style.display = 'block';
-                coll[curr].textContent = "^";
-                leg[curr].style.paddingBottom = '8px';
-            }
-        });
-    }
+    // let coll = document.getElementsByClassName("collapse-add-btn");
+    // const cate = document.getElementsByClassName('item-wrapper');
+    // const leg = document.getElementsByClassName('category-header');
+    // var i;
+    // for (i = 0; i < coll.length; i = i + 1) {
+    //     let curr = i;
+    //     coll[i].addEventListener("click", function() {
+    //         if ((cate[curr]).style.display != "none") {
+    //             (cate[curr]).style.display = 'none';
+    //             coll[curr].textContent = ">";
+    //             leg[curr].style.paddingBottom = '0px';
+    //         } else {
+    //             (cate[curr]).style.display = 'block';
+    //             coll[curr].textContent = "^";
+    //             leg[curr].style.paddingBottom = '8px';
+    //         }
+    //     });
+    // }
+
+    window.addEventListener('click', function(e) {
+        if(e.target.className === 'collapse-add-btn'){
+            var i;
+            for (i = 0; i < coll.length; i = i + 1) {
+                let index;
+                if(e.target == coll[i]){
+                    index = i;
+                    if ((cate[index]).style.display != "none") {
+                        (cate[index]).style.display = 'none';
+                        coll[index].textContent = "^";
+                        leg[index].style.paddingBottom = '0px';
+                    } else {
+                        (cate[index]).style.display = 'block';
+                        coll[index].textContent = ">";
+                        leg[index].style.paddingBottom = '8px';
+                    }
+                }
+            }   
+        }
+        // console.dir(e.target);
+    });
 
 
     // let button = document.querySelector('.calculate-button');
@@ -247,7 +271,7 @@ function addCategory(name) {
     <h2 class="list-title">Meat</h2>
     <div class="btn-group">
       <button class="cat-del-btn">-</button>
-      <button class="collapse-add-btn">^</button>
+      <button class="collapse-add-btn">></button>
       <button class="item-add-btn">+</button>
     </div>
   </div>
