@@ -250,7 +250,7 @@ function confirmExit() {
     //     store.push(a);
     // }
     // localStorage.setItem("storage", JSON.stringify(store));
-    save(); 
+    // save(); 
     return false;
 }
 
@@ -297,17 +297,17 @@ function addCategory(name) {
     // </span>`
 
     newCategory.innerHTML =
-        `<legend class="category-header">
+        `<div class="category-header">
   <div class="category-header-container">
     <h2 class="list-title">Meat</h2>
     <div class="btn-group">
       <button class="cat-del-btn">-</button>
-      <button id="collapse" class="collapse-add-btn">^</button>
+      <button class="collapse-add-btn">^</button>
       <button class="item-add-btn">+</button>
     </div>
   </div>
-</legend>
-<span class="item-wrapper"></span>`
+</div>
+<div class="item-wrapper"></div>`
 
     newCategory.getElementsByClassName("category-header-container")[0].getElementsByClassName("list-title")[0].textContent = name;
 
@@ -351,25 +351,106 @@ function addCategory(name) {
 
 
 
-    let coll = document.getElementsByClassName("collapse-add-btn");
-    const cate = document.getElementsByClassName('item-wrapper');
-    const leg = document.getElementsByClassName('category-header');
+    // let coll = document.getElementsByClassName("collapse-add-btn");
+    // const cate = document.getElementsByClassName('item-wrapper');
+    // const leg = document.getElementsByClassName('category-header');
 
 
-    var i;
-    for (i = 0; i < coll.length; i = i + 1) {
-        let curr = i;
-        coll[i].addEventListener("click", function() {
-            // console.log(cate, curr);
-            if ((cate[curr]).style.display != "none") {
-                (cate[curr]).style.display = 'none';
-                coll[curr].textContent = ">";
-                leg[curr].style.paddingBottom = '0px';
-            } else {
-                (cate[curr]).style.display = 'block';
-                coll[curr].textContent = "^";
-                leg[curr].style.paddingBottom = '8px';
-            }
-        });
-    }
+    // var i;
+
+
+    //     coll[coll.length-1].addEventListener("click", function() {
+    //         // console.log(cate, curr);
+    //         if ((cate[coll.length-1]).style.display != "none") {
+    //             (cate[coll.length-1]).style.display = 'none';
+    //             coll[coll.length-1].textContent = ">";
+    //             leg[coll.length-1].style.paddingBottom = '0px';
+    //         } else {
+    //             (cate[coll.length-1]).style.display = 'block';
+    //             coll[coll.length-1].textContent = "^";
+    //             leg[coll.length-1].style.paddingBottom = '8px';
+    //         }
+    //     });
+
+
+      // delete category functionality 
+
+
+
+    
 }
+
+
+
+console.log('linked')
+var originalList = document.querySelector('#original-list');
+var item = originalList.getElementsByClassName("list-item");
+var checkboxes = document.querySelectorAll('.checkbox');
+  
+function uncheckItem(index){
+    item[index].style.display = "none";
+}
+
+function checkItem(index){
+item[index].style.display = "flex";
+}
+
+let uncheckButton = document.getElementById('unchecked-items-btn');
+console.dir(uncheckButton);
+uncheckButton.addEventListener('click', function() {
+    for (let i = 0; i < checkboxes.length; i++){
+        if(checkboxes[i].checked == true){
+            console.log(i);
+            removeItem(i);
+        } else {
+            addItem(i);
+        }
+    }
+    for (let i = 0; i < checkboxes.length; i++){
+        checkboxes[i].addEventListener('click', (e) => {
+            let index = Array.from(checkboxes).indexOf(e.target);
+            if(checkboxes[i].checked == true){
+                console.log(index);
+                removeItem(index);
+            } else {
+                addItem(index);
+            }
+        })
+    }
+})
+
+// let allItemsButton = document.getElementById('all-items-btn');
+// allItemsButton.addEventListener ('click', function(){
+//     for (let i = 0; i < checkboxes.length; i++){
+//         addItem(i);
+//     }
+// })
+
+// let split_btn = document.querySelector('.split-button');
+// console.dir(split_btn);
+// split_btn.addEventListener('click', function (){
+//     let modal = split_btn.getAttribute("data-modal");
+//     document.getElementById(modal).style.display = "block";
+
+    
+// });
+// let closeBtns = document.querySelector('.close');
+//     closeBtns.addEventListener('click', function () {
+//     let modal = closeBtns.closest(".modal");
+//         modal.style.display = "none";
+
+// });
+
+// let create_cat = document.querySelector('.create-cat-btn');
+// console.log(create_cat);
+// create_cat.addEventListener("click", function() {
+//     document.querySelector('.modal-cat').style.display = "flex";
+
+//     document.querySelector('.cancel-btn').addEventListener("click", function() {
+//         document.querySelector('.modal-cat').style.display = "none";
+//     });
+
+//     document.querySelector('.category-add-btn').addEventListener("click", function() {
+//         document.querySelector('.modal-cat').style.display = "none";
+//     });
+// })

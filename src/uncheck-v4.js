@@ -17,9 +17,9 @@ uncheckButton.addEventListener('click', function() {
     for (let i = 0; i < checkboxes.length; i++){
         if(checkboxes[i].checked == true){
             console.log(i);
-            removeItem(i);
+            uncheckItem(i);
         } else {
-            addItem(i);
+            checkItem(i);
         }
     }
     for (let i = 0; i < checkboxes.length; i++){
@@ -27,9 +27,9 @@ uncheckButton.addEventListener('click', function() {
             let index = Array.from(checkboxes).indexOf(e.target);
             if(checkboxes[i].checked == true){
                 console.log(index);
-                removeItem(index);
+                uncheckItem(index);
             } else {
-                addItem(index);
+                checkItem(index);
             }
         })
     }
@@ -38,7 +38,7 @@ uncheckButton.addEventListener('click', function() {
 let allItemsButton = document.getElementById('all-items-btn');
 allItemsButton.addEventListener ('click', function(){
     for (let i = 0; i < checkboxes.length; i++){
-        addItem(i);
+        checkItem(i);
     }
 })
 
