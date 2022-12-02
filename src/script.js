@@ -3,6 +3,8 @@ window.addEventListener('DOMContentLoaded', init);
 
 const items = document.getElementsByClassName("list-item");
 const deleteButtons = document.getElementsByClassName("delete");
+const deleteCategoryButton = document.getElementsByClassName("cat-del-btn");
+const allCategory = document.getElementsByClassName("category-wrapper");
 
 var allItems = true;
 
@@ -44,6 +46,7 @@ function init() {
 
 
     window.addEventListener('load', addDeleteEventListnerOnLoad());
+    window.addEventListener('load', addDeleteCategoryEventListnerOnLoad());
     addCategoryButton.addEventListener('click', function() {
         console.log(addCategory);
         addCategory(addCategoryName.value);
@@ -153,10 +156,6 @@ function addDeleteEventListener() {
         const index = Array.from(deleteButtons).indexOf(e.target);
         removeItem(index);
     });
-}
-
-const removeItem = (index) => {
-    items[index].remove();
 }
 
 /**
@@ -273,8 +272,8 @@ function addCategory(name) {
     newCategory.getElementsByClassName("category-header-container")[0].getElementsByClassName("list-title")[0].textContent = name;
 
 
-
     listDOM.appendChild(newCategory);
+    addDeleteCategoryEventListner();
     const addButtons = document.getElementsByClassName('item-add-btn');
     for (let i = 0; i < addButtons.length; i++) {
 
@@ -322,6 +321,49 @@ function addCategory(name) {
 
 }
 
+function removeCategory(index){
+  allCategory[index].remove();
+}
+
+/**
+ * Add delete category functionality to each category.
+ */
+function addDeleteCategoryEventListnerOnLoad() {
+  // let deleteButtons = document.getElementsByClassName("delete");
+  for (let i = 0; i < deleteCategoryButton.length; i++) {
+    deleteCategoryButton[i].addEventListener("click", (e) => {
+          const index = Array.from(deleteCategoryButton).indexOf(e.target);
+          removeCategory(index);
+      });
+  }
+}
+
+function addDeleteCategoryEventListner() {
+  // let deleteButtons = document.getElementsByClassName("delete");
+  let endIndex = deleteCategoryButton.length - 1;
+  for (let i = 0; i < deleteCategoryButton.length; i++) {
+    deleteCategoryButton[endIndex].addEventListener("click", (e) => {
+          const index = Array.from(deleteCategoryButton).indexOf(e.target);
+          removeCategory(index);
+      });
+  }
+}
+
+
+// function addDeleteCategoryEventListener() {
+//   // const listDOM = document.getElementsByClassName("list-item");
+//   // console.log(`just added a new item, wanted to make sure the length of list is correct: ${items.length}`);
+//   let endIndex = deleteCategoryButton.length - 1;
+//   deleteCategoryButton[endIndex].addEventListener("click", (e) => {
+//       const index = Array.from(deleteCategoryButton).indexOf(e.target);
+
+//       removeItem(index);
+//   });
+// }
+
+const removeItem = (index) => {
+  items[index].remove();
+}
 
 
 
