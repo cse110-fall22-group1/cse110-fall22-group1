@@ -74,7 +74,7 @@ function init() {
     });
 
      let coll = document.getElementsByClassName("collapse-add-btn");
-      const cate = document.getElementsByClassName('items-wrapper');
+      const cate = document.getElementsByClassName('item-wrapper');
       const leg = document.getElementsByClassName('category-header');
       var i;
       for (i = 0; i < coll.length; i = i + 1) {
@@ -129,12 +129,11 @@ function addItem(name, checked, category) {
 
     for (let i = 0; i < categories.length; i++) {
         const categoryName = categories[i].getElementsByClassName("category-header")[0].getElementsByClassName("category-header-container")[0].getElementsByClassName("list-title")[0];
-
+        console.log(categories[i]);
         if (categoryName.innerText === category) {
             // console.log("x");
-
             // console.log(categories[i]);
-            categories[i].getElementsByClassName("items-wrapper")[0].appendChild(newItem);
+            categories[i].getElementsByClassName("item-wrapper")[0].appendChild(newItem);
         }
     }
 
@@ -297,7 +296,7 @@ function addCategory(name) {
     </div>
   </div>
 </legend>
-<span class="items-wrapper"></span>`
+<span class="item-wrapper"></span>`
 
     newCategory.getElementsByClassName("category-header-container")[0].getElementsByClassName("list-title")[0].textContent = name;
 
@@ -342,7 +341,7 @@ function addCategory(name) {
 
 
     let coll = document.getElementsByClassName("collapse-add-btn");
-    const cate = document.getElementsByClassName('items-wrapper');
+    const cate = document.getElementsByClassName('item-wrapper');
     const leg = document.getElementsByClassName('category-header');
 
 

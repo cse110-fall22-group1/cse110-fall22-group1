@@ -1,14 +1,14 @@
 console.log('linked')
 var originalList = document.querySelector('#original-list');
-var items = originalList.getElementsByClassName("list-item");
+var item = originalList.getElementsByClassName("list-item");
 var checkboxes = document.querySelectorAll('.checkbox');
   
-function removeItem(index){
-    items[index].style.display = "none";
+function uncheckItem(index){
+    item[index].style.display = "none";
 }
 
-function addItem(index){
-items[index].style.display = "flex";
+function checkItem(index){
+item[index].style.display = "flex";
 }
 
 let uncheckButton = document.getElementById('unchecked-items-btn');
