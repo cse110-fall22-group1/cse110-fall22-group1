@@ -164,7 +164,7 @@ function addItem(name, checked, category) {
         refreshState();
     });
 
-
+    addDeleteEventListener();
 
 
 }
