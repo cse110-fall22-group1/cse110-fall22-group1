@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addDeleteCategoryEventListnerOnLoad">addDeleteCategoryEventListnerOnLoad</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addDeleteEventListnerOnLoad">addDeleteEventListnerOnLoad</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addItem">addItem</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#init">init</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#save">save</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#uncheckAll">uncheckAll</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addDeleteEventListenerOnLoad">addDeleteEventListenerOnLoad</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addDeleteEventListnerOnLoad">addDeleteEventListnerOnLoad</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#addItem">addItem</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#init">init</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#save">save</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#uncheckAll">uncheckAll</a></span></li>
 </nav>
 
 <div id="main">
@@ -39,8 +39,7 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>// const { stringTypeAnnotation } = require("@babel/types");
-window.addEventListener('DOMContentLoaded', init);
+            <pre class="prettyprint source linenums"><code>window.addEventListener('DOMContentLoaded', init);
 
 const items = document.getElementsByClassName("list-item");
 const deleteButtons = document.getElementsByClassName("delete");
@@ -85,31 +84,12 @@ function init() {
 
 
 
-    window.addEventListener('load', addDeleteEventListnerOnLoad());
-    window.addEventListener('load', addDeleteCategoryEventListnerOnLoad());
+    window.addEventListener('load', addDeleteEventListenerOnLoad());
     addCategoryButton.addEventListener('click', function() {
         addCategory(addCategoryName.value);
 
     });
 
-    // let coll = document.getElementsByClassName("collapse-add-btn");
-    // const cate = document.getElementsByClassName('item-wrapper');
-    // const leg = document.getElementsByClassName('category-header');
-    // var i;
-    // for (i = 0; i &lt; coll.length; i = i + 1) {
-    //     let curr = i;
-    //     coll[i].addEventListener("click", function() {
-    //         if ((cate[curr]).style.display != "none") {
-    //             (cate[curr]).style.display = 'none';
-    //             coll[curr].textContent = ">";
-    //             leg[curr].style.paddingBottom = '0px';
-    //         } else {
-    //             (cate[curr]).style.display = 'block';
-    //             coll[curr].textContent = "^";
-    //             leg[curr].style.paddingBottom = '8px';
-    //         }
-    //     });
-    // }
 
     window.addEventListener('click', function(e) {
         if(e.target.className === 'collapse-add-btn'){
@@ -130,17 +110,58 @@ function init() {
                 }
             }   
         }
-        // console.dir(e.target);
     });
 
 
-    // let button = document.querySelector('.calculate-button');
-    // button.addEventListener('click', function() {
-    //     let output = document.querySelector('.calculate-result');
-    //     let cost = document.getElementById('cost').value;
-    //     let num = document.getElementById('people').value;
-    //     output.innerHTML = eval(`${cost} / ${num}`);
-    // });
+    let uncheckButton = document.getElementById('unchecked-items-btn');
+let allItemsButton = document.getElementById('all-items-btn');
+
+allItemsButton.addEventListener('click', function() {
+    allItems = true;
+    refreshState();
+});
+
+
+uncheckButton.addEventListener('click', function() {
+    allItems = false;
+    refreshState();
+});
+
+
+let split_btn = document.querySelector('.split-button');
+    console.dir(split_btn);
+    split_btn.addEventListener('click', function (){
+        let modal = split_btn.getAttribute("data-modal");
+        document.getElementById(modal).style.display = "block";       
+});
+let closeBtns = document.querySelector('.close');
+    closeBtns.addEventListener('click', function () {
+    let modal = closeBtns.closest(".modal");
+        modal.style.display = "none";
+});
+let button = document.querySelector('.calculate-button');
+button.addEventListener('click', function() {
+    let output = document.querySelector('.calculate-result');
+    let cost = document.getElementById('cost').value;
+    let num = document.getElementById('people').value;
+    let sum = cost/num;
+    output.innerHTML = sum.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+
+
+    //test and error handling for calculator functionality
+    try {
+        if (isNaN(cost) || isNaN(num) ) {
+       
+        throw new PropertyRequiredError("Number Error");
+    }
+   
+    } catch (err) {
+        alert(`Please enter valid numerical values!`); 
+
+
+     }
+});
+
 
 }
 
@@ -170,8 +191,6 @@ function addItem(name, checked, category) {
   `
     newItem.getElementsByClassName("list-content")[0].getElementsByTagName("input")[0].value = name;
     newItem.getElementsByTagName("label")[0].getElementsByTagName("input")[0].checked = checked;
-    // listDOM.appendChild(newItem);
-
 
     for (let i = 0; i &lt; categories.length; i++) {
         const categoryName = categories[i].getElementsByClassName("category-header")[0].getElementsByClassName("category-header-container")[0].getElementsByClassName("list-title")[0];
@@ -185,7 +204,7 @@ function addItem(name, checked, category) {
         refreshState();
     });
 
-
+    addDeleteEventListener();
 
 
 }
@@ -193,8 +212,7 @@ function addItem(name, checked, category) {
 /**
  * Add delete functionality to each item.
  */
-function addDeleteEventListnerOnLoad() {
-    // let deleteButtons = document.getElementsByClassName("delete");
+function addDeleteEventListenerOnLoad() {
     for (let i = 0; i &lt; deleteButtons.length; i++) {
         deleteButtons[i].addEventListener("click", (e) => {
             const index = Array.from(deleteButtons).indexOf(e.target);
@@ -256,11 +274,7 @@ function save() {
 /**
  * Save all items to localStorage before closing homepage.
  */
-
-
-
 window.onbeforeunload = confirmExit;
-
 function confirmExit() {
     save(); 
     return false;
@@ -273,11 +287,9 @@ window.addEventListener('load', function() {
     let create_cat = document.querySelector('.create-cat-btn');
     create_cat.addEventListener("click", function() {
         document.querySelector('.modal-cat').style.display = "flex";
-
         document.querySelector('.cancel-btn').addEventListener("click", function() {
             document.querySelector('.modal-cat').style.display = "none";
         });
-
         document.querySelector('.category-add-btn').addEventListener("click", function() {
             document.querySelector('.modal-cat').style.display = "none";
         });
@@ -293,19 +305,6 @@ function addCategory(name) {
     const listDOM = document.getElementsByClassName('list')[0];
     const newCategory = document.createElement('div');
     newCategory.className = "category-wrapper";
-
-    //   newCategory.innerHTML = `                           
-    //   &lt;legend class="category-header">
-    //   &lt;div class="category-header-container">
-    //     &lt;button class="cat-del-btn">-&lt;/button>
-    //     &lt;button id="collapse" class="collapse-add-btn">^&lt;/button>
-    //     &lt;button class="item-add-btn">+&lt;/button>
-    //     &lt;h2 class="list-title">Dairy&lt;/h2>
-    //   &lt;/div>
-    // &lt;/legend>
-    // &lt;span class="items-wrapper">
-    // &lt;/span>`
-
     newCategory.innerHTML =
         `&lt;div class="category-header">
   &lt;div class="category-header-container">
@@ -323,95 +322,28 @@ function addCategory(name) {
 
 
     listDOM.appendChild(newCategory);
-    addDeleteCategoryEventListner();
-    const addButtons = document.getElementsByClassName('item-add-btn');
-    for (let i = 0; i &lt; addButtons.length; i++) {
+    newCategory.getElementsByClassName("cat-del-btn")[0].addEventListener("click", function(){
+        removeCategory(this); 
+    });
 
-
-        addButtons[i].replaceWith(addButtons[i].cloneNode());
-        addButtons[i].innerText = `+`;
-
-        addButtons[i].addEventListener('click', function() {
-
-            addItem("", false, addButtons[i].parentNode.parentNode.getElementsByClassName("list-title")[0].innerText);
-            addDeleteEventListener();
-
-        });
-    }
-
-
-
-    // let coll = document.getElementsByClassName("collapse-add-btn");
-    // const cate = document.getElementsByClassName('item-wrapper');
-    // const leg = document.getElementsByClassName('category-header');
-
-
-    // var i;
-
-
-    //     coll[coll.length-1].addEventListener("click", function() {
-    //         if ((cate[coll.length-1]).style.display != "none") {
-    //             (cate[coll.length-1]).style.display = 'none';
-    //             coll[coll.length-1].textContent = ">";
-    //             leg[coll.length-1].style.paddingBottom = '0px';
-    //         } else {
-    //             (cate[coll.length-1]).style.display = 'block';
-    //             coll[coll.length-1].textContent = "^";
-    //             leg[coll.length-1].style.paddingBottom = '8px';
-    //         }
-    //     });
-
-
-    // delete category functionality 
-
-
-
-
+    newCategory.getElementsByClassName("item-add-btn")[0].addEventListener("click", function(){
+        addItem("", false, this.parentNode.parentNode.getElementsByClassName("list-title")[0].innerText);
+    });
 }
 
-function removeCategory(index){
-  allCategory[index].remove();
-}
-
-/**
- * Add delete category functionality to each category.
- */
-function addDeleteCategoryEventListnerOnLoad() {
-  // let deleteButtons = document.getElementsByClassName("delete");
-  for (let i = 0; i &lt; deleteCategoryButton.length; i++) {
-    deleteCategoryButton[i].addEventListener("click", (e) => {
-          const index = Array.from(deleteCategoryButton).indexOf(e.target);
-          removeCategory(index);
-      });
-  }
-}
-
-function addDeleteCategoryEventListner() {
-  // let deleteButtons = document.getElementsByClassName("delete");
-  let endIndex = deleteCategoryButton.length - 1;
-  for (let i = 0; i &lt; deleteCategoryButton.length; i++) {
-    deleteCategoryButton[endIndex].addEventListener("click", (e) => {
-          const index = Array.from(deleteCategoryButton).indexOf(e.target);
-          removeCategory(index);
-      });
-  }
-}
-
-
-// function addDeleteCategoryEventListener() {
-//   // const listDOM = document.getElementsByClassName("list-item");
-//   let endIndex = deleteCategoryButton.length - 1;
-//   deleteCategoryButton[endIndex].addEventListener("click", (e) => {
-//       const index = Array.from(deleteCategoryButton).indexOf(e.target);
-
-//       removeItem(index);
-//   });
+// function removeCategory(index){
+//   allCategory[index].remove();
 // }
 
-const removeItem = (index) => {
-  items[index].remove();
+
+function removeCategory(element){
+    element.parentNode.parentNode.parentNode.parentNode.remove();
 }
 
+
+const removeItem = (index) => {
+    items[index].remove();
+  }
 
 
 function refreshState() {
@@ -438,22 +370,14 @@ function refreshState() {
     }
 }
 
+module.exports = { addItem, removeItem, uncheckAll, items};
 
 
-let uncheckButton = document.getElementById('unchecked-items-btn');
-
-let allItemsButton = document.getElementById('all-items-btn');
-
-allItemsButton.addEventListener('click', function() {
-    allItems = true;
-    refreshState();
-});
 
 
-uncheckButton.addEventListener('click', function() {
-    allItems = false;
-    refreshState();
-});</code></pre>
+
+
+</code></pre>
         </article>
     </section>
 
@@ -465,7 +389,7 @@ uncheckButton.addEventListener('click', function() {
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Sat Dec 03 2022 00:30:26 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Sat Dec 03 2022 10:59:21 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
