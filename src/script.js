@@ -1,4 +1,3 @@
-// const { stringTypeAnnotation } = require("@babel/types");
 window.addEventListener('DOMContentLoaded', init);
 
 const items = document.getElementsByClassName("list-item");
@@ -286,19 +285,10 @@ function addCategory(name) {
     newCategory.getElementsByClassName("cat-del-btn")[0].addEventListener("click", function(){
         removeCategory(this); 
     });
-    const addButtons = document.getElementsByClassName('item-add-btn');
-    for (let i = 0; i < addButtons.length; i++) {
 
-
-        addButtons[i].replaceWith(addButtons[i].cloneNode());
-        addButtons[i].innerText = `+`;
-
-        addButtons[i].addEventListener('click', function() {
-            addItem("", false, addButtons[i].parentNode.parentNode.getElementsByClassName("list-title")[0].innerText);
-            addDeleteEventListener();
-
-        });
-    }
+    newCategory.getElementsByClassName("item-add-btn")[0].addEventListener("click", function(){
+        addItem("", false, this.parentNode.parentNode.getElementsByClassName("list-title")[0].innerText);
+    });
 }
 
 function removeCategory(index){
@@ -307,8 +297,6 @@ function removeCategory(index){
 
 
 function removeCategory(element){
-    console.log(typeof(element));
-    console.log(element); 
     element.parentNode.parentNode.parentNode.parentNode.remove();
 }
 
