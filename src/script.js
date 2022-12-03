@@ -151,7 +151,6 @@ function addItem(name, checked, category) {
     newItem.getElementsByClassName("list-content")[0].getElementsByTagName("input")[0].value = name;
     newItem.getElementsByTagName("label")[0].getElementsByTagName("input")[0].checked = checked;
 
-
     for (let i = 0; i < categories.length; i++) {
         const categoryName = categories[i].getElementsByClassName("category-header")[0].getElementsByClassName("category-header-container")[0].getElementsByClassName("list-title")[0];
         if (categoryName.innerText === category) {
@@ -291,9 +290,9 @@ function addCategory(name) {
     });
 }
 
-function removeCategory(index){
-  allCategory[index].remove();
-}
+// function removeCategory(index){
+//   allCategory[index].remove();
+// }
 
 
 function removeCategory(element){
@@ -330,6 +329,7 @@ function refreshState() {
     }
 }
 
+module.exports = { addItem, removeItem, uncheckAll, items};
 
 
 
