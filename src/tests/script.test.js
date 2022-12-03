@@ -1,10 +1,11 @@
 const functions = require('../script.js');
 
-let listDOM;
 let items;
+let output;
 
 beforeAll(() => {
     document.body.innerHTML = `
+        <!-- List/Category HTML -->
             <div class="list-wrapper" id="original-list">
             <div class="list">
                 <div class="category-wrapper">
@@ -35,9 +36,27 @@ beforeAll(() => {
                 </div>
             </div>
         </div>
+    <!-- Calculator HTML -->
+        <button class="split-button" data-modal="modalOne">Split Bill</button>
+        <div id="modalOne" class="modal">
+        <form class="top-wrapper">
+            <a class="close">&times;</a>
+            <p class="totcost">Total Cost:</p> <input type="text" id="cost" /><br>
+            <p class="numpeople">Number of People: </p> <input type="text" id="people" />
+        </form>
+        <div class="cal-wrapper">
+            <button class="calculate-button"> Split Cost</button>
+        </div>
+        <form class="bot-wrapper">
+            <p> Each Person owes:</p>
+            <div class="calculate-result">
+            </div>
+        </form>
+    </div>
     `;
     listDOM = document.getElementsByClassName('list');
     items = document.getElementsByClassName("list-item");
+    output = document.querySelector('.calculate-result');
 });
 
 test('Add multiple items', () => {
@@ -56,8 +75,8 @@ test('Remove items from top of list', () => {
     expect(functions.items.length).toBe(--listLength);
 })
 
-test('uncheck all items', () => {
-    functions.addItem("apple", true, "fruit");
+test('Uncheck all items', () => {
+    functions.addItem("apple", true, undefined);
     functions.uncheckAll();
     let checkBoxes = document.querySelectorAll("input[type=checkbox]");
     checkBoxes.forEach(item => {
@@ -65,10 +84,26 @@ test('uncheck all items', () => {
     });
 })
 
+test('Calculate cost for divisible numbers', () =>{
+    // functions.button.click();
+    document.getElementById('cost').value = 30;
+    document.getElementById('people').value = 5;
+    functions.calcFunction();
+    expect(output.innerHTML).toBe("$6.00");
+})
 
+test('Calculate cost for irrational numbers rounded down', () =>{
+    // functions.button.click();
+    document.getElementById('cost').value = 31;
+    document.getElementById('people').value = 3;
+    functions.calcFunction();
+    expect(output.innerHTML).toBe("$10.33");
+})
 
-
-
-
-
-
+test('Calculate cost for irrational numbers rounded up', () =>{
+    // functions.button.click();
+    document.getElementById('cost').value = 2;
+    document.getElementById('people').value = 3;
+    functions.calcFunction();
+    expect(output.innerHTML).toBe("$0.67");
+})
