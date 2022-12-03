@@ -44,31 +44,12 @@ function init() {
 
 
 
-    window.addEventListener('load', addDeleteEventListnerOnLoad());
-    window.addEventListener('load', addDeleteCategoryEventListnerOnLoad());
+    window.addEventListener('load', addDeleteEventListenerOnLoad());
     addCategoryButton.addEventListener('click', function() {
         addCategory(addCategoryName.value);
 
     });
 
-    // let coll = document.getElementsByClassName("collapse-add-btn");
-    // const cate = document.getElementsByClassName('item-wrapper');
-    // const leg = document.getElementsByClassName('category-header');
-    // var i;
-    // for (i = 0; i < coll.length; i = i + 1) {
-    //     let curr = i;
-    //     coll[i].addEventListener("click", function() {
-    //         if ((cate[curr]).style.display != "none") {
-    //             (cate[curr]).style.display = 'none';
-    //             coll[curr].textContent = ">";
-    //             leg[curr].style.paddingBottom = '0px';
-    //         } else {
-    //             (cate[curr]).style.display = 'block';
-    //             coll[curr].textContent = "^";
-    //             leg[curr].style.paddingBottom = '8px';
-    //         }
-    //     });
-    // }
 
     window.addEventListener('click', function(e) {
         if(e.target.className === 'collapse-add-btn'){
@@ -89,17 +70,58 @@ function init() {
                 }
             }   
         }
-        // console.dir(e.target);
     });
 
 
-    // let button = document.querySelector('.calculate-button');
-    // button.addEventListener('click', function() {
-    //     let output = document.querySelector('.calculate-result');
-    //     let cost = document.getElementById('cost').value;
-    //     let num = document.getElementById('people').value;
-    //     output.innerHTML = eval(`${cost} / ${num}`);
-    // });
+    let uncheckButton = document.getElementById('unchecked-items-btn');
+let allItemsButton = document.getElementById('all-items-btn');
+
+allItemsButton.addEventListener('click', function() {
+    allItems = true;
+    refreshState();
+});
+
+
+uncheckButton.addEventListener('click', function() {
+    allItems = false;
+    refreshState();
+});
+
+
+let split_btn = document.querySelector('.split-button');
+    console.dir(split_btn);
+    split_btn.addEventListener('click', function (){
+        let modal = split_btn.getAttribute("data-modal");
+        document.getElementById(modal).style.display = "block";       
+});
+let closeBtns = document.querySelector('.close');
+    closeBtns.addEventListener('click', function () {
+    let modal = closeBtns.closest(".modal");
+        modal.style.display = "none";
+});
+let button = document.querySelector('.calculate-button');
+button.addEventListener('click', function() {
+    let output = document.querySelector('.calculate-result');
+    let cost = document.getElementById('cost').value;
+    let num = document.getElementById('people').value;
+    let sum = cost/num;
+    output.innerHTML = sum.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+
+
+    //test and error handling for calculator functionality
+    try {
+        if (isNaN(cost) || isNaN(num) ) {
+       
+        throw new PropertyRequiredError("Number Error");
+    }
+   
+    } catch (err) {
+        alert(`Please enter valid numerical values!`); 
+
+
+     }
+});
+
 
 }
 
@@ -129,7 +151,6 @@ function addItem(name, checked, category) {
   `
     newItem.getElementsByClassName("list-content")[0].getElementsByTagName("input")[0].value = name;
     newItem.getElementsByTagName("label")[0].getElementsByTagName("input")[0].checked = checked;
-    // listDOM.appendChild(newItem);
 
 
     for (let i = 0; i < categories.length; i++) {
@@ -152,8 +173,7 @@ function addItem(name, checked, category) {
 /**
  * Add delete functionality to each item.
  */
-function addDeleteEventListnerOnLoad() {
-    // let deleteButtons = document.getElementsByClassName("delete");
+function addDeleteEventListenerOnLoad() {
     for (let i = 0; i < deleteButtons.length; i++) {
         deleteButtons[i].addEventListener("click", (e) => {
             const index = Array.from(deleteButtons).indexOf(e.target);
@@ -215,11 +235,7 @@ function save() {
 /**
  * Save all items to localStorage before closing homepage.
  */
-
-
-
 window.onbeforeunload = confirmExit;
-
 function confirmExit() {
     save(); 
     return false;
@@ -232,11 +248,9 @@ window.addEventListener('load', function() {
     let create_cat = document.querySelector('.create-cat-btn');
     create_cat.addEventListener("click", function() {
         document.querySelector('.modal-cat').style.display = "flex";
-
         document.querySelector('.cancel-btn').addEventListener("click", function() {
             document.querySelector('.modal-cat').style.display = "none";
         });
-
         document.querySelector('.category-add-btn').addEventListener("click", function() {
             document.querySelector('.modal-cat').style.display = "none";
         });
@@ -252,19 +266,6 @@ function addCategory(name) {
     const listDOM = document.getElementsByClassName('list')[0];
     const newCategory = document.createElement('div');
     newCategory.className = "category-wrapper";
-
-    //   newCategory.innerHTML = `                           
-    //   <legend class="category-header">
-    //   <div class="category-header-container">
-    //     <button class="cat-del-btn">-</button>
-    //     <button id="collapse" class="collapse-add-btn">^</button>
-    //     <button class="item-add-btn">+</button>
-    //     <h2 class="list-title">Dairy</h2>
-    //   </div>
-    // </legend>
-    // <span class="items-wrapper">
-    // </span>`
-
     newCategory.innerHTML =
         `<div class="category-header">
   <div class="category-header-container">
@@ -282,7 +283,9 @@ function addCategory(name) {
 
 
     listDOM.appendChild(newCategory);
-    addDeleteCategoryEventListner();
+    newCategory.getElementsByClassName("cat-del-btn")[0].addEventListener("click", function(){
+        removeCategory(this); 
+    });
     const addButtons = document.getElementsByClassName('item-add-btn');
     for (let i = 0; i < addButtons.length; i++) {
 
@@ -291,86 +294,28 @@ function addCategory(name) {
         addButtons[i].innerText = `+`;
 
         addButtons[i].addEventListener('click', function() {
-
             addItem("", false, addButtons[i].parentNode.parentNode.getElementsByClassName("list-title")[0].innerText);
             addDeleteEventListener();
 
         });
     }
-
-
-
-    // let coll = document.getElementsByClassName("collapse-add-btn");
-    // const cate = document.getElementsByClassName('item-wrapper');
-    // const leg = document.getElementsByClassName('category-header');
-
-
-    // var i;
-
-
-    //     coll[coll.length-1].addEventListener("click", function() {
-    //         if ((cate[coll.length-1]).style.display != "none") {
-    //             (cate[coll.length-1]).style.display = 'none';
-    //             coll[coll.length-1].textContent = ">";
-    //             leg[coll.length-1].style.paddingBottom = '0px';
-    //         } else {
-    //             (cate[coll.length-1]).style.display = 'block';
-    //             coll[coll.length-1].textContent = "^";
-    //             leg[coll.length-1].style.paddingBottom = '8px';
-    //         }
-    //     });
-
-
-    // delete category functionality 
-
-
-
-
 }
 
 function removeCategory(index){
   allCategory[index].remove();
 }
 
-/**
- * Add delete category functionality to each category.
- */
-function addDeleteCategoryEventListnerOnLoad() {
-  // let deleteButtons = document.getElementsByClassName("delete");
-  for (let i = 0; i < deleteCategoryButton.length; i++) {
-    deleteCategoryButton[i].addEventListener("click", (e) => {
-          const index = Array.from(deleteCategoryButton).indexOf(e.target);
-          removeCategory(index);
-      });
-  }
+
+function removeCategory(element){
+    console.log(typeof(element));
+    console.log(element); 
+    element.parentNode.parentNode.parentNode.parentNode.remove();
 }
 
-function addDeleteCategoryEventListner() {
-  // let deleteButtons = document.getElementsByClassName("delete");
-  let endIndex = deleteCategoryButton.length - 1;
-  for (let i = 0; i < deleteCategoryButton.length; i++) {
-    deleteCategoryButton[endIndex].addEventListener("click", (e) => {
-          const index = Array.from(deleteCategoryButton).indexOf(e.target);
-          removeCategory(index);
-      });
-  }
-}
-
-
-// function addDeleteCategoryEventListener() {
-//   // const listDOM = document.getElementsByClassName("list-item");
-//   let endIndex = deleteCategoryButton.length - 1;
-//   deleteCategoryButton[endIndex].addEventListener("click", (e) => {
-//       const index = Array.from(deleteCategoryButton).indexOf(e.target);
-
-//       removeItem(index);
-//   });
-// }
 
 const removeItem = (index) => {
-  items[index].remove();
-}
-
+    items[index].remove();
+  }
 
 
 function refreshState() {
@@ -399,17 +344,7 @@ function refreshState() {
 
 
 
-let uncheckButton = document.getElementById('unchecked-items-btn');
-
-let allItemsButton = document.getElementById('all-items-btn');
-
-allItemsButton.addEventListener('click', function() {
-    allItems = true;
-    refreshState();
-});
 
 
-uncheckButton.addEventListener('click', function() {
-    allItems = false;
-    refreshState();
-});
+
+
