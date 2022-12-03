@@ -1,3 +1,7 @@
+<!--Version 4 HTML file produced by the Group 1 Front End Team
+to hold all the basic buttons, categories, tabs, forms, and headings
+needed for the Grocer Gadget Grocery List Application -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +19,7 @@
 
 <body>
     <br><br>
+    <!--Main site name: Grocery Gadget-->
     <h1>
         <span class="title-one">/// Grocery</span>
         <span class="title-two">Gadget</span>
@@ -22,11 +27,12 @@
 
     <br><br>
 
-    <!-- split-botton -->
+    <!-- split-button for Splitting Bill in top right corner-->
     <button class="split-button" data-modal="modalOne">Split Bill</button>
-    <!-- split-botton -->
+    
 
-    <!-- pop-up window for split bill -->
+    <!-- pop-up window for split bill Button to 
+    divide total cost by number of people -->
     <div id="modalOne" class="modal">
         <form class="top-wrapper">
             <a class="close">&times;</a>
@@ -42,8 +48,11 @@
             </div>
         </form>
     </div>
-    <!-- pop-up window for split bill -->
+ 
 
+
+    <!--Show all Items and Unchecked Items button to toggle view to only 
+    unchecked items in each category within entire list -->
     <button id="all-items-btn" class="check-uncheck-button">Show All Items</button>
     <button id="unchecked-items-btn" class="check-uncheck-button">Show Unchecked Items</button>
     <div class="items-tabs">
@@ -51,7 +60,7 @@
         <label for="tab-all" class="tab-label">My List</label>
         <div class="tab-list">
             <fieldset>
-                <!--This is a wrapper for a single whole list-->
+                <!--This is a wrapper for the single whole list-->
                 <div class="list-wrapper" id="original-list">
                     <div class="list">
                     </div>
@@ -65,10 +74,12 @@
     <br>
 
 
+    <!--Create category button makes new category within general list. Ex. Dairy, Meats-->
     <div class="create-cat-btn">
         <input type="button" class="footer-button" value="Create New Category" />
     </div>
     <br>
+    <!--Uncheck button unchecks ALL list items checked from each category in entire list-->
     <div class="uncheck-btn">
         <input type="button" class="footer-button" value="Uncheck All Items" onclick="uncheckAll()" />
     </div>
