@@ -16,4 +16,20 @@ button.addEventListener('click', function() {
     let num = document.getElementById('people').value;
     let sum = cost/num;
     output.innerHTML = sum.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+
+
+    //test and error handling for calculator functionality
+    try {
+        if (isNaN(cost) || isNaN(num) ) {
+       
+        throw new PropertyRequiredError("Number Error");
+    }
+   
+    } catch (err) {
+        alert(`Please enter valid numerical values!`); 
+
+
+     }
 });
+
+ 
