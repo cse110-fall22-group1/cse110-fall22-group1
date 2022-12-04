@@ -151,30 +151,26 @@ test('Add Category', () =>{
 //Remove Categories Testing
 test('Remove Category', () =>{
 
+    const listDOM = document.getElementsByClassName('list')[0];
+    const categories = listDOM.getElementsByClassName("category-wrapper");
 
-    categories1 = document.getElementsByClassName("category-wrapper");
-/*
-     //one category added
-     functions.addCategory('Salsas');
-    
-    //initial length
-    let initLength = categories1[0].length;
+    // initial length
+    let initLength = categories.length;
 
-    console.log(categories1.length);
-    //console.log(categories1[1]);
+    // one category added 
+    functions.addCategory('Dairy');
 
-   
-
-    console.log(categories1.length);
-    console.log(categories1);
-    
-    //one category remove
-    functions.removeCategory(categories1[0]);
-
-    //console.log(categories1.length);
+    // one category remove
+    for (let i = 0; i < categories.length; i++) {
+        let categoryName = categories[i].getElementsByClassName("list-title")[0];
+        
+        if (categoryName.innerHTML == "Dairy") {
+            functions.removeCategory(categories[0].getElementsByClassName("cat-del-btn")[0]);
+            break;
+        }
+    }
 
     //categories length remains same
-    expect(categories1.length).toBe(initLength);
-*/
+    expect(categories.length).toBe(initLength);
 })
 
