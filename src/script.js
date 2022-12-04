@@ -323,7 +323,7 @@ function refreshState() {
     }
 }
 
-module.exports = { addItem, removeItem, uncheckAll, items, calcFunction};
+module.exports = { addItem, removeItem, uncheckAll, items, calcFunction, addCategory, removeCategory};
 
 
 

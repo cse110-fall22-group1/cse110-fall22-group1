@@ -57,7 +57,10 @@ beforeAll(() => {
     listDOM = document.getElementsByClassName('list');
     items = document.getElementsByClassName("list-item");
     output = document.querySelector('.calculate-result');
+    
 });
+
+
 
 test('Add multiple items', () => {
     let listLength = items.length;
@@ -107,3 +110,71 @@ test('Calculate cost for irrational numbers rounded up', () =>{
     functions.calcFunction();
     expect(output.innerHTML).toBe("$0.67");
 })
+
+
+//Add Categories Testing
+test('Add Category', () =>{
+
+    listCategories = document.getElementsByClassName("category-wrapper");
+   
+    //initial length
+    let initLength = listCategories.length;
+    
+    //one category added
+    functions.addCategory('Wines');
+  
+    //categories incremented
+    expect(listCategories.length).toBe(++initLength);
+
+     //second category added
+     functions.addCategory('Wines');
+
+     //thir category added
+     functions.addCategory('Wines');
+
+     //categories incremented
+     expect(listCategories.length).toBe(initLength + 2);
+
+
+/*
+    let listLength = functions.categories.length;
+    console.log(categories);
+    functions.addCategory('Wines');
+    expect(functions.categories.size()).toBe(listLength + 1);
+    
+   //expect(functions.categories.length()).toBe(++listLength);
+    //expect(listDOM.length).toBe(initialLength + 1);
+*/
+})
+
+
+//Remove Categories Testing
+test('Remove Category', () =>{
+
+
+    categories1 = document.getElementsByClassName("category-wrapper");
+/*
+     //one category added
+     functions.addCategory('Salsas');
+    
+    //initial length
+    let initLength = categories1[0].length;
+
+    console.log(categories1.length);
+    //console.log(categories1[1]);
+
+   
+
+    console.log(categories1.length);
+    console.log(categories1);
+    
+    //one category remove
+    functions.removeCategory(categories1[0]);
+
+    //console.log(categories1.length);
+
+    //categories length remains same
+    expect(categories1.length).toBe(initLength);
+*/
+})
+
