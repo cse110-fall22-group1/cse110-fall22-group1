@@ -193,7 +193,6 @@ function addDeleteEventListener() {
  */
 function uncheckAll() {
     let checkBoxes = document.querySelectorAll("input[type=checkbox]");
-    console.log(checkBoxes);
     checkBoxes.forEach(item => {
         item.checked = false
     });
