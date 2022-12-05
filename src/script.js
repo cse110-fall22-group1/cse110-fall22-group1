@@ -15,8 +15,6 @@ var allItems = true;
 
 // Global variables (items) cannot be used in init() function
 function init() {
-    // *** ADD ITEM BUTTON ***
-
     // load in items from local storage
     let store = JSON.parse(localStorage.getItem("storage"));
 
@@ -51,11 +49,11 @@ function init() {
 
 
     window.addEventListener('click', function(e) {
-        if(e.target.className === 'collapse-add-btn'){
+        if (e.target.className === 'collapse-add-btn') {
             var i;
             for (i = 0; i < coll.length; i = i + 1) {
                 let index;
-                if(e.target == coll[i]){
+                if (e.target == coll[i]) {
                     index = i;
                     if ((cate[index]).style.display != "none") {
                         (cate[index]).style.display = 'none';
@@ -67,7 +65,7 @@ function init() {
                         leg[index].style.paddingBottom = '8px';
                     }
                 }
-            }   
+            }
         }
     });
 
@@ -88,33 +86,35 @@ function init() {
 
 
     let split_btn = document.querySelector('.split-button');
-        console.dir(split_btn);
-        split_btn.addEventListener('click', function (){
-            let modal = split_btn.getAttribute("data-modal");
-            document.getElementById(modal).style.display = "block";       
+    split_btn.addEventListener('click', function() {
+        let modal = split_btn.getAttribute("data-modal");
+        document.getElementById(modal).style.display = "block";
     });
     let closeBtns = document.querySelector('.close');
-        closeBtns.addEventListener('click', function () {
+    closeBtns.addEventListener('click', function() {
         let modal = closeBtns.closest(".modal");
-            modal.style.display = "none";
+        modal.style.display = "none";
     });
     let button = document.querySelector('.calculate-button');
     button.addEventListener('click', calcFunction);
 }
 
-let calcFunction = function calculate(){
+let calcFunction = function calculate() {
     let output = document.querySelector('.calculate-result');
     let cost = document.getElementById('cost').value;
     let num = document.getElementById('people').value;
-    let sum = cost/num;
-    output.innerHTML = sum.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+    let sum = cost / num;
+    output.innerHTML = sum.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    });
     //test and error handling for calculator functionality
     try {
-        if (isNaN(cost) || isNaN(num) ) {
+        if (isNaN(cost) || isNaN(num)) {
             throw new PropertyRequiredError("Number Error");
         }
     } catch (err) {
-        alert(`Please enter valid numerical values!`); 
+        alert(`Please enter valid numerical values!`);
     }
 }
 
@@ -145,6 +145,7 @@ function addItem(name, checked, category) {
     newItem.getElementsByClassName("list-content")[0].getElementsByTagName("input")[0].value = name;
     newItem.getElementsByTagName("label")[0].getElementsByTagName("input")[0].checked = checked;
 
+
     for (let i = 0; i < categories.length; i++) {
         const categoryName = categories[i].getElementsByClassName("category-header")[0].getElementsByClassName("category-header-container")[0].getElementsByClassName("list-title")[0];
         if (categoryName.innerText === category) {
@@ -156,8 +157,9 @@ function addItem(name, checked, category) {
     newItem.querySelectorAll("input[type=checkbox")[0].addEventListener('change', function() {
         refreshState();
     });
-
     addDeleteEventListener();
+
+
 
 
 }
@@ -174,7 +176,9 @@ function addDeleteEventListenerOnLoad() {
     }
 }
 
-
+/**
+ * adds delete item event listener to most
+ */
 function addDeleteEventListener() {
     const listDOM = document.getElementsByClassName("list-item");
     let endIndex = deleteButtons.length - 1;
@@ -185,42 +189,32 @@ function addDeleteEventListener() {
 }
 
 /**
- * Update the status of all items to "uncheck".
+ * Update the status of all items to "unchecked".
  */
 function uncheckAll() {
     let checkBoxes = document.querySelectorAll("input[type=checkbox]");
+    console.log(checkBoxes);
     checkBoxes.forEach(item => {
         item.checked = false
     });
+    refreshState();
 }
 
 /**
- * Manually save all items to localStorage.
+ * Manually saves all items, categories, and states to localStorage.
  */
 function save() {
-    // let items = document.getElementsByClassName("list-item");
-
-    let store = []
-
+    let store = [];
     let categories = document.getElementsByClassName("category-wrapper");
-
     for (let i = 0; i < categories.length; i++) {
-
         let cat = [];
-
         cat.push(categories[i].getElementsByClassName("list-title")[0].innerText);
         let items = categories[i].getElementsByClassName("list-item");
-
         for (let j = 0; j < items.length; j++) {
             cat.push([items[j].getElementsByTagName("input")[0].checked, items[j].getElementsByTagName("input")[1].value]);
-
         }
-
         store.push(cat);
-
     }
-
-
     localStorage.setItem("storage", JSON.stringify(store));
 }
 
@@ -228,8 +222,9 @@ function save() {
  * Save all items to localStorage before closing homepage.
  */
 window.onbeforeunload = confirmExit;
+
 function confirmExit() {
-    save(); 
+    save();
     return false;
 }
 
@@ -251,10 +246,11 @@ window.addEventListener('load', function() {
 
 
 
-
+/**
+ * Adds a category to the list
+ * @param {string} name - the name of the category being added
+ */
 function addCategory(name) {
-
-
     const listDOM = document.getElementsByClassName('list')[0];
     const newCategory = document.createElement('div');
     newCategory.className = "category-wrapper";
@@ -275,58 +271,57 @@ function addCategory(name) {
 
 
     listDOM.appendChild(newCategory);
-    newCategory.getElementsByClassName("cat-del-btn")[0].addEventListener("click", function(){
-        removeCategory(this); 
+    newCategory.getElementsByClassName("cat-del-btn")[0].addEventListener("click", function() {
+        removeCategory(this);
     });
 
-    newCategory.getElementsByClassName("item-add-btn")[0].addEventListener("click", function(){
+    newCategory.getElementsByClassName("item-add-btn")[0].addEventListener("click", function() {
         addItem("", false, this.parentNode.parentNode.getElementsByClassName("list-title")[0].innerText);
     });
 }
 
-// function removeCategory(index){
-//   allCategory[index].remove();
-// }
-
-
-function removeCategory(element){
+/**
+ * Removes a category given its remove button 
+ */
+function removeCategory(element) {
     element.parentNode.parentNode.parentNode.parentNode.remove();
 }
 
 
 const removeItem = (index) => {
     items[index].remove();
-  }
+}
 
 
+
+/*
+/**
+ * Refreshes items in the page, hiding them if uncheck items page is open and showing them if not
+ */
 function refreshState() {
-
-
     var checkBoxes = document.querySelectorAll("input[type=checkbox]");
-
     var items = document.getElementsByClassName("list-item");
     if (allItems) {
-
         for (let i = 0; i < items.length; i++) {
             items[i].style.display = "flex";
         }
-
     } else {
-
-
         for (let i = 0; i < checkBoxes.length; i++) {
             if (checkBoxes[i].checked == true) {
                 items[i].style.display = "none";
+            } else {
+                items[i].style.display = "flex";
             }
         }
-
     }
 }
 
-module.exports = { addItem, removeItem, uncheckAll, items, calcFunction, addCategory, removeCategory};
-
-
-
-
-
-
+module.exports = {
+    addItem,
+    removeItem,
+    uncheckAll,
+    items,
+    calcFunction,
+    addCategory,
+    removeCategory
+};
